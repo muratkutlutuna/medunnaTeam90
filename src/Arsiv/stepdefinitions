@@ -1,0 +1,36 @@
+    @Given("MB Launch web browser and navigate to the home page")
+    public void mb_launch_web_browser_and_navigate_to_the_home_page() {
+        Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
+    }
+
+    @Then("MB Verify the Make an Appointment button is visible clickable.")
+    public void mb_verify_the_button_is_visible_clickable(String string) {
+        Assert.assertTrue(mehlikaPage.makeAnAppointmentButton.isEnabled());
+    }
+
+    @And("MB Click the Make an Appointment button.")
+    public void mb_click_the_button(String string) {
+        mehlikaPage.makeAnAppointmentButton.click();
+    }
+
+    @Then("MB Verify Make an Appointment request form can be seen.")
+    public void mb_verify_request_form_can_be_see(String string) {
+        Assert.assertTrue(mehlikaPage.makeAppoinmentTitle.isDisplayed());
+    }
+
+    @Then("MB Click the First Name textbox.")
+    public void mb_click_the_textbox() {
+        mehlikaPage.firstNameInputBox.click();
+    }
+
+    @Then("MB Enter {string} in the First Name textbox.")
+    public void mb_enter_in_the_textbox(String firstname) {
+        mehlikaPage.firstNameInputBox.sendKeys(firstname + Keys.ENTER);
+    }
+
+    @Then("MB Verify First Name textbox is not blank.")     // (Your FirstName is required.)
+    public void mb_verify_textbox_is_not_blank_your_first_name_is_required() {
+        String expfirstNameWarning = "(Your FirstName is required.)";
+        String actFirstNameWarning = mehlikaPage.firstNameWarning.getText();
+        Assert.assertEquals(expfirstNameWarning, actFirstNameWarning);
+    }
