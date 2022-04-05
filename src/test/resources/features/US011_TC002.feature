@@ -15,4 +15,3 @@ Feature: US11_My Appointments Edit portal by Physician(Doctor)
     And S user asserts the visibility of the patients' doctor name
     And S user asserts the visibility of the patients' name
 
-   # And S close the page
