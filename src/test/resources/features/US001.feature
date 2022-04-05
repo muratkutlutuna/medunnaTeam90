@@ -129,5 +129,12 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
     And MKT user click SSN textbox
     And MKT verify that -Your LastName is required.- text appears
 
+  Scenario: TC00113 Get all registrant information using swagger and validate them
+
+    Given MKT User set the neccessary path params
+    And MKT user enters expected data
+    And MKT user sends request and receives response
+    Then MKT user save all API information
+    Then MKT user verify API records
 
 
