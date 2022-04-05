@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import pages.AccountRegisterPage;
+import pages.RegisterationPage;
 import pojos.Registrant;
 import utilities.Driver;
 
@@ -14,7 +14,7 @@ public class RegistrationStepDefinition {
 
     Registrant registrant = new Registrant();
     Faker faker = new Faker();
-    AccountRegisterPage rp = new AccountRegisterPage();
+    RegisterationPage rp = new RegisterationPage();
 
     @Given("kullanici SNN girer {string}")
     public void kullanici_snn_girer(String ssn) {
