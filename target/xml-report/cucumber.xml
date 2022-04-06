@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.693">
+    <testcase classname="US10_My Appointments for Physician(Doctor) and Validate appoinments with API and DB" name="TC001_User (doctor) can see their appointments list and time slots on My Appointments" time="0.159">
+        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception">
+            <![CDATA[Given S go to Medunna website...............................................passed
+Then S user logins as doctor................................................passed
+Then S user goes to my page and clicks my appointments......................passed
+Then S user asserts the id of the patient...................................undefined
+And S user asserts start date of the appointment............................skipped
+Then S user asserts end date of the appointment.............................skipped
+Then S user asserts the status of the appointment...........................skipped
+]]>
+        </failure>
+    </testcase>
+</testsuite>
