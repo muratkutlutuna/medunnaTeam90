@@ -9,7 +9,7 @@ Scenario: TC003_Doctor should type in Anamnesis, Treatment, and Diagnosis as req
   And S user sends text for anamnesis textbox
   Then S user sends text for treatment textbox
   Then S user sends text for diagnosis textbox
-  And S close the page
+
 
   Scenario: TC003_Doctor should type in Anamnesis, Treatment, and Diagnosis as required fields negative test
     Given S go to Medunna website
@@ -23,7 +23,7 @@ Scenario: TC003_Doctor should type in Anamnesis, Treatment, and Diagnosis as req
     And S user gets invalid feedback warning
     Then S user clicks prescription text box but doesn't send text
     And S user gets invalid feedback warning
-    And S close the page
+
 
 
 

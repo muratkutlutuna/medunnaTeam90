@@ -8,4 +8,4 @@ Feature: US11_My Appointments Edit portal by Physician(Doctor)
     And S user clicks edit button for a patient
     Then S user sends text for prescription textbox
     Then S user sends text for description textbox
-    And S close the page
+

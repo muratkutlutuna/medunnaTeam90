@@ -1,6 +1,6 @@
 
 Feature: US10_My Appointments for Physician(Doctor) and Validate appoinments with API and DB
-
+@US10
   Scenario: TC001_User (doctor) can see their appointments list and time slots on My Appointments
 
     Given S go to Medunna website
