@@ -1,15 +1,111 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<testsuite errors="0" failures="1" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="0.693">
-    <testcase classname="US10_My Appointments for Physician(Doctor) and Validate appoinments with API and DB" name="TC001_User (doctor) can see their appointments list and time slots on My Appointments" time="0.159">
-        <failure message="The scenario has pending or undefined step(s)" type="java.lang.Exception">
-            <![CDATA[Given S go to Medunna website...............................................passed
-Then S user logins as doctor................................................passed
-Then S user goes to my page and clicks my appointments......................passed
-Then S user asserts the id of the patient...................................undefined
-And S user asserts start date of the appointment............................skipped
-Then S user asserts end date of the appointment.............................skipped
-Then S user asserts the status of the appointment...........................skipped
-]]>
-        </failure>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="8" time="235.961">
+    <testcase classname="Login page should accessible only with valid credentials" name="Verifying user login with correct username and password" time="38.005">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter Valid "admincemile" Username...................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter Valid "AdminCemile123!" Password...............................passed
+Then C Click on Sign in button..............................................passed
+When C Click on Account DropDownMenu button.................................passed
+And Verify that Sign Out  is displayed......................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="There should be a cancel login option" time="26.548">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter Valid "admincemile" Username...................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter Valid "AdminCemile123!" Password...............................passed
+Then C Verify that Cancel button is enable..................................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="should be a remember me option" time="29.906">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter Valid "admincemile" Username...................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter Valid "AdminCemile123!" Password...............................passed
+And C Verify that remember me checkbox is clickable.........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="There should be an option to update password if forgotten 'Did you forget your password'" time="27.8">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+And C Click on Did you forget your password? text box.......................passed
+And C Verify that Reset your password? Header is visible....................passed
+And C Click on email text box...............................................passed
+And C Enter the "admincemile@gmail.com" address you used to register........passed
+And C Click on Reset password button........................................passed
+And C Verify Alert Check your emails for details on how to reset your password is visible.passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="There should be an option to navigate to registration page if not registered yet" time="15.595">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+And C Verify You don't have an account yet? Register a new account is visible.passed
+And C Click on Register a new account.......................................passed
+And C Verify that  Registration Page is visible.............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="Verifying user login with correct username and wrong password" time="31.751">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter Valid "admincemile" Username...................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter wrong "Admin123!" Password.....................................passed
+Then C Click on Sign in button..............................................passed
+Then Verify that Failed to sign in!  is displayed...........................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="Verifying user login with wrong username and correct password" time="33.432">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter wrong "admin" Username.........................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter Valid "AdminCemile123!" Password...............................passed
+Then C Click on Sign in button..............................................passed
+And Verify that Failed to sign in!  is displayed............................passed
+]]></system-out>
+    </testcase>
+    <testcase classname="Login page should accessible only with valid credentials" name="Verifying user login with wrong username and wrong password" time="32.634">
+        <system-out><![CDATA[Given C navigate to Medduna Home Page.......................................passed
+When C Verify that home page is visible successfully........................passed
+When C Click on Account DropDownMenu button.................................passed
+When C Click on Sign in.....................................................passed
+And C Verify Sign in Header is visible......................................passed
+Then C Click on Username input box..........................................passed
+Then C Enter wrong "admin" Username.........................................passed
+Then C Click on Password input box..........................................passed
+Then C Enter wrong "Admin123!" Password.....................................passed
+Then C Click on Sign in button..............................................passed
+And Verify that Failed to sign in!  is displayed............................passed
+]]></system-out>
     </testcase>
 </testsuite>

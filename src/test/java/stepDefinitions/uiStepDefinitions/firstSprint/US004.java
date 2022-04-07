@@ -7,6 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
 import pages.CemilePage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -56,7 +57,6 @@ public class US004 {
         Driver.wait(3);
     }
 
-
     @Then("C Enter Valid {string} Password")
     public void cEnterValidPassword(String pasw) {
         cemilePage.passwordInputBox.sendKeys(pasw);
@@ -84,6 +84,7 @@ public class US004 {
     @Then("C Click on Sign in button")
     public void cClickOnSignInButton() {
         Driver.waitAndClick(cemilePage.signInButton);
+        Driver.wait(3);
     }
 
     @Then("C Verify that Cancel button is enable")
@@ -93,9 +94,9 @@ public class US004 {
 
     @And("C Verify that remember me checkbox is clickable")
     public void cVerifyThatRememberMeCheckoutIsClickable() {
-        Driver.waitAndClick(cemilePage.rememberMeCheck,5);
-
-
+        cemilePage.rememberMeCheckbox.click();
+        Assert.assertTrue(cemilePage.rememberMeCheckbox.isSelected());
+        Driver.wait(3);
     }
 
     @And("C Click on Did you forget your password? text box")
@@ -109,9 +110,7 @@ public class US004 {
 
     @And("C Verify that Did you forget your password? Header is visible")
     public void cVerifyThatDidYouForgetYourPasswordHeaderIsVisible() {
-        Driver.wait(5);
-        Assert.assertTrue(cemilePage.didYouForgetYourPassword.isDisplayed());
-
+        Assert.assertTrue(cemilePage.container.isDisplayed());
     }
 
     @And("C Click on email text box")
@@ -130,12 +129,14 @@ public class US004 {
         Driver.wait(3);
         cemilePage.resetYourPasswordButton.click();
         Driver.wait(3);
-
     }
 
     @And("C Verify Alert Check your emails for details on how to reset your password is visible")
     public void cVerifyAlertCheckYourEmailsForDetailsOnHowToResetYourPasswordIsVisible() {
-        Assert.assertTrue(cemilePage.container.isDisplayed());
+        String toasterText = cemilePage.toaster.getText();
+        String expectedData = "Check your emails for details on how to reset your password.";
+        Assert.assertEquals(expectedData, toasterText);
+        //Assert.assertTrue(cemilePage.toaster.isDisplayed());
     }
 
     @And("C Verify You don't have an account yet? Register a new account is visible")
@@ -145,6 +146,7 @@ public class US004 {
 
     @And("C Click on Register a new account")
     public void cClickOnRegisterANewAccount() {
+
         cemilePage.registerNewAccount.click();
         cemilePage.registerNewAccount.click();
         Driver.wait(3);
@@ -164,9 +166,12 @@ public class US004 {
 
     @And("Verify that Failed to sign in!  is displayed")
     public void verifyThatFailedToSignInIsDisplayed() {
-        Driver.wait(3);
-        Assert.assertTrue(cemilePage.failedToSignIn.isDisplayed());
+        String toasterText = cemilePage.containerDidYouForget.getText();
+        String expectedData = "Authentication information not correct.";
+        Assert.assertEquals(expectedData, toasterText);
+
     }
+
 
     @Then("C Enter wrong {string} Password")
     public void cEnterWrongPassword(String wpassword) {
@@ -176,7 +181,7 @@ public class US004 {
 
     @Then("C Enter wrong {string} Username")
     public void cEnterWrongUsername(String wusername) {
-         cemilePage.userNameInputBox.sendKeys(wusername);
+        cemilePage.userNameInputBox.sendKeys(wusername);
         Driver.wait(3);
     }
 }
