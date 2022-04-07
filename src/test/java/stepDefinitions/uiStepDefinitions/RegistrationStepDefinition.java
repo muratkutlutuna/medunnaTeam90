@@ -4,7 +4,7 @@ import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import pages.AccountRegisterPage;
+import pages.RegisterationPage;
 import pojos.Registrant;
 import utilities.Driver;
 
@@ -14,12 +14,12 @@ public class RegistrationStepDefinition {
 
     Registrant registrant = new Registrant();
     Faker faker = new Faker();
-    AccountRegisterPage rp = new AccountRegisterPage();
+    RegisterationPage rp = new RegisterationPage();
 
     @Given("kullanici SNN girer {string}")
     public void kullanici_snn_girer(String ssn) {
         ssn = faker.idNumber().ssnValid();
-        registrant.setSSN(ssn);
+        registrant.setSsn(ssn);
 
         Driver.waitAndSendText(rp.ssnTextBox, ssn);
     }
@@ -39,7 +39,7 @@ public class RegistrationStepDefinition {
     @Given("kullanici username girer {string}")
     public void kullanici_username_girer(String username) {
         username = registrant.getFirstName() + registrant.getLastName();
-        registrant.setUsername(username);
+        registrant.setLogin(username);
 
         Driver.waitAndSendText(rp.usernameTextBox,username);
 
