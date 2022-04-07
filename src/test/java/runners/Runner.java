@@ -13,10 +13,9 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
         features = "src/test/resources/features",
-        glue = {"stepdefinitions/uiStepDefinitions/firstSprint","hooks"},
+        glue = {"stepDefinitions","hooks"},
         tags = "@UIRegistration",
         dryRun = false
 )
 public class Runner {
-
 }
