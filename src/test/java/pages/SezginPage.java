@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -46,7 +47,7 @@ public class SezginPage extends BasePage{
     @FindBy (xpath = "//span[text()=\"My Appointments\"]")
     public WebElement myAppointmentsDoctor;
 
-    @FindBy (xpath = "//body//tr[4]//td[13]")
+    @FindBy (xpath = "//body//tr[2]//td[13]")
     public WebElement editPatientButton;
 
     @FindBy (xpath = "//h2[@id=\"hospitalmsappfrontendApp.appointment.home.createOrEditLabel\"]")
@@ -63,10 +64,27 @@ public class SezginPage extends BasePage{
     @FindBy (id = "fromDate")
     public WebElement timeSlotTo;
 
-    @FindBy (xpath = "//tbody//tr//td")
+    @FindBy (xpath = "//tbody")
     public List<WebElement> appointmentTableListData;
 
     //Doctor's "create or edit an appointment" page
+    @FindBy (xpath = "//input[@name=\"id\"]")
+    public WebElement patientIdBox;
+
+    @FindBy (xpath = "//input[@name=\"startDate\"]")
+    public WebElement appointmentStartDate;
+
+    @FindBy (xpath = "//input[@name=\"endDate\"]")
+    public WebElement appointmentEndDate;
+
+    @FindBy (xpath = "//select[@name=\"physician.id\"]")
+    public WebElement physiciansNameBox;
+
+    @FindBy (xpath = "//select[@name=\"patient.id\"]")
+    public WebElement patientNameBox;
+
+
+
     @FindBy (xpath = "//textarea[@name=\"anamnesis\"]")
     public WebElement anamnesisTextArea;
 
@@ -93,6 +111,14 @@ public class SezginPage extends BasePage{
 
     @FindBy (xpath = "//select[@id=\"appointment-status\"]")
     public  WebElement statusDropdownEl;
+
+
+    public WebElement satirYazdir(){
+        String satirDinamikXpath="//tbody//tr[1]";
+        WebElement satirElementi=Driver.getDriver().findElement(By.xpath(satirDinamikXpath));
+
+        return satirElementi;
+    }
 
 
 }
