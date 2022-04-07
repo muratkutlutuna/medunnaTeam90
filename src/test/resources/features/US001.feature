@@ -129,12 +129,29 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
     And MKT user click SSN textbox
     And MKT verify that -Your LastName is required.- text appears
 
+    @Bug @Api @NegativeTests
   Scenario: TC00113 Get all registrant information using swagger and validate them
 
-    Given MKT User set the neccessary path params
-    And MKT user enters expected data
-    And MKT user sends request and receives response
-    Then MKT user save all API information
-    Then MKT user verify API records
+    Given MKT there are no swagger documantation for register
 
+    @Api
+  Scenario: TC00114 Create registrants using api and validate
+
+    Given MKT User set the path params for register
+    And MKT user enters expected data for register
+    And MKT user sends request and receives response for register
+    Then MKT user save all API information for register
+    Then MKT user verify API records for register
+
+      @Db
+  Scenario Outline: TC00115 Validate registrant SSN ids with DB
+
+    Given MKT user creates a connection with db
+    And MKT user sends the query to db and gets the user data with ssn number "<ssn>"
+    Then MKT user saves the db records to correspondent files
+    Then MKT user validates db registrant data "<firstName>", "<lastName>", "<login>", "<email>", "<password>"
+
+    Examples: test data
+    |ssn|firstName|lastName|login|email|password|
+    |020-35-0364|Branda|Lynch|null|null|null    |
 
