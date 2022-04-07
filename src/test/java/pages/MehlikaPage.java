@@ -6,7 +6,7 @@ import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
 public class MehlikaPage extends BasePage{
-
+//Toast Container: (xpath = "//*[contains(text(),'Registration Saved')]")
     public MehlikaPage()    { PageFactory.initElements(Driver.getDriver(),this); }
 
     @FindBy (xpath = "(//img[@alt='Logo'])")               // <-- home page
@@ -50,7 +50,13 @@ public class MehlikaPage extends BasePage{
     @FindBy(xpath ="//button/span[text()='Send an Appointment Request']" )
     public WebElement appointmentRequestButton;
 
-    @FindBy(xpath ="//span/strong[text()='Appointment registration saved!']" )
+    @FindBy(xpath = "//form[@id='register-form']")
+    public WebElement appointmentRequestForm;
+
+
+    //@FindBy(id = "app-view-container")
+    @FindBy(xpath = "//*[contains(text(),'Appointment registration saved!')]")
+    //@FindBy(xpath ="//span/strong[text()='Appointment registration saved!']" )
     public WebElement appointmentSavedAlert;
 
     @FindBy(xpath = "//div/span[text()='If you want to see your appointment and test result information, you must register by using your SSN after appointment submission']")
