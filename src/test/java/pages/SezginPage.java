@@ -47,7 +47,7 @@ public class SezginPage extends BasePage{
     @FindBy (xpath = "//span[text()=\"My Appointments\"]")
     public WebElement myAppointmentsDoctor;
 
-    @FindBy (xpath = "//body//tr[4]//td[13]")
+    @FindBy (xpath = "//body//tr[2]//td[13]")
     public WebElement editPatientButton;
 
     @FindBy (xpath = "//h2[@id=\"hospitalmsappfrontendApp.appointment.home.createOrEditLabel\"]")
@@ -64,7 +64,7 @@ public class SezginPage extends BasePage{
     @FindBy (id = "fromDate")
     public WebElement timeSlotTo;
 
-    @FindBy (xpath = "//tbody//tr//td")
+    @FindBy (xpath = "//tbody")
     public List<WebElement> appointmentTableListData;
 
     //Doctor's "create or edit an appointment" page
@@ -113,8 +113,8 @@ public class SezginPage extends BasePage{
     public  WebElement statusDropdownEl;
 
 
-    public WebElement satirYazdir(int satirNo){
-        String satirDinamikXpath="//tbody//tr["+ satirNo +"]";
+    public WebElement satirYazdir(){
+        String satirDinamikXpath="//tbody//tr[1]";
         WebElement satirElementi=Driver.getDriver().findElement(By.xpath(satirDinamikXpath));
 
         return satirElementi;

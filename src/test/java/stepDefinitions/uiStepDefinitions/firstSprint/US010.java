@@ -9,6 +9,7 @@ import pages.SezginPage;
 import utilities.Driver;
 
 import java.io.IOException;
+import java.util.List;
 
 import static stepDefinitions.uiStepDefinitions.firstSprint.US011.getScreenshot;
 
@@ -37,25 +38,31 @@ sezginPage.timeSlotTo.isDisplayed();
 
 
     @Then("S user asserts the id of the patient")
-    public void s_user_asserts_the_id_of_the_patient() {
-    int expectedId=49681;
-    sezginPage.appointmentTableListData.contains(expectedId);
+    public void s_user_asserts_the_id_of_the_patient() throws InterruptedException {
+    String expectedId="49681";
+   Thread.sleep(8000);
+   String rowData= sezginPage.satirYazdir().getText();
+   Assert.assertTrue(rowData.contains(expectedId));
 
     }
     @Then("S user asserts start date of the appointment")
     public void s_user_asserts_start_date_of_the_appointment() {
-String expectedStartDate= "04/04/22 02:00";
-        sezginPage.appointmentTableListData.contains(expectedStartDate);
+        String expectedStartDate= "04/04/22 02:00";
+        String rowData= sezginPage.satirYazdir().getText();
+        Assert.assertTrue(rowData.contains(expectedStartDate));
+
     }
     @Then("S user asserts end date of the appointment")
     public void s_user_asserts_end_date_of_the_appointment() {
         String expectedEndDate= "04/04/22 03:00";
-        sezginPage.appointmentTableListData.contains(expectedEndDate);
+        String rowData= sezginPage.satirYazdir().getText();
+        Assert.assertTrue(rowData.contains(expectedEndDate));
     }
     @Then("S user asserts the status of the appointment")
     public void s_user_asserts_the_status_of_the_appointment() {
-String expectedStatus="UNAPPROVED";
-        sezginPage.appointmentTableListData.contains(expectedStatus);
+        String expectedStatus="UNAPPROVED";
+        String rowData= sezginPage.satirYazdir().getText();
+        Assert.assertTrue(rowData.contains(expectedStatus));
     }
 
 
