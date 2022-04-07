@@ -19,7 +19,7 @@ public class RegistrationStepDefinition {
     @Given("kullanici SNN girer {string}")
     public void kullanici_snn_girer(String ssn) {
         ssn = faker.idNumber().ssnValid();
-        registrant.setSSN(ssn);
+        registrant.setSsn(ssn);
 
         Driver.waitAndSendText(rp.ssnTextBox, ssn);
     }
@@ -39,7 +39,7 @@ public class RegistrationStepDefinition {
     @Given("kullanici username girer {string}")
     public void kullanici_username_girer(String username) {
         username = registrant.getFirstName() + registrant.getLastName();
-        registrant.setUsername(username);
+        registrant.setLogin(username);
 
         Driver.waitAndSendText(rp.usernameTextBox,username);
 

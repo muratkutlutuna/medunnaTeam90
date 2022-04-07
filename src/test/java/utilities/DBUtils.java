@@ -16,8 +16,9 @@ public class DBUtils {
 
     /**
      * DBUtils.createConnection(); -> to connect to teh database
+     * @return
      */
-    public static void createConnection() {
+    public static Connection createConnection() {
 //        String url = "jdbc:postgresql://157.230.48.97:5432/gmibank_db";
 //        String username="techprodb_user";
 //        String password="Techpro_@126";
@@ -31,6 +32,7 @@ public class DBUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+        return connection;
     }
     /**
      * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
@@ -43,6 +45,7 @@ public class DBUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
         try {
             resultSet = statement.executeQuery(query);
         } catch (SQLException e) {
