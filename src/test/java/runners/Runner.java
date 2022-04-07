@@ -13,7 +13,7 @@ import org.junit.runner.RunWith;
                 "rerun:target/failedRerun.txt"
         },
         features = "src/test/resources/features",
-        glue = {"stepdefinitions/uiStepDefinitions/firstDefinitions","hooks"},
+        glue = {"stepdefinitions/uiStepDefinitions/firstSprint","hooks"},
         tags = "@UIRegistration",
         dryRun = false
 )
