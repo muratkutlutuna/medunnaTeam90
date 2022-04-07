@@ -12,8 +12,7 @@ public class US001 {
 
     KutluPage kP = new KutluPage();
     @Given("MKT user enter the mainpage")
-    public void mkt_user_enter_the_mainpage() {
-        Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
+    public void mkt_user_enter_the_mainpage() {Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
     }
     @Given("MKT user click the top user button")
     public void mkt_user_click_the_top_user_button() {
