@@ -75,6 +75,9 @@ public class MehlikaPage extends BasePage{
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signInSubmit;
 
+    @FindBy(id = "app-view-container")
+            public WebElement signInSuccessToast;
+
     @FindBy(xpath = "//span[text()='Melinda Patient']")    // -->verify sign in is successfully
     public WebElement melindaPatientAccount;
 

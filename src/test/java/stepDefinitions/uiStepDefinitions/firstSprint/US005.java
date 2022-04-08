@@ -2,7 +2,6 @@ package stepDefinitions.uiStepDefinitions.firstSprint;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.it.Date;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.Keys;
@@ -10,12 +9,11 @@ import org.openqa.selenium.interactions.Actions;
 import pages.MehlikaPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class US005{
     MehlikaPage mehlikaPage = new MehlikaPage();
+    Actions actions=new Actions(Driver.getDriver());
 
     @Before
     @Given("MB Launch web browser and navigate to the home page")
@@ -43,7 +41,6 @@ public class US005{
     @Then("MB Click First Name textbox and Enter First Name {string}")
     public void mb_click_first_name_textbox_and_enter_first_name(String mfirstname) {
         Driver.wait(1);
-        Actions actions=new Actions(Driver.getDriver());
         actions.moveToElement(mehlikaPage.appointmentRequestForm).perform();
         mehlikaPage.lastNameInputBox.click();
         mehlikaPage.firstNameInputBox.sendKeys(ConfigurationReader.getProperty(mfirstname));
@@ -51,14 +48,11 @@ public class US005{
 
     @Then("MB Verify First Name textbox is not blank")
     public void mb_verify_first_name_textbox_is_not_blank() {
-        //Driver.wait(1);
         Assert.assertFalse(mehlikaPage.firstNameInputBox.getAttribute("value").isBlank());
       }
 
     @Then("MB Verify user is using characters for the First Name textbox")
     public void mb_verify_user_is_using_characters_for_the_first_name_textbox() {
-//        String firstNameIsBlank=mehlikaPage.firstNameInputBox.getAttribute("value").replaceAll("\\w","");
-//        Assert.assertEquals(0,firstNameIsBlank.length());
         Assert.assertEquals(0,(mehlikaPage.firstNameInputBox.getAttribute("value").replaceAll("\\w","")).length());
     }
 
@@ -80,6 +74,7 @@ public class US005{
 
     @Then("MB Click the SSN textbox and enter SSN number {string}")
     public void mb_click_the_ssn_textbox_and_enter_ssn_number(String mssn) {
+        actions.moveToElement(mehlikaPage.appointmentRequestForm).perform();
         mehlikaPage.ssnInputBox.click();
         mehlikaPage.ssnInputBox.sendKeys(ConfigurationReader.getProperty(mssn));
     }
@@ -96,7 +91,7 @@ public class US005{
 
     @Then("MB Verify this SSN is same as a registered SSN")
     public void mb_verify_this_ssn_is_same_as_a_registered_ssn() {
-
+        Assert.assertEquals(ConfigurationReader.getProperty("mssn"),mehlikaPage.ssnInputBox.getAttribute("value"));
     }
 
     @Then("MB Click Email textbox and enter a valid Email address {string}")
@@ -117,15 +112,22 @@ public class US005{
         Assert.assertTrue(mehlikaPage.emailInputBox.getAttribute("value").contains("@")&&emailInputBoxAttribute.contains("."));
     }
 
-    @Then("MB Verify this number have dash after third and sixth digits")
-    public void mb_verify_this_number_have_dash_after_third_and_sixth_digits() {
-
-    }
-
     @Then("MB Click the Phone textbox and enter a valid Phone number {string}")
-    public void mb_click_the_phone_textbox_and_enter_a_valid_phone_number(String mphone) throws InterruptedException {
+    public void mb_click_the_phone_textbox_and_enter_a_valid_phone_number(String mphone) {
+        actions.moveToElement(mehlikaPage.appointmentRequestForm).perform();
+        Driver.wait(1);
         mehlikaPage.phoneInputBox.click();
         mehlikaPage.phoneInputBox.sendKeys(ConfigurationReader.getProperty(mphone));
+       // Driver.wait(1);
+        System.out.println("phone "+mehlikaPage.phoneInputBox.getAttribute("value"));
+    }
+
+    @Then("MB Verify this number have dash after third and sixth digits")
+    public void mb_verify_this_number_have_dash_after_third_and_sixth_digits() {
+        System.out.println("mehlikaPage."+ mehlikaPage.phoneInputBox.getAttribute("value").substring(3,4));
+        System.out.println("mehlikaPage.phoneInputBox.  : "+ mehlikaPage.phoneInputBox.getAttribute("value").substring(7,8));
+        Assert.assertEquals("-",mehlikaPage.phoneInputBox.getAttribute("value").substring(3,4));
+        Assert.assertEquals("-",mehlikaPage.phoneInputBox.getAttribute("value").substring(7,8));
     }
 
     @Then("MB Verify that user is using digits for Phone textbox")
@@ -150,19 +152,18 @@ public class US005{
         String year=date.substring(0,4);
         String month=date.substring(5,7);
         String day=date.substring(8,10);
-        System.out.println("date = " + date+"\nyear = " + year+"\nmonth = " + month+"\nday = " + day);
+        //System.out.println("date = " + date+"\nyear = " + year+"\nmonth = " + month+"\nday = " + day);
         LocalDate actualDate= LocalDate.now();
-        System.out.println("actual year = " + actualDate.getYear()+"\nactual month "+actualDate.getMonthValue()+"\nactual day "+actualDate.getDayOfMonth());
-
+        //System.out.println("actual year = " + actualDate.getYear()+"\nactual month "+actualDate.getMonthValue()+"\nactual day "+actualDate.getDayOfMonth());
 
         if (Integer.parseInt(year)==actualDate.getYear()){
             Assert.assertTrue(Integer.parseInt(year)==actualDate.getYear());
             Assert.assertTrue(Integer.parseInt(month)>= actualDate.getMonthValue());
             Assert.assertTrue(Integer.parseInt(day)>= actualDate.getDayOfMonth());
         } else if(Integer.parseInt(year)<actualDate.getYear()){
-            Assert.assertTrue(Integer.parseInt(year)==actualDate.getYear());
+            Assert.assertTrue(Integer.parseInt(year)>=actualDate.getYear());
         }else{
-            Assert.assertTrue(Integer.parseInt(year)==actualDate.getYear());
+            Assert.assertTrue(Integer.parseInt(year)>=actualDate.getYear());
         }
     }
 
@@ -175,33 +176,34 @@ public class US005{
     public void mb_verify_appointment_success_message_which_is(String string) throws InterruptedException {
         Assert.assertTrue(mehlikaPage.appointmentSavedToast.isDisplayed());
     }
-//
+
     @Then("MB Click Account Menu dropbox sign and click Sign In")
     public void mb_click_account_menu_dropbox_sign_and_click_sign_in() {
         mehlikaPage.accountMenu.click();
+        mehlikaPage.signInButton.click();
     }
 
     @Then("MB Click User Name textbox and enter a valid user name {string}")
     public void mb_click_user_name_textbox_and_enter_a_valid_user_name(String musername) {
-//        mehlikaPage.signInUsername.click();
-//        mehlikaPage.signInUsername.sendKeys(ConfigurationReader.getProperty(musername));
+        mehlikaPage.signInUsername.click();
+        mehlikaPage.signInUsername.sendKeys(ConfigurationReader.getProperty(musername));
     }
-//
+
     @Then("MB Click Password textbox and enter a valid password {string}")
     public void mb_click_password_textbox_and_enter_a_valid_password(String mpassword) {
-//        mehlikaPage.signInPassword.click();
-//        mehlikaPage.signInPassword.sendKeys(ConfigurationReader.getProperty(mpassword));
+        mehlikaPage.signInPassword.click();
+        mehlikaPage.signInPassword.sendKeys(ConfigurationReader.getProperty(mpassword));
     }
 
     @Then("MB Click Sign In button")
     public void mb_click_sign_in_button() {
-//        mehlikaPage.signInSubmit.click();
+        Driver.wait(1);
+        mehlikaPage.signInSubmit.click();
     }
 
     @Then("MB Verify sign in is successfully")
     public void mb_verify_sign_in_is_successfully() {
-//        String exSignInSuccessWarning="Melinda Patient";
-//        String actSignInSuccessWarning=mehlikaPage.melindaPatientAccount.getText();
-//        System.out.println("actSignInSuccessWarning = " + actSignInSuccessWarning);
+        Driver.wait(1);
+        Assert.assertTrue((mehlikaPage.melindaPatientAccount.getText()).contains(mehlikaPage.firstNameInputBox.getAttribute("value")));
     }
 }
