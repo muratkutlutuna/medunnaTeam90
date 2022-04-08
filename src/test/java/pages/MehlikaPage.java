@@ -55,7 +55,6 @@ public class MehlikaPage extends BasePage{
     @FindBy(xpath = "//form[@id='register-form']")
     public WebElement appointmentRequestForm;
 
-
     @FindBy(id = "app-view-container")
     //@FindBy(xpath = "//*[contains(text(),'Appointment registration saved!')]")
     //@FindBy(xpath ="//span/strong[text()='Appointment registration saved!']" )
@@ -74,9 +73,6 @@ public class MehlikaPage extends BasePage{
     public WebElement signInPassword;
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement signInSubmit;
-
-    @FindBy(id = "app-view-container")
-            public WebElement signInSuccessToast;
 
     @FindBy(xpath = "//span[text()='Melinda Patient']")    // -->verify sign in is successfully
     public WebElement melindaPatientAccount;
