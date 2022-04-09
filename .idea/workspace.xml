@@ -5,15 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="765645f8-71c3-4b4e-a8df-183665581857" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MehlikaPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MehlikaPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US005.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US005.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US005.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US005.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/US005.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/US005.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MehlikaPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/MehlikaPage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US005.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US005.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -55,16 +68,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Cucumber Java.Scenario: Make an Appointment Testi">
-    <configuration name="Scenario: Make an Appointment Testi" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Cucumber Java.Feature: US005">
+    <configuration name="Feature: US005" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US005.feature" />
       <option name="GLUE" value="stepDefinitions.uiStepDefinitions.firstSprint hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="medunnaTeam90" />
-      <option name="NAME_FILTER" value="^Make an Appointment Testi$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Make an Appointment Testi$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Make an Appointment Testi" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter" />
+      <option name="SUGGESTED_NAME" value="Feature: US005" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -76,15 +88,75 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Scenario: Test04 : Make an Appointment - Sign In Check" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+    <configuration name="Scenario: Test01N : Make an Appointment- Non-character sign used for First Name and Last Name" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
       <option name="CUCUMBER_CORE_VERSION" value="5" />
       <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US005.feature" />
       <option name="GLUE" value="stepDefinitions.uiStepDefinitions.firstSprint hooks" />
       <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
       <module name="medunnaTeam90" />
-      <option name="NAME_FILTER" value="^Test04 \: Make an Appointment \- Sign In Check$" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Test04 \: Make an Appointment \- Sign In Check$&quot;" />
-      <option name="SUGGESTED_NAME" value="Scenario: Test04 : Make an Appointment - Sign In Check" />
+      <option name="NAME_FILTER" value="^Test01N \: Make an Appointment\- Non\-character sign used for First Name and Last Name$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Test01N \: Make an Appointment\- Non\-character sign used for First Name and Last Name$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Test01N : Make an Appointment- Non-character sign used for First Name and Last Name" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Test02N : Make an Appointment - Non-digit for SSN and '@' and '.' for Email" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US005.feature" />
+      <option name="GLUE" value="stepDefinitions.uiStepDefinitions.firstSprint hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="medunnaTeam90" />
+      <option name="NAME_FILTER" value="^Test02N \: Make an Appointment \- Non\-digit for SSN and \'\@\' and \'\.\' for Email$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Test02N \: Make an Appointment \- Non\-digit for SSN and \'\@\' and \'\.\' for Email$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Test02N : Make an Appointment - Non-digit for SSN and '@' and '.' for Email" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Test03: Make an Appointment - Verify Phone and Date" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US005.feature" />
+      <option name="GLUE" value="stepDefinitions.uiStepDefinitions.firstSprint hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="medunnaTeam90" />
+      <option name="NAME_FILTER" value="^Test03\: Make an Appointment \- Verify Phone and Date$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Test03\: Make an Appointment \- Verify Phone and Date$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Test03: Make an Appointment - Verify Phone and Date" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.cucumber.core.cli.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Scenario: Test04: Make an Appointment - Verify Sign In Check" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
+      <option name="CUCUMBER_CORE_VERSION" value="5" />
+      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/resources/features/US005.feature" />
+      <option name="GLUE" value="stepDefinitions.uiStepDefinitions.firstSprint hooks" />
+      <option name="MAIN_CLASS_NAME" value="io.cucumber.core.cli.Main" />
+      <module name="medunnaTeam90" />
+      <option name="NAME_FILTER" value="^Test04\: Make an Appointment \- Verify Sign In Check$" />
+      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm5SMFormatter --name &quot;^Test04\: Make an Appointment \- Verify Sign In Check$&quot;" />
+      <option name="SUGGESTED_NAME" value="Scenario: Test04: Make an Appointment - Verify Sign In Check" />
       <option name="WORKING_DIRECTORY" value="$MODULE_WORKING_DIR$" />
       <extension name="coverage">
         <pattern>
@@ -98,8 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber Java.Scenario: Make an Appointment Testi" />
-        <item itemvalue="Cucumber Java.Scenario: Test04 : Make an Appointment - Sign In Check" />
+        <item itemvalue="Cucumber Java.Feature: US005" />
+        <item itemvalue="Cucumber Java.Scenario: Test01N : Make an Appointment- Non-character sign used for First Name and Last Name" />
+        <item itemvalue="Cucumber Java.Scenario: Test02N : Make an Appointment - Non-digit for SSN and '@' and '.' for Email" />
+        <item itemvalue="Cucumber Java.Scenario: Test04: Make an Appointment - Verify Sign In Check" />
+        <item itemvalue="Cucumber Java.Scenario: Test03: Make an Appointment - Verify Phone and Date" />
       </list>
     </recent_temporary>
   </component>

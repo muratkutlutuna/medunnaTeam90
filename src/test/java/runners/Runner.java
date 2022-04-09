@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = {"stepdefinitions/uiStepDefinitions/firstSprint","hooks"},
-        tags = "@UIUS005",
+        tags =  "@US005negative", //"@UImehlika",   //"@US005positive", //"@US005positive", //
         dryRun = false
 )
 public class Runner {
