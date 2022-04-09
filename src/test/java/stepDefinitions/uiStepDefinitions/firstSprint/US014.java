@@ -60,6 +60,8 @@ public class US014 {
     }
     @Given("FY Doctor sees all inpatients informations")
     public void fy_doctor_sees_all_inpatients_informations() {
+
+        Driver.wait(5);
         Assert.assertTrue(fP.inPatientsID.isDisplayed());
         Assert.assertTrue(fP.inPatientsStartDate.isDisplayed());
         Assert.assertTrue(fP.inPatientsEndDate.isDisplayed());
@@ -84,6 +86,7 @@ public class US014 {
     public void fyDoctorValidateHeIsInInpatientCreateOrEditPage() {
         String expectedResult="Create or edit a In Patient";
         String actualResult= fP.inPatientEditPageText.getText();
+        Driver.wait(5);
         Assert.assertEquals(expectedResult,actualResult);
     }
 
@@ -141,5 +144,13 @@ public class US014 {
         Driver.selectAnItemFromDropdown(fP.editInPatientRoomDropDown,"14724:DAYCARE FULL-UNAVAILABLE");
         Driver.selectAnItemFromDropdown(fP.editInPatientRoomDropDown,"234405:TWIN FULL-UNAVAILABLE");
         Driver.selectAnItemFromDropdown(fP.editInPatientRoomDropDown,"7406:DELUXE FULL-UNAVAILABLE");
+    }
+
+    @And("FY Doctor changes fromDate and toDate to see his inpatients")
+    public void fyDoctorChangesFromDateAndToDateToSeeHisInpatients() {
+        fP.inPatientsFromDate.clear();
+        Driver.waitAndSendText(fP.inPatientsFromDate,"31032022");
+        fP.inPatientstoDate.clear();
+        Driver.waitAndSendText(fP.inPatientstoDate,"12042022");
     }
 }

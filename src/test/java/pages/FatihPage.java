@@ -9,6 +9,27 @@ public class FatihPage extends BasePage {
     public FatihPage(){
         PageFactory.initElements(Driver.getDriver(),this);
     }
+    //-----------US003 locators------------------
+
+    @FindBy (xpath="(//*[.='Register'])[1]")
+    public WebElement accountMenuRegisterButton;
+
+    @FindBy (id = "firstPassword")
+    public WebElement registerPagePasswordBox;
+
+    @FindBy (xpath = "//li[@style='background-color: rgb(255, 0, 0);']")
+    public WebElement passwordStrength1;
+
+    @FindBy (xpath = "(//li[@style='background-color: rgb(255, 153, 0);'])[2]")
+    public WebElement passwordStrength2;
+
+    @FindBy (xpath = "(//li[@style='background-color: rgb(153, 255, 0);'])[4]")
+    public WebElement passwordStrength4;
+
+    @FindBy (xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[5]")
+    public WebElement passwordStrength5;
+
+    //-----------US014 locators------------------
 
     @FindBy (xpath = "//li[@id='account-menu']")
     public WebElement accountmenu;
@@ -24,6 +45,12 @@ public class FatihPage extends BasePage {
 
     @FindBy (xpath = "(//*[.='Sign in'])[4]")
     public WebElement doctorSignInButton;
+
+    @FindBy (id="fromDate")
+    public WebElement inPatientsFromDate;
+
+    @FindBy (id="toDate")
+    public WebElement inPatientstoDate;
 
     @FindBy (xpath = "(//*[.='MY PAGES'])[2]")
     public WebElement doctorMyPages;
@@ -61,10 +88,10 @@ public class FatihPage extends BasePage {
     @FindBy (xpath = "(//tbody/tr/td[9])[1]")
     public WebElement inPatientsPatient;
 
-    @FindBy (xpath = "(//tbody/tr/td[10])[1]")
+    @FindBy (css=".btn-primary")
     public WebElement inPatientsEditButton;
 
-    @FindBy (xpath = "//h2")
+    @FindBy (xpath = "(//*[.='Create or edit a In Patient'])[4]")
     public WebElement inPatientEditPageText;
 
     @FindBy (xpath = "//input[@id='in-patient-id']")
@@ -97,7 +124,7 @@ public class FatihPage extends BasePage {
     @FindBy (xpath = "//button[@id='save-entity']")
     public WebElement editInPatientSaveButton;
 
-    @FindBy (xpath = "//*[.='The In Patient is updated with identifier 42859']")
+    @FindBy (xpath = "//*[.='InPatient status can not be changed with this type of status']")
     public WebElement editInPatientSuccessMessageToastContainer;
 
 
