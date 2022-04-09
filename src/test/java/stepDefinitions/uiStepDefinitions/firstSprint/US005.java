@@ -2,7 +2,6 @@ package stepDefinitions.uiStepDefinitions.firstSprint;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.it.Date;
 import org.junit.Assert;
 import org.junit.Before;
 import org.openqa.selenium.Keys;
@@ -12,7 +11,6 @@ import utilities.ConfigurationReader;
 import utilities.Driver;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 public class US005{
     MehlikaPage mehlikaPage = new MehlikaPage();
