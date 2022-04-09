@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<testsuite errors="0" failures="0" name="io.cucumber.core.plugin.JUnitFormatter" skipped="0" tests="1" time="67.099">
+    <testcase classname="US012  My Appointments/Edit/Request a test only by Physician(Doctor)" name="TC01202 Test should have following items as checkmark options; Glucose, Urea, Creatinine, Sodium" time="66.972">
+        <system-out>
+            <![CDATA[Given AY Navigate to url....................................................passed
+And AY Click on human figure................................................passed
+Then AY Click on Sign in....................................................passed
+And AY Click on "DrAina" input box and enter valid Username.................passed
+And AY Click on "draina33!"  input box and enter valid Password.............passed
+And AY Click on Sign in buton...............................................passed
+And AY Click on My page.....................................................passed
+And AY Click on My appointements............................................passed
+And AY Select the patient and click on Edit.................................passed
+And AY Click on Request a test..............................................passed
+And AY Click on the buttons to the right of the selected tests..............passed
+And AY Click on Save........................................................passed
+And AY Verify that "A new is created with identifier 42783" is visible......passed
+And AY Click on account menu................................................passed
+And AY Click Sign out.......................................................passed
+]]>
+        </system-out>
+    </testcase>
+</testsuite>
