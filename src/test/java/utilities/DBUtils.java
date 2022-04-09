@@ -23,9 +23,9 @@ public class DBUtils {
 //        String username="techprodb_user";
 //        String password="Techpro_@126";
 
-        String url=ConfigurationReader.getProperty("db_credentials_url");
-        String username=ConfigurationReader.getProperty("db_username");
-        String password=ConfigurationReader.getProperty("db_password");
+        String url= ConfigurationReader.getProperty("db_credentials_url");
+        String username= ConfigurationReader.getProperty("db_username");
+        String password= ConfigurationReader.getProperty("db_password");
         try {
             connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
