@@ -9,14 +9,20 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-public class Registrant {
-
+public class Account {
+    private int id;
     private String login;//username
+    private String ssn;
     private String firstName;
     private String lastName;
     private String email;
     private String password;
-    private String ssn;
-
+    private String imageUrl;
+    private boolean activated;
+    private String langKey;
+    private String createdBy;
+    private String createdDate;
+    private String lastModifiedBy;
+    private String lastModifiedDate;
+    private String[] authorities;
 }
