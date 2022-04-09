@@ -18,5 +18,6 @@ import org.junit.runner.RunWith;
         tags = "@UIAppointment",
         dryRun = false
 )
-public class Runner {
+        public class Runner {
+
 }
