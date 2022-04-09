@@ -4,17 +4,65 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="765645f8-71c3-4b4e-a8df-183665581857" name="Changes" comment="">
+    <list default="true" id="f802863d-d975-4db9-9a46-1d4524c663b3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/pages/RegisterationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/utilities/Authentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US010_ApiTest.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US010_TC001.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US010_TC002.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US011_TC001.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US011_TC002.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US011_TC003.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US011_TC004.feature" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/features/US011_TC005.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configuration.properties" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/CemilePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/CemilePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/KutluPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/KutluPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/pages/MehlikaPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/MehlikaPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pages/SezginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pages/SezginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/pojos/Registrant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/pojos/Registrant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/runners/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/runners/Runner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US005.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US005.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US005.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US005.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/features/US005.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/US005.feature" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MehlikaPage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/pages/MehlikaPage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US005.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US005.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/apiStepDefinitions/US010.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/apiStepDefinitions/US010.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US001.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US001.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US004.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US004.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US010.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US010.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US011.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/stepDefinitions/uiStepDefinitions/firstSprint/US011.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/features/US001.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/features/US001.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/features/US001.feature" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/features/US001.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hooks/Hooks.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/AinagulPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/ArifPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/BestamiPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/CemilePage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/FatihPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/KutluPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/MehlikaPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/RanaPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pages/SezginPage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/pojos/Registrant.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/runners/Runner.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/apiStepDefinitions/US001.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/apiStepDefinitions/US007.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/apiStepDefinitions/US010.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/dbStepDefinitions/US001.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US001.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US002.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US003.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US004.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US005.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US007.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US009.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US010.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US011.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US012.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US013.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/stepDefinitions/uiStepDefinitions/firstSprint/US014.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/DBUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/Driver$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/Driver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/utilities/WriteToTxt.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +77,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
@@ -171,10 +224,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Cucumber Java.Feature: US005" />
-        <item itemvalue="Cucumber Java.Scenario: Test01N : Make an Appointment- Non-character sign used for First Name and Last Name" />
-        <item itemvalue="Cucumber Java.Scenario: Test02N : Make an Appointment - Non-digit for SSN and '@' and '.' for Email" />
         <item itemvalue="Cucumber Java.Scenario: Test04: Make an Appointment - Verify Sign In Check" />
         <item itemvalue="Cucumber Java.Scenario: Test03: Make an Appointment - Verify Phone and Date" />
+        <item itemvalue="Cucumber Java.Scenario: Test02N : Make an Appointment - Non-digit for SSN and '@' and '.' for Email" />
+        <item itemvalue="Cucumber Java.Scenario: Test01N : Make an Appointment- Non-character sign used for First Name and Last Name" />
       </list>
     </recent_temporary>
   </component>

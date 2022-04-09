@@ -26,9 +26,6 @@ public class MehlikaPage extends BasePage{
     @FindBy(xpath = "//input[@name='ssn']")
     public WebElement ssnInputBox;
 
-    @FindBy(xpath = "//div[text()='Your SSN is invalid']")
-    public WebElement ssnInvalidWarning;
-
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailInputBox;
 
@@ -40,9 +37,6 @@ public class MehlikaPage extends BasePage{
 
     @FindBy(xpath ="//button/span[text()='Send an Appointment Request']" )
     public WebElement appointmentRequestButton;
-
-    @FindBy(xpath = "//form[@id='register-form']")
-    public WebElement appointmentRequestForm;
 
     @FindBy(id = "app-view-container")
     public WebElement appointmentSavedToast;
@@ -63,6 +57,5 @@ public class MehlikaPage extends BasePage{
 
     @FindBy(xpath = "//span[text()='Melinda Patient']")    // -->verify sign in is successfully
     public WebElement melindaPatientAccount;
-
 
 }
