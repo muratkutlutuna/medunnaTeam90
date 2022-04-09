@@ -102,8 +102,6 @@ public class US004 {
         cemilePage.didYouForgetYourPassword.click();
         Driver.wait(3);
         cemilePage.didYouForgetYourPassword.click();
-
-
     }
 
     @And("C Verify that Did you forget your password? Header is visible")
@@ -171,6 +169,9 @@ public class US004 {
     }
 
 
+
+
+
     @Then("C Enter wrong {string} Password")
     public void cEnterWrongPassword(String wpassword) {
         cemilePage.passwordInputBox.sendKeys(wpassword);
@@ -181,5 +182,12 @@ public class US004 {
     public void cEnterWrongUsername(String wusername) {
         cemilePage.userNameInputBox.sendKeys(wusername);
         Driver.wait(3);
+    }
+
+    @Then("Verify that Authentication information not correct  is displayed")
+    public void verifyThatAuthenticationInformationNotCorrectIsDisplayed() {
+          String toasterText = cemilePage.containerDidYouForget.getText();
+        String expectedData = "Authentication information not correct.";
+        Assert.assertEquals(expectedData, toasterText);
     }
 }
