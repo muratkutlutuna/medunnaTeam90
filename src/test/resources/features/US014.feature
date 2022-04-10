@@ -12,6 +12,7 @@ Feature: Doctor should be able to see and update inpatients informations
     And FY Doctor clicks on MY PAGES button
     And FY Doctor clicks on My inpatients button
     And FY Doctor validates he is in In Patients page
+    And FY Doctor changes fromDate and toDate to see his inpatients
     And FY Doctor sees all inpatients informations
     And FY Doctor clicks on edit button in inpatient page
     And FY Doctor validate he is in inpatient create or edit page
@@ -36,6 +37,7 @@ Feature: Doctor should be able to see and update inpatients informations
       And FY Doctor clicks on MY PAGES button
       And FY Doctor clicks on My inpatients button
       And FY Doctor validates he is in In Patients page
+      And FY Doctor changes fromDate and toDate to see his inpatients
       And FY Doctor clicks on edit button in inpatient page
       And FY Doctor validate he is in inpatient create or edit page
       And FY Doctor should be able to update inpatient status
@@ -55,6 +57,7 @@ Feature: Doctor should be able to see and update inpatients informations
     And FY Doctor clicks on MY PAGES button
     And FY Doctor clicks on My inpatients button
     And FY Doctor validates he is in In Patients page
+    And FY Doctor changes fromDate and toDate to see his inpatients
     And FY Doctor clicks on edit button in inpatient page
     And FY Doctor validate he is in inpatient create or edit page
     And FY Doctor should be able to update inpatient room
