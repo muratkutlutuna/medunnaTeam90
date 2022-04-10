@@ -1,7 +1,7 @@
 @US003
 Feature: User should be able to see the level chart change accordingly
 
-  @US003_TC001
+  @US003_TC001,TC002,TC004,TC005,TC010
 
   Scenario Outline:
     Given FY User navigates to Medunna home page
