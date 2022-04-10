@@ -1,6 +1,5 @@
 @run
-Feature:US013  My Appointments/Edit/Test Results by Physician (Doctor))
-
+  Feature:US013  My Appointments/Edit/Test Results by Physician (Doctor))
 
   Scenario Outline:TC01301 After test results request and staff updates for test results,
           doctor can see all test information such as; id,name(Urea, Sodium, Glucose etc..),
