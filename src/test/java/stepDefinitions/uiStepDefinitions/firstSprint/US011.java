@@ -132,6 +132,7 @@ Driver.waitAndSendText(sezginPage.prescriptionTextArea,"");
 Thread.sleep(3000);
 select.selectByValue("PENDING");
 getScreenshot("pending");
+
     }
 
     @Then("S user selects completed as status")
