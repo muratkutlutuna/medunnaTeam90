@@ -6,3 +6,7 @@ Registrant(ssn=371-90-1811, firstName=Patricia, lastName=Glover, login=null, ema
 Registrant(ssn=780-74-2287, firstName=Irvin, lastName=Miller, login=null, email=null, password=null),
 Registrant(ssn=121-83-1326, firstName=Roni, lastName=Crist, login=null, email=null, password=null),
 Registrant(login=KatelynTeam90KuhicTeam90Team90, firstName=KatelynTeam90, lastName=KuhicTeam90, email=KatelynTeam90KuhicTeam90@example.com, password=#77!$Fl@@Team90, ssn=397-51-2256),
+Registrant(login=null, firstName=Faustino, lastName=Schuster, email=null, password=null, ssn=554-61-9054), 
+Registrant(login=MaximoLind, firstName=Maximo, lastName=Lind, email=MaximoLind@yahoo.com, password=744-85-8091Maximo, ssn=744-85-8091), 
+Registrant(login=DanielleMurazik, firstName=Danielle, lastName=Murazik, email=DanielleMurazik@hotmail.com, password=534-03-0220Danielle, ssn=534-03-0220), 
+Registrant(login=MargrettTeam90StoltenbergTeam90Team90, firstName=MargrettTeam90, lastName=StoltenbergTeam90, email=MargrettTeam90StoltenbergTeam90@example.com, password=ke29%SrYTeam90, ssn=623-76-5239), 
