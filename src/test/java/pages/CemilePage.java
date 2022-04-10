@@ -2,14 +2,9 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
-public class CemilePage {
-    public CemilePage() {
+public class CemilePage extends BasePage {
 
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
 
     @FindBy(xpath = "//a[@aria-haspopup='true']")
     public WebElement dropDownmenu;
@@ -35,7 +30,7 @@ public class CemilePage {
     @FindBy(xpath = "//span[text()='Sign out']")
     public WebElement signOut;
 
-    @FindBy (id = "rememberMe")
+    @FindBy(id = "rememberMe")
     public WebElement rememberMeCheckbox;
 
     @FindBy(xpath = " //span[text()='Did you forget your password?']")
@@ -55,7 +50,7 @@ public class CemilePage {
 
     @FindBy(xpath = "//*[contains(text(),'Check your email for details on how to reset your password.')]")
     public WebElement container;
-    @FindBy (xpath = "//div[text()='Check your emails for details on how to reset your password.']")
+    @FindBy(xpath = "//div[text()='Check your emails for details on how to reset your password.']")
     public WebElement toaster;
 
     @FindBy(xpath = "//strong[text()='Failed to sign in!']")

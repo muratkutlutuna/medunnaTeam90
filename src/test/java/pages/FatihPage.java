@@ -2,146 +2,125 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
 public class FatihPage extends BasePage {
-    public FatihPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
-    }
     //-----------US003 locators------------------
 
-    @FindBy (xpath="(//*[.='Register'])[1]")
+    @FindBy(xpath = "(//*[.='Register'])[1]")
     public WebElement accountMenuRegisterButton;
 
-    @FindBy (id = "firstPassword")
+    @FindBy(id = "firstPassword")
     public WebElement registerPagePasswordBox;
 
-    @FindBy (xpath = "//li[@style='background-color: rgb(255, 0, 0);']")
+    @FindBy(xpath = "//li[@style='background-color: rgb(255, 0, 0);']")
     public WebElement passwordStrength1;
 
-    @FindBy (xpath = "(//li[@style='background-color: rgb(255, 153, 0);'])[2]")
+    @FindBy(xpath = "(//li[@style='background-color: rgb(255, 153, 0);'])[2]")
     public WebElement passwordStrength2;
 
-    @FindBy (xpath = "(//li[@style='background-color: rgb(153, 255, 0);'])[4]")
+    @FindBy(xpath = "(//li[@style='background-color: rgb(153, 255, 0);'])[4]")
     public WebElement passwordStrength4;
 
-    @FindBy (xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[5]")
+    @FindBy(xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[5]")
     public WebElement passwordStrength5;
 
     //-----------US014 locators------------------
 
-    @FindBy (xpath = "//li[@id='account-menu']")
+    @FindBy(xpath = "//li[@id='account-menu']")
     public WebElement accountmenu;
 
-    @FindBy (xpath = "//a[@id='login-item']")
+    @FindBy(xpath = "//a[@id='login-item']")
     public WebElement homePageSignIn;
 
-    @FindBy (xpath = "//input[@id='username']")
+    @FindBy(xpath = "//input[@id='username']")
     public WebElement doctorUserName;
 
-    @FindBy (xpath = "//input[@id='password']")
+    @FindBy(xpath = "//input[@id='password']")
     public WebElement doctorPassword;
 
-    @FindBy (xpath = "(//*[.='Sign in'])[4]")
+    @FindBy(xpath = "(//*[.='Sign in'])[4]")
     public WebElement doctorSignInButton;
 
-    @FindBy (id="fromDate")
+    @FindBy(id = "fromDate")
     public WebElement inPatientsFromDate;
 
-    @FindBy (id="toDate")
+    @FindBy(id = "toDate")
     public WebElement inPatientstoDate;
 
-    @FindBy (xpath = "(//*[.='MY PAGES'])[2]")
+    @FindBy(xpath = "(//*[.='MY PAGES'])[2]")
     public WebElement doctorMyPages;
 
-    @FindBy (xpath = "//*[.='My Inpatients']")
+    @FindBy(xpath = "//*[.='My Inpatients']")
     public WebElement myInpatientsButton;
 
-    @FindBy (xpath = "(//*[.='In Patients'])[2]")
+    @FindBy(xpath = "(//*[.='In Patients'])[2]")
     public WebElement inPatientsText;
 
-    @FindBy (xpath = "(//tbody/tr/td[1])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[1])[1]")
     public WebElement inPatientsID;
 
-    @FindBy (xpath = "(//tbody/tr/td[2])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[2])[1]")
     public WebElement inPatientsStartDate;
 
-    @FindBy (xpath = "(//tbody/tr/td[3])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[3])[1]")
     public WebElement inPatientsEndDate;
 
-    @FindBy (xpath = "(//tbody/tr/td[4])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[4])[1]")
     public WebElement inPatientsStatus;
 
-    @FindBy (xpath = "(//tbody/tr/td[5])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[5])[1]")
     public WebElement inPatientsDescription;
 
-    @FindBy (xpath = "(//tbody/tr/td[6])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[6])[1]")
     public WebElement inPatientsCreatedDate;
 
-    @FindBy (xpath = "(//tbody/tr/td[7])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[7])[1]")
     public WebElement inPatientsRoom;
 
-    @FindBy (xpath = "(//tbody/tr/td[8])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[8])[1]")
     public WebElement inPatientsAppointment;
 
-    @FindBy (xpath = "(//tbody/tr/td[9])[1]")
+    @FindBy(xpath = "(//tbody/tr/td[9])[1]")
     public WebElement inPatientsPatient;
 
-    @FindBy (css=".btn-primary")
+    @FindBy(css = ".btn-primary")
     public WebElement inPatientsEditButton;
 
-    @FindBy (xpath = "(//*[.='Create or edit a In Patient'])[4]")
+    @FindBy(xpath = "(//*[.='Create or edit a In Patient'])[4]")
     public WebElement inPatientEditPageText;
 
-    @FindBy (xpath = "//input[@id='in-patient-id']")
+    @FindBy(xpath = "//input[@id='in-patient-id']")
     public WebElement editInPatientID;
 
-    @FindBy (xpath = "//input[@name='startDate']")
+    @FindBy(xpath = "//input[@name='startDate']")
     public WebElement editInPatientStartDate;
 
-    @FindBy (xpath = "//input[@name='endDate']")
+    @FindBy(xpath = "//input[@name='endDate']")
     public WebElement editInPatientEndDate;
 
-    @FindBy (xpath = "//input[@name='description']")
+    @FindBy(xpath = "//input[@name='description']")
     public WebElement editInPatientDescription;
 
-    @FindBy (xpath = "//input[@name='createdDate']")
+    @FindBy(xpath = "//input[@name='createdDate']")
     public WebElement editInPatientCreatedDate;
 
-    @FindBy (xpath = "//select[@id='in-patient-appointment']")
+    @FindBy(xpath = "//select[@id='in-patient-appointment']")
     public WebElement editInPatientAppointment;
 
-    @FindBy (xpath = "//select[@name='status']")
+    @FindBy(xpath = "//select[@name='status']")
     public WebElement editInPatientStatusDropDown;
 
-    @FindBy (xpath = "//select[@id='in-patient-room']")
+    @FindBy(xpath = "//select[@id='in-patient-room']")
     public WebElement editInPatientRoomDropDown;
 
-    @FindBy (xpath = "//select[@id='in-patient-patient']")
+    @FindBy(xpath = "//select[@id='in-patient-patient']")
     public WebElement editInPatientPatient;
 
-    @FindBy (xpath = "//button[@id='save-entity']")
+    @FindBy(xpath = "//button[@id='save-entity']")
     public WebElement editInPatientSaveButton;
 
-    @FindBy (xpath = "//*[.='InPatient status can not be changed with this type of status']")
+    @FindBy(xpath = "//*[.='InPatient status can not be changed with this type of status']")
     public WebElement editInPatientSuccessMessageToastContainer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

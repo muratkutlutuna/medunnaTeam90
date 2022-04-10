@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import utilities.Driver;
 
-public class AinagulPage extends BasePage{
+public class AinagulPage extends BasePage {
 
 
     @FindBy(id = "account-menu")
@@ -14,10 +14,10 @@ public class AinagulPage extends BasePage{
     @FindBy(xpath = "//span[text()='Sign in']")
     public WebElement signIn;
 
-    @FindBy(id="username")
+    @FindBy(id = "username")
     public WebElement userName;
 
-    @FindBy(id="password")
+    @FindBy(id = "password")
     public WebElement password;
 
     @FindBy(xpath = "//button[@type='submit']")
@@ -80,66 +80,43 @@ public class AinagulPage extends BasePage{
 
     @FindBy(id = "app-view-container")
     public WebElement verifyText;
-
-
-
-    public void scrollToWebelementVisible(WebElement webElement){
-        JavascriptExecutor jss= (JavascriptExecutor) Driver.getDriver();
-        jss.executeScript("arguments[0].scrollIntoView(true);",webElement);
-    }
-
-    @FindBy (xpath = "//span[text()='Search Patient']")
+    @FindBy(xpath = "//span[text()='Search Patient']")
     public WebElement searchPatient;
-
     @FindBy(xpath = "//input[@name='ssn']")
     public WebElement ssnBox;
-
     @FindBy(xpath = "//span[text()='Show Appointments']")
     public WebElement showAppointments;
-
     @FindBy(xpath = "//span[text()='Show Tests']")
     public WebElement showTests;
-
     @FindBy(xpath = "(//span[text()='View Results'])[3]")
     public WebElement viewResults;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[1]")
     public WebElement edit1;
-
     @FindBy(xpath = "//span[text()='Save']")
     public WebElement save;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[2]")
     public WebElement edit2;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[3]")
     public WebElement edit3;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[4]")
     public WebElement edit4;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[5]")
     public WebElement edit5;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[6]")
     public WebElement edit6;
-
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[7]")
     public WebElement edit7;
-
     @FindBy(xpath = "//a[text()='Show Test Results']")
     public WebElement showTestResults;
-
     @FindBy(xpath = "//span[text()='Test Results']")
     public WebElement verifyTestResults;
-
     @FindBy(xpath = "//button[text()='Request Inpatient']")
     public WebElement requestInpatient;
 
-
-
-
-
+    public void scrollToWebelementVisible(WebElement webElement) {
+        JavascriptExecutor jss = (JavascriptExecutor) Driver.getDriver();
+        jss.executeScript("arguments[0].scrollIntoView(true);", webElement);
+    }
 
 
 }

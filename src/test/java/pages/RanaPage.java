@@ -2,14 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
 public class RanaPage extends BasePage {
-    public void RanaPage() {
 
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+
     @FindBy(xpath = "//a[@aria-haspopup='true']")
     public WebElement dropDownmenu;
     @FindBy(xpath = "//a[@class='d-flex align-items-center dropdown-toggle nav-link']")
@@ -18,7 +14,7 @@ public class RanaPage extends BasePage {
     @FindBy(xpath = "//a[@href='/account/register']")
     public WebElement registerButton;
     @FindBy(xpath = "//input[@name='ssn']")
-    public  WebElement ssnTextBox;
+    public WebElement ssnTextBox;
     @FindBy(xpath = "//*[@id='firstName']")
     public WebElement firstNameTextBox;
     @FindBy(xpath = "//*[@id='lastName']")
@@ -40,7 +36,7 @@ public class RanaPage extends BasePage {
     @FindBy(xpath = "//*[@id='register-form']/div[5]/div")
     public WebElement yourEmailIsRequiredMessage;
     @FindBy(xpath = "//*[@id='register-form']/div[4]/div")
-    public  WebElement usernameIsRequiredMessage;
+    public WebElement usernameIsRequiredMessage;
     @FindBy(xpath = "//*[@id='register-form']/div[5]/div")
     public WebElement thisFieldIsInvalidMessage;
 
