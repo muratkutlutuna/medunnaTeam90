@@ -7,13 +7,12 @@ import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.AinagulPage;
-
 import utilities.Driver;
 
 import java.security.Key;
 
-
 public class US012 {
+
     AinagulPage page=new AinagulPage();
     Actions actions = new Actions(Driver.getDriver());
 
