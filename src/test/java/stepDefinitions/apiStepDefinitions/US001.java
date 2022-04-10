@@ -10,6 +10,7 @@ import io.restassured.http.ContentType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import pojos.Account;
 import pojos.Registrant;
 import utilities.ConfigurationReader;
 
@@ -32,16 +33,19 @@ public class US001 {
         registrant.setFirstName(firstname);
         registrant.setLastName(lastname);
         registrant.setSsn(SSN);
-        response = given().spec(spec).header("Authorization","Bearer "+generateToken())
+        registrant.setLogin(firstname+lastname);
+        registrant.setPassword(SSN+firstname);
+        registrant.setEmail(faker.internet().emailAddress(firstname+lastname));
+        response = given().spec(spec)
                 .contentType(ContentType.JSON)
                 .body(registrant)
                 .when()
-                .get("/{1}/{2}");
+                .post("/{1}/{2}");
         saveRegistrantData(registrant);
         response.prettyPrint();
-        response.then().statusCode(200);
+        response.then().statusCode(201);
         ObjectMapper obj = new ObjectMapper();
-        Registrant actualRegistrant = obj.readValue(response.asString(),Registrant.class);
+        Account actualRegistrant = obj.readValue(response.asString(),Account.class);
         System.out.println("Actual Data: " + actualRegistrant);
         Assert.assertEquals(registrant.getFirstName(),actualRegistrant.getFirstName());
         Assert.assertEquals(registrant.getLastName(),actualRegistrant.getLastName());
