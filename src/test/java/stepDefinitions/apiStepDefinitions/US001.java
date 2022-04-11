@@ -17,7 +17,6 @@ import utilities.ConfigurationReader;
 import static hooks.Hooks.spec;
 import static io.restassured.RestAssured.given;
 import static utilities.Authentication.generateToken;
-import static utilities.ReadText.readRegistrantInfoBySsnToMap;
 import static utilities.WriteToTxt.saveRegistrantData;
 
 public class US001 {

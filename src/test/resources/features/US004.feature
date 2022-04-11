@@ -38,7 +38,7 @@ Feature: Login page should accessible only with valid credentials
       | admincemile | AdminCemile123! |
 
   @rememberMe
-  Scenario Outline: should be a remember me option
+  Scenario Outline: There should be a remember me option
 
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
@@ -98,7 +98,7 @@ Feature: Login page should accessible only with valid credentials
     Then C Click on Password input box.
     Then C Enter wrong "<wpassword>" Password
     Then C Click on Sign in button
-    Then Verify that Failed to sign in!  is displayed
+    Then Verify that Authentication information not correct  is displayed
     Examples:
       | username    | wpassword |
       | admincemile | Admin123! |
@@ -116,7 +116,7 @@ Feature: Login page should accessible only with valid credentials
     Then C Click on Password input box.
     Then C Enter Valid "<password>" Password
     Then C Click on Sign in button
-    And Verify that Failed to sign in!  is displayed
+    And Verify that Authentication information not correct  is displayed
     Examples:
       | wusername | password        |
       | admin     | AdminCemile123! |
@@ -134,7 +134,7 @@ Feature: Login page should accessible only with valid credentials
     Then C Click on Password input box.
     Then C Enter wrong "<wpassword>" Password
     Then C Click on Sign in button
-    And Verify that Failed to sign in!  is displayed
+    And Verify that Authentication information not correct  is displayed
     Examples:
       | wusername | wpassword |
       | admin     | Admin123! |

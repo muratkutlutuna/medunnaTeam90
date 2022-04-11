@@ -134,7 +134,7 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
 
     Given MKT there are no swagger documantation for register
 
-    @Api
+  @Api
   Scenario: TC00114 Create registrants using api and validate
 
     Given MKT User set the path params for register
@@ -143,15 +143,26 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
     Then MKT user save all API information for register
     Then MKT user verify API records for register
 
-      @Db
+  @Db
   Scenario Outline: TC00115 Validate registrant SSN ids with DB
 
     Given MKT user creates a connection with db
     And MKT user sends the query to db and gets the user data with ssn number "<ssn>"
-    Then MKT user saves the db records to correspondent files
-    Then MKT user validates db registrant data "<firstName>", "<lastName>", "<login>", "<email>", "<password>"
+    Then MKT validates db registrant data  "<ssn>"
 
     Examples: test data
-    |ssn|firstName|lastName|login|email|password|
-    |020-35-0364|Branda|Lynch|null|null|null    |
+    |ssn|
+    |397-51-2256|
+
+  @Db @Bug
+  Scenario Outline: TC00116 Validate registrant SSN ids with DB negativ
+
+    Given MKT user creates a connection with db
+    And MKT user sends the query to db and gets the user data with ssn number "<ssn>"
+    Then MKT user validates db registrant data "<firstName>", "<lastName>", "<login>", "<email>" is wrong
+
+    Examples: test data
+      |firstName|lastName|login|email|ssn|
+      |KatelynTeam90|KuhicTeam90|KatelynTeam90KuhicTeam90Team90|KatelynTeam90KuhicTeam90Team90|397-51-2256|
+
 

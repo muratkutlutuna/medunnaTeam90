@@ -1,13 +1,11 @@
 package stepDefinitions.uiStepDefinitions.firstSprint;
 
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.interactions.Actions;
 import pages.CemilePage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
@@ -104,8 +102,6 @@ public class US004 {
         cemilePage.didYouForgetYourPassword.click();
         Driver.wait(3);
         cemilePage.didYouForgetYourPassword.click();
-
-
     }
 
     @And("C Verify that Did you forget your password? Header is visible")
@@ -173,6 +169,9 @@ public class US004 {
     }
 
 
+
+
+
     @Then("C Enter wrong {string} Password")
     public void cEnterWrongPassword(String wpassword) {
         cemilePage.passwordInputBox.sendKeys(wpassword);
@@ -183,5 +182,12 @@ public class US004 {
     public void cEnterWrongUsername(String wusername) {
         cemilePage.userNameInputBox.sendKeys(wusername);
         Driver.wait(3);
+    }
+
+    @Then("Verify that Authentication information not correct  is displayed")
+    public void verifyThatAuthenticationInformationNotCorrectIsDisplayed() {
+          String toasterText = cemilePage.containerDidYouForget.getText();
+        String expectedData = "Authentication information not correct.";
+        Assert.assertEquals(expectedData, toasterText);
     }
 }
