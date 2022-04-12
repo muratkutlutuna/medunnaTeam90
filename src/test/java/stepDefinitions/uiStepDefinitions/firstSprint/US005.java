@@ -221,14 +221,12 @@ public class US005{
         String wrongName= mehlikaPage.firstNameInputBox.getAttribute("value");
         System.out.println("wrongName = " + wrongName);
                 Assert.assertNotEquals(0,(wrongName.replaceAll("\\D", "").length()));
-    } //---------
-
-    // ------------- N e g a t i v e       T e s t s -------------
+    }
     @Then("MB Verify user is using non-character for the Last Name textbox - Negative")
     public void mbVerifyUserIsUsingNonCharacterForTheLastNameTextboxNegative() {
         Driver.wait(1);
         Assert.assertNotEquals(0, (mehlikaPage.lastNameInputBox.getAttribute("value").replaceAll("\\D", "")).length());
-    } // -------
+    }
 
     @Then("MB Verify that user is also using non-digit for Phone textbox Negative")
     public void mbVerifyThatUserIsAlsoUsingNonDigitForPhoneTextboxNegative() {
@@ -247,5 +245,5 @@ public class US005{
         Driver.wait(1);
         Assert.assertFalse(mehlikaPage.emailInputBox.getAttribute("value").contains("@")&&mehlikaPage.emailInputBox.getAttribute("value").contains("."));
         Driver.closeDriver();
-    }
+    }// ------------------------------------------------
 }
