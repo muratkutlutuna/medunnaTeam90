@@ -24,6 +24,34 @@ public class FatihPage extends BasePage {
     @FindBy(xpath = "(//li[@style='background-color: rgb(0, 255, 0);'])[5]")
     public WebElement passwordStrength5;
 
+
+    //-----------US008 locators------------------
+    @FindBy (id="account-menu")
+    public WebElement userPageAccounMenu;
+
+    @FindBy (xpath = "//*[.='Password']")
+    public WebElement userPagePasswordButton;
+
+    @FindBy (id="currentPassword")
+    public WebElement userCurrentPassword;
+
+    @FindBy (id="newPassword")
+    public WebElement userNewPassword;
+
+    @FindBy (id="confirmPassword")
+    public WebElement userConfirmationPassword;
+
+    @FindBy (xpath = "(//*[.='Save'])[2]")
+    public WebElement userPasswordSaveButton;
+
+    @FindBy (xpath = "(//*[.='Password changed!'])[3]")
+    public WebElement passwordChangedToastContainerSuccessMessage;
+
+    @FindBy (xpath = "//*[.='Sign out']")
+    public WebElement userSignOutButton;
+
+
+
     //-----------US014 locators------------------
 
     @FindBy(xpath = "//li[@id='account-menu']")
