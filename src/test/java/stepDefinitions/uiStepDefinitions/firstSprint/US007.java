@@ -37,7 +37,7 @@ public class US007 {
     @And("AG user enter SNN {string}")
     public void AG_user_enter_SNN(String SSN) {
         SSN = faker.idNumber().ssnValid();
-        appointment.setSSN(SSN);
+        appointment.setSsn(SSN);
         Driver.waitAndSendText(aP.AppointmentSSNTextBox, SSN);
     }
 
