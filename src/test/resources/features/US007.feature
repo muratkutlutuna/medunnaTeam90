@@ -1,8 +1,7 @@
 Feature: Appointment Test
 
   @UIAppointment
-
-  Scenario Outline: Appointment Testing
+  Scenario: Appointment Testing
 
     Given AG user enter the mainpage
     Given AG user enter FirstName and LastName "<FirstName>" and "<LastName>"
@@ -12,6 +11,4 @@ Feature: Appointment Test
     Then AG user enter date "<Date>"
     And AG  confirm appointment request
 
-    Examples:
-      | FirstName | LastName | SSN | Email | Phone | Date |
-
+    
