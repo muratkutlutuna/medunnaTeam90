@@ -1,3 +1,4 @@
+@SmokeTest
 Feature: registration data test
 
   @UIRegistration

@@ -12,9 +12,12 @@ import utilities.Driver;
 
 public class Hooks {
     public static RequestSpecification spec;
-    @Before
+    @Before(value="@Api")
     public void setUp(){
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
+    }
+    @Before(value="@Db")
+    public void setUpDb(){
     }
 
     @Before(order = 1, value = "@UIRegistration")

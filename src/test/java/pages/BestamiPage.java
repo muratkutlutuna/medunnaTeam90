@@ -3,7 +3,7 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class BestamiPage extends BasePage{
+public class BestamiPage extends BasePage {
 
 
     @FindBy(xpath = "//*[@class='d-flex align-items-center dropdown-toggle nav-link']")
@@ -25,7 +25,7 @@ public class BestamiPage extends BasePage{
     public WebElement MypagesText;
 
     @FindBy(xpath = "//*[@id=\"entity-menu\"]/div/a[1]/span")
-    public  WebElement SearchPatient;
+    public WebElement SearchPatient;
 
     @FindBy(xpath = "//input[@class='form-control']")
     public WebElement PatientSSN;
@@ -35,9 +35,6 @@ public class BestamiPage extends BasePage{
 
     @FindBy(xpath = "//*[contains(text(),'Delete')]")
     public WebElement allDelete;
-
-
-
 
 
 }

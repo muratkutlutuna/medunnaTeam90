@@ -9,38 +9,30 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-
-public class Appointment {
+public class Physician {
 
     private String createdBy;
     private String createdDate;
     private int id;
-    private String startDate;
-    private String endDate;
-    private String status;
-    private String anamnesis;
-    private String treatment;
-    private String diagnosis;
-    private String prescription;
+    private String firstName;
+    private String lastName;
+    private String birthDate;
+    private String phone;
+    private String gender;
+    private String bloodGroup;
+    private String adress;
     private String description;
-    private Physician physician;
-    private Patient patient;
-    private Test ctests;
+    private User user;
+    private String speciality;
+    private String country;
+    private String cstate;
+    private double examFee;
+    private String image;
+    private String imageContentType;
 
 
 
-    //{
-    //        "createdBy": "anonymousUser",
-    //        "createdDate": "2021-12-21T22:33:06.907662Z",
-    //        "id": 3403,
-    //        "startDate": "2021-12-22T17:00:00Z",
-    //        "endDate": "2021-12-22T18:00:00Z",
-    //        "status": "UNAPPROVED",
-    //        "anamnesis": null,
-    //        "treatment": null,
-    //        "diagnosis": null,
-    //        "prescription": "",
-    //        "description": "cfgvhbjn",
+
     //        "physician": {
     //            "createdBy": "oscarlebsack",
     //            "createdDate": "2022-03-01T13:26:00.734890Z",
@@ -74,11 +66,6 @@ public class Appointment {
     //            "image": "",
     //            "imageContentType": null
     //        },
-    //        "patient":
-    //        },
-    //        "ctests": null
-    //    },
 
 
 }
-

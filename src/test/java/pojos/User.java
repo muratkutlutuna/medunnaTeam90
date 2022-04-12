@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Account {
+public class User {
     private int id;
     private String login;//username
     private String ssn;
@@ -21,7 +21,8 @@ public class Account {
     private String langKey;
     private String createdBy;
     private String createdDate;
-    private String lastModifiedBy;
-    private String lastModifiedDate;
-    private String[] authorities;
+    private String resetDate;
+
+
+
 }
