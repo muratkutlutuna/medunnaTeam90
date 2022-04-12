@@ -1,13 +1,10 @@
 package pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-//@Data
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@JsonIgnoreProperties(ignoreUnknown = true)
+@Getter
+@Setter
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class InPatients {
 }
