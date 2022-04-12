@@ -1,7 +1,7 @@
 
 Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
 
-
+  @SmokeTest
   Scenario Outline: TC01201 Doctor may request a test
 
   Given AY Navigate to url
