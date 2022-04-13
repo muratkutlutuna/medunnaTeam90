@@ -7,7 +7,6 @@ import utilities.Driver;
 
 public class AinagulPage extends BasePage {
 
-
     @FindBy(id = "account-menu")
     public WebElement humanFigure;
 
@@ -73,7 +72,6 @@ public class AinagulPage extends BasePage {
 
     @FindBy(xpath = "//input[@name='8163']")
     public WebElement vitaminDTest;
-
 
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement saveButton;
