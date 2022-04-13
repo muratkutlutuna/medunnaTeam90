@@ -60,7 +60,7 @@ public class US007 {
     public void AG_user_enter_date(String Date) {
 
         Date = "12.12.2022";
-        appointmentAdminStaff.setDate(Date);
+        appointmentAdminStaff.setStartDate(Date);
         Driver.waitAndSendText(aP.AppointmentDateTimeTextBox, Date);
 
     }

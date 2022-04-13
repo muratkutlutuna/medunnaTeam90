@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.Appointment;
+import pojos.AppointmentAdminStaff;
 import utilities.ConfigurationReader;
 
 import static hooks.Hooks.spec;
@@ -22,7 +23,7 @@ import static utilities.WriteToTxt.saveAppointmentData;
 public class US007 {
     static Faker faker = new Faker();
     static Response response;
-    static Appointment appointment=new Appointment();
+    static AppointmentAdminStaff appointment=new AppointmentAdminStaff();
     public static void main(String[] args) throws JsonProcessingException {
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
         spec.pathParams("1", "api", "2", "appointments");
@@ -47,7 +48,7 @@ public class US007 {
         response.prettyPrint();
         response.then().statusCode(200);
         ObjectMapper obj = new ObjectMapper();
-        Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
+        AppointmentAdminStaff actualAppointment = obj.readValue(response.asString(),AppointmentAdminStaff.class);
         System.out.println("Actual Data: " + actualAppointment);
         Assert.assertEquals(appointment.getFirstName(),actualAppointment.getFirstName());
         Assert.assertEquals(appointment.getLastName(),actualAppointment.getLastName());
@@ -102,7 +103,7 @@ public class US007 {
         response.then().statusCode(201);
         response.prettyPrint();
         ObjectMapper obj = new ObjectMapper();
-        Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
+        AppointmentAdminStaff actualAppointment = obj.readValue(response.asString(),AppointmentAdminStaff.class);
         System.out.println("Actual Data: " + actualAppointment);
         Assert.assertEquals(appointment.getFirstName(),actualAppointment.getFirstName());
         Assert.assertEquals(appointment.getLastName(),actualAppointment.getLastName());
