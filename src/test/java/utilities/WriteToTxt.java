@@ -1,5 +1,6 @@
 package utilities;
 
+import pojos.AppointmentAdminStaff;
 import pojos.Registrant;
 import pojos.Appointment;
 
@@ -43,7 +44,7 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveAppointmentData(Appointment appointment){
+    public static void saveAppointmentData(AppointmentAdminStaff appointment){
 
         try {
             FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
