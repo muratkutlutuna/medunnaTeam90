@@ -33,6 +33,7 @@ public class Authentication {
 
         return token.getString("id_token");
     }
+
     public static String generateToken(String username,String password){
 
         Map<String,Object>map = new HashMap<String,Object>();
