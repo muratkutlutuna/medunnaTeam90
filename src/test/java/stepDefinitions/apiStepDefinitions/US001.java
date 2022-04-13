@@ -99,8 +99,5 @@ public class US001 {
 
     }
 
-    @Given("MKT there are no swagger documantation for register")
-    public void mktThereAreNoSwaggerDocumantetionForRegister() {
-        System.out.println("MKT there are no swagger documantetion for register");
-    }
+
 }
