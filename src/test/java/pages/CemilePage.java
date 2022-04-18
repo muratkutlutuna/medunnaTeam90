@@ -2,14 +2,9 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
-public class CemilePage {
-    public CemilePage() {
+public class CemilePage extends BasePage {
 
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
 
     @FindBy(xpath = "//a[@aria-haspopup='true']")
     public WebElement dropDownmenu;
@@ -35,10 +30,8 @@ public class CemilePage {
     @FindBy(xpath = "//span[text()='Sign out']")
     public WebElement signOut;
 
-    @FindBy(xpath = "//input[@class='is-touched is-dirty av-valid form-check-input']")
+    @FindBy(id = "rememberMe")
     public WebElement rememberMeCheckbox;
-    @FindBy(xpath = "//input[@value='ture']")
-    public WebElement rememberMeCheck;
 
     @FindBy(xpath = " //span[text()='Did you forget your password?']")
     public WebElement didYouForgetYourPassword;
@@ -57,6 +50,8 @@ public class CemilePage {
 
     @FindBy(xpath = "//*[contains(text(),'Check your email for details on how to reset your password.')]")
     public WebElement container;
+    @FindBy(xpath = "//div[text()='Check your emails for details on how to reset your password.']")
+    public WebElement toaster;
 
     @FindBy(xpath = "//strong[text()='Failed to sign in!']")
     public WebElement failedToSignIn;
@@ -70,8 +65,6 @@ public class CemilePage {
     @FindBy(xpath = "//span[text()='Registration']")
     public WebElement registrationPage;
 
-    @FindBy(xpath = "//*[contains(text(),'Authentication information not correct.')]")
-    public WebElement containerFailed;
-
-
+    @FindBy(xpath = "//div[@class='Toastify__toast-body']")
+    public WebElement containerDidYouForget;
 }

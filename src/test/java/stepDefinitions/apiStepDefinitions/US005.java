@@ -6,7 +6,7 @@ import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.Test;
-import pojos.Appointment_TC005;
+import pojos.AppointmentAdminStaff;
 
 import java.util.HashMap;
 
@@ -37,8 +37,8 @@ public class US005  {
                 build();
 
         specMed.pathParams("param1","api","param2","appointments");
-        Appointment_TC005 expectedRequest=new Appointment_TC005("Melinda","Patient",100-20-3105,
-                "melindapt@gmail.com",100-200-3000,2022-25-06);
+        AppointmentAdminStaff expectedRequest=new AppointmentAdminStaff("Melinda","Patient","100-20-3105",
+                "melindapt@gmail.com","100-200-3000","2022-25-06");
 //
 //        expectedRequest.setFirstname("Melinda");
 //        expectedRequest.setLastname("Patient");

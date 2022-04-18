@@ -2,16 +2,14 @@ package pages;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import utilities.Driver;
 
-public class MehlikaPage extends BasePage{
+public class MehlikaPage extends BasePage {
 
     public MehlikaPage()    { PageFactory.initElements(Driver.getDriver(),this); }
     // -- > US005
     @FindBy (xpath = "(//img[@alt='Logo'])")               // <-- home page
     public WebElement homePageLogo;
-    @FindBy (xpath = "(//span[text()='Make an'])")
+    @FindBy(xpath = "(//span[text()='Make an'])")
     public WebElement makeAnAppointmentButton;
         @FindBy(xpath = "//h2[text()='Make an Appointment']")
         public WebElement makeAppoinmentTitle;
@@ -31,6 +29,7 @@ public class MehlikaPage extends BasePage{
         public WebElement appointmentRequestButton;
         @FindBy(id = "app-view-container")
         public WebElement appointmentSavedToast;
+
 
     @FindBy(xpath = "//li[@id='account-menu']")
     public WebElement accountMenu;

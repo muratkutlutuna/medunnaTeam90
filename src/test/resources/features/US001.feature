@@ -134,7 +134,8 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
 
     Given MKT there are no swagger documantation for register
 
-  @Api
+
+  @Api @SmokeTest
   Scenario: TC00114 Create registrants using api and validate
 
     Given MKT User set the path params for register
