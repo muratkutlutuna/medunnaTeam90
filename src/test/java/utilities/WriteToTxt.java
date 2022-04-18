@@ -2,6 +2,7 @@ package utilities;
 
 import pojos.Registrant;
 import pojos.Appointment;
+import pojos.Room;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -37,6 +38,25 @@ public class WriteToTxt {
 //                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
 
             writer.append(registrant.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveRoomData(Room room){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("roomFile"), true);
+            //src/resource/feature/testdata/RoomData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(room.toString() + ", \n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
