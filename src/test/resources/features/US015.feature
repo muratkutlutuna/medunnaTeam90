@@ -1,4 +1,4 @@
-@UImehlika
+@UImehlika15
 Feature: US015 - Create or Edit Patient by just Admin and Validate with API
 
   @TC01501
@@ -8,7 +8,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And mb Click User Name textbox and enter admin user name "<mbAdminUsername>"
     And mb Click Password textbox and enter admin password "<mbAdminPassword>"
     And mb Click Sign In button
-    Then mb Verify sign in is successfully
+#    Then mb Verify sign in is successfully
     And mb Click Items&Titles button and Patient from dropdown box
     And mb Click Create a new Patient button
    And mb Fill in all information "<firstname>","<lastname>","<phone>","<email>","<address>","<description>"

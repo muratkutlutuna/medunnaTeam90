@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
         },
         features = "src/test/resources/features",
         glue = {"stepDefinitions","hooks"},
-        tags = "@UIRegistration",
+        tags = "@UImehlika",
         dryRun = false
 )
 public class Runner {
