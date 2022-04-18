@@ -1,4 +1,4 @@
-@KutluTests
+@UImehlika
 Feature: US001 Registration should be available using SSN, Firstname and Lastname There should be api and DB validation
 
   @UIRegistration @NegativeTests @EquevelancePartitioning
@@ -133,6 +133,7 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
   Scenario: TC00113 Get all registrant information using swagger and validate them
 
     Given MKT there are no swagger documantation for register
+
 
   @Api @SmokeTest
   Scenario: TC00114 Create registrants using api and validate
