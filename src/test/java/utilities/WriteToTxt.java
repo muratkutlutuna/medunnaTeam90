@@ -1,5 +1,6 @@
 package utilities;
 
+import pojos.Messages;
 import pojos.Registrant;
 
 import java.io.BufferedWriter;
@@ -40,6 +41,27 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+
+    public static void saveMessagesData(Messages messages){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("messagesFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(messages.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void saveRegistrantDataDB(Map registrantMap){
 
         try {
