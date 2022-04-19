@@ -1,5 +1,6 @@
 package utilities;
 
+import pojos.Appointment;
 import pojos.Registrant;
 
 import java.io.BufferedWriter;
@@ -81,11 +82,11 @@ public class WriteToTxt {
         }
 
 
-    }
+    }*/
 
 
     public static void saveAppointData(Appointment appointment){
-
+appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
         try{
 
             //src/resources/testdata/Registrantdata.txt
@@ -105,6 +106,7 @@ public class WriteToTxt {
 
 
     }
+    /*
     public static void saveAppointData(Appointments appointment){
 
         try{
