@@ -1,4 +1,4 @@
-@UImehlika
+@UImehlika15
 Feature: US015 - Create or Edit Patient by just Admin and Validate with API
 
   @TC01501
@@ -8,17 +8,19 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And mb Click User Name textbox and enter admin user name "<mbAdminUsername>"
     And mb Click Password textbox and enter admin password "<mbAdminPassword>"
     And mb Click Sign In button
-    Then mb Verify sign in is successfully
+#    Then mb Verify sign in is successfully
     And mb Click Items&Titles button and Patient from dropdown box
     And mb Click Create a new Patient button
-   And mb Fill in all information "<firstname>","<lastname>","<phone>","<email>","<address>","<description>"
-     # "<birthdate>",    01/01/2001, 01:01 PM
+    And mb Fill in these informations "<firstname>","<lastname>","<birthdate>","<email>","<phone>"
+    And mb Select these Gender, Blood Group, User, Country, State
+    And mb Fill in these informations "<address>","<description>"
+
     Then mb Verify the new user created successfully Toast Container
     Then mb Verify new patient was created by admin
 
     Examples:
-    |mbAdminUsername|mbAdminPassword|firstname|lastname|phone       |email              |address                 |description    |
-    |Team90Admin    |Batch44+       |Mehlika  |Patient |100-200-1501|mehlikapt@gmail.com|1232 Sandia ave. Fremont|Mehlika Patient|
+    |mbAdminUsername|mbAdminPassword|firstname|lastname|birthdate|email               |phone       |    address             |description    |
+    |Team90Admin    |Batch44+       |Mehlika  |Patient |01/01/2001|mehlikapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Mehlika Patient|
 
   @TC01502
   Scenario: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,

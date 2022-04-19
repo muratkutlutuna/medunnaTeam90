@@ -58,6 +58,6 @@ public class US019 {
     @Then("mb Verify User found with search SSN message")
     public void mb_verify_user_found_with_search_ssn_message() {
         Assert.assertTrue(locator.staffFoundwithSsnToast.isDisplayed());
-        Assert.assertTrue(locator.staffFoundwithSsnToast.getText().contains("USer found"));
+        Assert.assertEquals("User found",locator.staffFoundwithSsnToast.getText());
     }
 }
