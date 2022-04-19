@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 
 public class Appointment {
 
-
     private String createdBy;
     private String createdDate;
     private int id;
@@ -82,3 +81,4 @@ public class Appointment {
 
 
 }
+
