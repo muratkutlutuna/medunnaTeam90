@@ -5,13 +5,13 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
 
-public class MehlikaPage extends BasePage{
+public class MehlikaPage extends BasePage {
 
     public MehlikaPage()    { PageFactory.initElements(Driver.getDriver(),this); }
-
-    @FindBy (xpath = "(//img[@alt='Logo'])")                // -- > US005  // <-- home page
+    // -- > US005
+    @FindBy (xpath = "(//img[@alt='Logo'])")               // <-- home page
     public WebElement homePageLogo;
-    @FindBy (xpath = "(//span[text()='Make an'])")
+    @FindBy(xpath = "(//span[text()='Make an'])")
     public WebElement makeAnAppointmentButton;
         @FindBy(xpath = "//h2[text()='Make an Appointment']")
         public WebElement makeAppoinmentTitle;
@@ -32,6 +32,7 @@ public class MehlikaPage extends BasePage{
         @FindBy(id = "app-view-container")
         public WebElement appointmentSavedToast;
 
+
     @FindBy(xpath = "//li[@id='account-menu']")
     public WebElement accountMenu;
         @FindBy(xpath = "//a[@id='login-item']")
@@ -45,8 +46,8 @@ public class MehlikaPage extends BasePage{
         @FindBy(xpath = "//span[text()='Team90 Admin']")
         public WebElement verifySignedInAdmin;
 
-//    @FindBy(id = "account-menu")
-//    public WebElement accountSignMenu;
+    @FindBy(id = "account-menu")
+    public WebElement accountSignMenu;
     @FindBy(xpath = "//span[text()='Sign out']")
     public WebElement signOut;
 
@@ -59,7 +60,7 @@ public class MehlikaPage extends BasePage{
     @FindBy(xpath ="//span[text()='User management']" )
     public WebElement userManagementButton;
 
-    @FindBy(xpath = "//span[text()='Create a new user']")   //  -->  US015
+    @FindBy(xpath = "//span[text()='Create a new user']")
     public WebElement createANewUser;
         @FindBy(xpath = "//input[@name='login']")
         public WebElement newUserLoginInput;
@@ -92,9 +93,8 @@ public class MehlikaPage extends BasePage{
     @FindBy(id = "app-view-container")
     public WebElement newUserSavedToast;           // successful message
 
-    //@FindBy(xpath = "//span[text()='Items&Titles']")
-    @FindBy(id = "entity-menu")
-    public WebElement itemsTitlesMenuButton;                //  -->  US19
+    @FindBy(xpath = "//span[text()='Items&Titles']")
+    public WebElement itemsTitlesMenuButton;
         @FindBy(xpath = "//span[text()='Patient']")
         public WebElement itemsTitlesPatient;
             @FindBy(xpath = "//span[text()='Create a new Patient']")

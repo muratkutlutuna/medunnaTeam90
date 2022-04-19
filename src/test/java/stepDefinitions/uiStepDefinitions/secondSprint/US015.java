@@ -1,15 +1,22 @@
 package stepDefinitions.uiStepDefinitions.secondSprint;
 
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.junit.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 import pages.MehlikaPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
+
+import java.security.Key;
 
 public class US015 {
     MehlikaPage locator=new MehlikaPage();
@@ -53,40 +60,47 @@ public class US015 {
         Driver.wait(1);
     }
 
-
-    @Then("mb Fill in all information {string},{string},{string},{string},{string},{string}")
-    public void mb_fill_in_all_information(String firstname, String lastname, String phone, String email, String address, String description) {
+    @And("mb Fill in these informations {string},{string},{string},{string},{string}")
+    public void mb_fill_in_these_informations(String firstname, String lastname, String birthdate, String email, String phone) {
         Driver.wait(1);
         locator.newPatientFirstNameInput.click();
             locator.newPatientFirstNameInput.sendKeys(firstname);
         locator.newPatientLastNameInput.click();
             locator.newPatientLastNameInput.sendKeys(lastname);
         locator.newPatientBirthDateInput.click();
-            locator.newPatientBirthDateInput.sendKeys("01,01,2001");    // ???
+            locator.newPatientBirthDateInput.sendKeys(birthdate);    // ???"01,01,2001"
         locator.newUserEmailInput.click();
             locator.newUserEmailInput.sendKeys(email);
         locator.newPatientPhoneInput.click();
-            locator.newPatientPhoneInput.sendKeys(phone,Keys.TAB);
-        //locator.newPatientGenderSelect.click();
-
-            locator.newPatientGenderSelect.sendKeys(Keys.ARROW_DOWN,Keys.ENTER);
-            //locator.newPatientGenderSelect.
-        Driver.wait(1);
-        locator.newPatientBloodSelect.click();
-            locator.newPatientBloodSelect.sendKeys(Keys.ENTER);
-        locator.newPatientAddressInput.click();
-            locator.newPatientAddressInput.sendKeys(address);
-        locator.newPatientDescriptionTextarea.click();
-            locator.newPatientDescriptionTextarea.sendKeys(description);
-        locator.newPatientUserSelect.click();
-            locator.newPatientUserSelect.sendKeys(Keys.ENTER);
-        locator.newPatientCountrySelect.click();
-            locator.newPatientCountrySelect.sendKeys(Keys.ENTER);
-        locator.newPatientStateSelect.click();
-            locator.newPatientStateSelect.sendKeys(Keys.ENTER);
+            locator.newPatientPhoneInput.sendKeys(phone);
         Driver.wait(2);
-        locator.newPatientSaveButton.click();
+
     }
+
+   @And("mb Select these Gender, Blood Group, User, Country, State")
+    public void mb_select_these_gender_blood_group_user_country(){
+       action.moveToElement(locator.newPatientStateSelect).perform();
+       //action.click(locator.newPatientGenderSelect).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        Select select=new Select(locator.newPatientGenderSelect);
+        select.selectByIndex(2);
+       Driver.wait(1);
+       locator.newPatientBloodSelect.click();
+       locator.newPatientBloodSelect.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER,Keys.TAB);
+       locator.newPatientBloodSelect.click();
+    }
+
+    @Given("mb Fill in these informations {string},{string}")
+    public void mb_fill_in_these_informations(String address, String description) {
+        Driver.wait(1);
+        locator.newPatientAddressInput.click();
+        locator.newPatientAddressInput.sendKeys(address+ Keys.TAB);
+        Driver.wait(1);
+        locator.newPatientDescriptionTextarea.click();
+        locator.newPatientDescriptionTextarea.sendKeys(description);
+        Driver.wait(5);
+    }
+
+
     @Then("mb Verify the new user created successfully Toast Container")
     public void mb_verify_the_new_user_created_successfully_toast_container() {
         Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
@@ -96,3 +110,10 @@ public class US015 {
 
     }
 }
+
+//        WebElement dropDownGender=locator.newPatientGenderSelect;
+//        Select select=new Select(dropDownGender);
+//        select.selectByValue("2");
+
+// dropDownGender.sendKeys(Keys.ENTER,Keys.TAB);
+//locator.newPatientGenderSelect.click();
