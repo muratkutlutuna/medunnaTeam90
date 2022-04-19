@@ -51,7 +51,7 @@ public class US007 {
     @And("AG user enter phone {string}")
     public void AG_user_enter_phone(String Phone) {
 
-        Phone = faker.phoneNumber().cellPhone();
+        Phone = "8572659314";
         appointmentAdminStaff.setPhone(Phone);
         Driver.waitAndSendText(aP.AppointmentPhoneTextBox, Phone);
     }
@@ -60,7 +60,7 @@ public class US007 {
     public void AG_user_enter_date(String Date) {
 
         Date = "12.12.2022";
-        appointmentAdminStaff.setDate(Date);
+        appointmentAdminStaff.setStartDate(Date);
         Driver.waitAndSendText(aP.AppointmentDateTimeTextBox, Date);
 
     }
@@ -69,7 +69,7 @@ public class US007 {
     public void AG_confirm_appointment_request() {
         Driver.waitAndClick(aP.AppointmentRegisterButton);
 
-        Driver.sleep(1000);
+        Driver.waitForVisibility(aP.AppointmentToastContainerMassage,10);
         Assert.assertTrue(aP.AppointmentToastContainerMassage.isDisplayed());
     }
 

@@ -7,4 +7,5 @@ import lombok.*;
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class InPatients {
+
 }

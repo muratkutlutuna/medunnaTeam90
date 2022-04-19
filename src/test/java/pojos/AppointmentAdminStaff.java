@@ -23,7 +23,7 @@ public class AppointmentAdminStaff {
     private String ssn;
     private String email;
     private String phone;
-    private String date;
+    private String startDate;
 
 
 }
