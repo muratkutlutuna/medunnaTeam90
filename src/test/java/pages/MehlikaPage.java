@@ -124,7 +124,12 @@ public class MehlikaPage extends BasePage {
             @FindBy(xpath = "//span[text()='Save']")
             public WebElement newPatientSaveButton;
     @FindBy(id = "app-view-container")
-    public WebElement newPatientSavedToast;           // successful message
+    public WebElement newPatientSavedToast;           // successful message\
+    //tbody/tr/td[1]//a
+    @FindBy(xpath = "//tbody/tr/td[1]//a")
+    public WebElement firstPatient;
+    @FindBy(xpath = "//tbody/tr/td//span[text()='View']")
+    public WebElement viewPatient;
 
         @FindBy(xpath = "//span[text()='Staff']")
         public WebElement itemsTitlesStaff;
