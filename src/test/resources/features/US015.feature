@@ -12,9 +12,8 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And mb Click Items&Titles button and Patient from dropdown box
     And mb Click Create a new Patient button
     And mb Fill in these informations "<firstname>","<lastname>","<birthdate>","<email>","<phone>"
-    And mb Select these Gender, Blood Group, User, Country, State
+#    And mb Select these Gender, Blood Group, User, Country, State
     And mb Fill in these informations "<address>","<description>"
-
     Then mb Verify the new user created successfully Toast Container
     Then mb Verify new patient was created by admin
 
@@ -23,9 +22,14 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     |Team90Admin    |Batch44+       |Mehlika  |Patient |01/01/2001|mehlikapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Mehlika Patient|
 
   @TC01502
-  Scenario: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,
-                              Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
+  Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,
+                    Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
 
+    Given mb Launch web browser and navigate to the home page
+    And mb Click Account Menu dropbox sign and click Sign In Text
+    And mb Click User Name textbox and enter admin user name "<mbAdminUsername>"
+    And mb Click Password textbox and enter admin password "<mbAdminPassword>"
+    And mb Click Sign In button
     Given mb Click Items&Titles button and select Patient from dropdown box
     And mb Select id of any patient and click
     Then mb Verify admin can see patient SSN
@@ -35,6 +39,9 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     Then mb Verify admin can see patient Address and Description
     Then mb Verify admin can see patient Created Date and User
     Then mb Verify admin can see patient Country and State/City
+
+    Examples: |mbAdminUsername|mbAdminPassword|
+              |Team90Admin    |Batch44+       |
 
   @TC01503
   Scenario Outline: TC01503 - When creating or updating patient data, you have above items and following new item;  id.

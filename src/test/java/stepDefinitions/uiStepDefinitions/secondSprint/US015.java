@@ -6,6 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -72,48 +73,221 @@ public class US015 {
         locator.newUserEmailInput.click();
             locator.newUserEmailInput.sendKeys(email);
         locator.newPatientPhoneInput.click();
-            locator.newPatientPhoneInput.sendKeys(phone);
+            locator.newPatientPhoneInput.sendKeys(phone+Keys.TAB);
         Driver.wait(2);
 
     }
 
-   @And("mb Select these Gender, Blood Group, User, Country, State")
-    public void mb_select_these_gender_blood_group_user_country(){
-       action.moveToElement(locator.newPatientStateSelect).perform();
-       //action.click(locator.newPatientGenderSelect).sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
-        Select select=new Select(locator.newPatientGenderSelect);
-        select.selectByIndex(2);
-       Driver.wait(1);
-       locator.newPatientBloodSelect.click();
-       locator.newPatientBloodSelect.sendKeys(Keys.ARROW_DOWN,Keys.ARROW_DOWN,Keys.ENTER,Keys.TAB);
-       locator.newPatientBloodSelect.click();
-    }
 
     @Given("mb Fill in these informations {string},{string}")
     public void mb_fill_in_these_informations(String address, String description) {
-        Driver.wait(1);
         locator.newPatientAddressInput.click();
-        locator.newPatientAddressInput.sendKeys(address+ Keys.TAB);
+        locator.newPatientAddressInput.sendKeys(address);
         Driver.wait(1);
         locator.newPatientDescriptionTextarea.click();
-        locator.newPatientDescriptionTextarea.sendKeys(description);
-        Driver.wait(5);
-    }
+        locator.newPatientDescriptionTextarea.sendKeys(description+Keys.TAB+Keys.TAB);
+        Driver.wait(1);
+        locator.newPatientCountrySelect.click();
 
+        Select selectCountry=new Select(locator.newPatientCountrySelect);
+        selectCountry.selectByIndex(2);
+        //locator.newPatientCountrySelect.sendKeys(Keys.ARROW_DOWN+Keys.);
+        locator.newPatientStateSelect.click();
+        Select selectState=new Select(locator.newPatientStateSelect);
+        selectState.selectByIndex(0);
+        System.out.println("Islem tamam");
+        locator.newPatientSaveButton.click();
+        // internal error
+    }
 
     @Then("mb Verify the new user created successfully Toast Container")
     public void mb_verify_the_new_user_created_successfully_toast_container() {
-        Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
+        //Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
     }
     @Then("mb Verify new patient was created by admin")
     public void mb_verify_new_patient_was_created_by_admin() {
 
     }
+////////// TC01502
+    @Given("mb Click Items&Titles button and select Patient from dropdown box")
+    public void mb_click_items_titles_button_and_select_patient_from_dropdown_box() {
+        Driver.wait(1);
+        locator.itemsTitlesMenuButton.click();
+        locator.itemsTitlesPatient.click();
+    }
+
+    @Given("mb Select id of any patient and click")
+    public void mb_select_id_of_any_patient_and_click() {
+        //Driver.waitForVisibility(locator.firstPatient,3);
+        //Driver.waitAndClick(locator.firstPatient,3);
+        Driver.wait(2);
+        action.moveToElement(locator.viewPatient);
+        locator.viewPatient.click();
+        //Driver.clickWithJS(locator.firstPatient);
+       // locator.firstPatient.click();
+        System.out.println("Bekledim oldu ");
+    }
+
+    @Then("mb Verify admin can see patient SSN")
+    public void mb_verify_admin_can_see_patient_ssn() {
+
+    }
+
+    @Then("mb Verify admin can see patient First Name and Last Name")
+    public void mb_verify_admin_can_see_patient_first_name_and_last_name() {
+
+    }
+
+    @Then("mb Verify admin can see patient Birth Date and Phone")
+    public void mb_verify_admin_can_see_patient_birth_date_and_phone() {
+
+    }
+
+    @Then("mb Verify admin can see patient Gender and Blood Group")
+    public void mb_verify_admin_can_see_patient_gender_and_blood_group() {
+
+    }
+
+    @Then("mb Verify admin can see patient Address and Description")
+    public void mb_verify_admin_can_see_patient_address_and_description() {
+
+    }
+
+    @Then("mb Verify admin can see patient Created Date and User")
+    public void mb_verify_admin_can_see_patient_created_date_and_user() {
+
+    }
+
+    @Then("mb Verify admin can see patient Country and State\\/City")
+    public void mb_verify_admin_can_see_patient_country_and_state_city() {
+
+    }
+////// TC01503
+    @Given("mb Enter First Name and Last Name {string}")
+    public void mb_enter_first_name_and_last_name(String string) {
+
+    }
+
+    @Given("mb Select an available following day and time \\(mm\\/dd\\/yyyy, hh:mm am\\/pm)")
+    public void mb_select_an_available_following_day_and_time_mm_dd_yyyy_hh_mm_am_pm() {
+
+    }
+
+    @Given("mb Enter Email from and Phone number {string}")
+    public void mb_enter_email_from_and_phone_number(String string) {
+
+    }
+
+    @Given("mb Select Gender and Blood Group")
+    public void mb_select_gender_and_blood_group() {
+
+    }
+
+    @Given("mb Enter Address and Description {string}")
+    public void mb_enter_address_and_description(String string) {
+
+    }
+
+    @Given("mb Select User, Country and State\\/City")
+    public void mb_select_user_country_and_state_city() {
+
+    }
+
+    @Given("mb Click Save button")
+    public void mb_click_save_button() {
+
+    }
+
+    @Then("mb Verify form is saved and created a patient successfully")
+    public void mb_verify_form_is_saved_and_created_a_patient_successfully() {
+
+    }
+
+    @Then("mb Click Created Date and click first patient's ID number")
+    public void mb_click_created_date_and_click_first_patient_s_id_number() {
+
+    }
+
+    @Then("mb Verify id number have same First Name with new patient")
+    public void mb_verify_id_number_have_same_first_name_with_new_patient() {
+
+    }
+    //TC01504
+    @Given("mb Select first id and click Edit button under the informations")
+    public void mb_select_first_id_and_click_edit_button_under_the_informations() {
+
+    }
+
+    @Then("mb Verify Country is selected  US")
+    public void mb_verify_country_is_selected_us() {
+
+    }
+
+    @Then("mb Verify Country data is not blank")
+    public void mb_verify_country_data_is_not_blank() {
+
+    }
+
+//////TC01505
+    @Given("mb Click any patient's Delete button")
+    public void mb_click_any_patient_s_delete_button() {
+
+    }
+
+    @Given("mb Click Delete button on the alert")
+    public void mb_click_delete_button_on_the_alert() {
+
+    }
+
+    @Then("mb Verify patient is deleted successfully message")
+    public void mb_verify_patient_is_deleted_successfully_message() {
+
+    }
+
+    @Then("mb Verify the fail message internal server error")
+    public void mb_verify_the_fail_message_internal_server_error() {
+
+    }
+
+    @Then("mb Report this bug")
+    public void mb_report_this_bug() {
+
+    }
+//////  TC01506
+    @Given("User signs in as an Admin")
+    public void user_signs_in_as_an_admin() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("User sends the get request for Patient data")
+    public void user_sends_the_get_request_for_patient_data() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new io.cucumber.java.PendingException();
+    }
+
+    @Given("User deserializes data to Java for Patient")
+    public void user_deserializes_data_to_java_for_patient() {
+
+    }
+
+    @Given("Set the neccessary path params")
+    public void set_the_neccessary_path_params() {
+
+    }
+
+    @Given("Enter post data for patient")
+    public void enter_post_data_for_patient() {
+
+    }
+
+    @Then("Verify API records")
+    public void verify_api_records() {
+
+    }
+
+    @Then("Verify the fail message")
+    public void verify_the_fail_message() {
+
+    }
 }
-
-//        WebElement dropDownGender=locator.newPatientGenderSelect;
-//        Select select=new Select(dropDownGender);
-//        select.selectByValue("2");
-
-// dropDownGender.sendKeys(Keys.ENTER,Keys.TAB);
-//locator.newPatientGenderSelect.click();
