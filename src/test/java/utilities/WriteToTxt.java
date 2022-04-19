@@ -83,6 +83,24 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    public static void saveAppointmentData(AppointmentAdminStaff appointment){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
+            //src/resource/feature/testdata/PatientData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(appointment.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void saveRegistrantDataDB(Map registrantMap){
 
         try {
