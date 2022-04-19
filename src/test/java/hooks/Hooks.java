@@ -8,16 +8,21 @@ import io.restassured.specification.RequestSpecification;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import utilities.ConfigurationReader;
+import utilities.DBUtils;
 import utilities.Driver;
 
 public class Hooks {
+
     public static RequestSpecification spec;
-    @Before(value="@Api")
+
+    @Before
     public void setUp(){
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
     }
+
     @Before(value="@Db")
     public void setUpDb(){
+        DBUtils.createConnection();
     }
 
     @Before(order = 1, value = "@UIRegistration")
@@ -31,6 +36,7 @@ public class Hooks {
         if (scenario.isFailed()) {
             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png","screenshots");
+            //Driver.getDriver().get("https://www.medunna.com/logout");
         }
         Driver.closeDriver();
     }
