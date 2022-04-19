@@ -12,6 +12,7 @@ import static utilities.WriteToTxt.saveAppointmentDataBase;
 
 
 public class US007 {
+
     List< Object> allDBDates;
     @Given("user creates a connection with DB using {string} and {string} , {string}")
     public void user_creates_a_connection_with_db_using_and(String url, String username, String password) {
@@ -26,6 +27,7 @@ public class US007 {
     public void user_saves_db_records_to_correspondent_files() {
         saveAppointmentDataBase(allDBDates);
     }
+
     @Then("user validates DB Appointment data")
     public void user_validates_db_appointment_data() {
         List<String> expectedDateIDs = new ArrayList<>();
