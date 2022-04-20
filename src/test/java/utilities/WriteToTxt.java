@@ -1,5 +1,7 @@
 package utilities;
 
+import pojos.AppointmentAdminStaff;
+import pojos.AppointmentRequest;
 import pojos.Registrant;
 import pojos.Appointment;
 
@@ -43,7 +45,7 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveAppointmentData(Appointment appointment){
+    public static void saveAppointmentData(AppointmentAdminStaff appointmentCreate){
 
         try {
             FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
@@ -55,7 +57,25 @@ public class WriteToTxt {
 //                            + registrant.getUsername() + "," + registrant.getEmail() + ","
 //                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
 
-            writer.append(appointment.toString() + ", \n");
+            writer.append(appointmentCreate.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveAppointmentData(Appointment appointmentCreate){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
+            //src/resource/feature/testdata/PatientData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(appointmentCreate.toString() + ", \n");
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

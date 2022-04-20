@@ -25,7 +25,7 @@ public class Appointment {
     private String description;
     private Physician physician;
     private Patient patient;
-    private Test ctests;
+    private Test []ctests;
 
 
 
