@@ -22,8 +22,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     |Team90Admin    |Batch44+       |Mehlika  |Patient |01/01/2001|mehlikapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Mehlika Patient|
 
   @TC01502
-  Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,
-                    Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
+  Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
 
     Given mb Launch web browser and navigate to the home page
     And mb Click Account Menu dropbox sign and click Sign In Text
@@ -40,8 +39,9 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     Then mb Verify admin can see patient Created Date and User
     Then mb Verify admin can see patient Country and State/City
 
-    Examples: |mbAdminUsername|mbAdminPassword|
-              |Team90Admin    |Batch44+       |
+    Examples: Test Data
+      |mbAdminUsername|mbAdminPassword|
+      |Team90Admin    |Batch44+       |
 
   @TC01503
   Scenario Outline: TC01503 - When creating or updating patient data, you have above items and following new item;  id.

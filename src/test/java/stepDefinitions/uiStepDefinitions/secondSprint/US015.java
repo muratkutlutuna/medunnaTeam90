@@ -2,28 +2,19 @@ package stepDefinitions.uiStepDefinitions.secondSprint;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.MehlikaPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
-import java.security.Key;
-
 public class US015 {
     MehlikaPage locator=new MehlikaPage();
     Actions action=new Actions(Driver.getDriver());
 
-    @Before
     @Given("mb Launch web browser and navigate to the home page")
     public void mb_launch_web_browser_and_navigate_to_the_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
@@ -87,14 +78,28 @@ public class US015 {
         locator.newPatientDescriptionTextarea.click();
         locator.newPatientDescriptionTextarea.sendKeys(description+Keys.TAB+Keys.TAB);
         Driver.wait(1);
+                //add country and state
+                locator.itemsTitlesMenuButton.click();
+                locator.itemsTitlesCountry.click();
         locator.newPatientCountrySelect.click();
+        locator.createCountryNameInput.sendKeys("USA");
+        action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
+                sendKeys(Keys.TAB).sendKeys(Keys.ENTER);
+        locator.itemsTitlesMenuButton.click();
+        Select itemsTitles=new Select(locator.itemsTitlesMenuButton);
+        itemsTitles.selectByVisibleText("State/City");
+        Driver.wait(2);
+            locator.createANewStateButton.click();
+            locator.createStateNameInput.sendKeys("California");
+            locator.createStateStateCityInput.sendKeys("USA");
+            locator.createStateSaveButton.click();
 
         Select selectCountry=new Select(locator.newPatientCountrySelect);
-        selectCountry.selectByIndex(2);
-        //locator.newPatientCountrySelect.sendKeys(Keys.ARROW_DOWN+Keys.);
+        selectCountry.selectByVisibleText("USA");
         locator.newPatientStateSelect.click();
         Select selectState=new Select(locator.newPatientStateSelect);
-        selectState.selectByIndex(0);
+        selectState.selectByVisibleText("California");
         System.out.println("Islem tamam");
         locator.newPatientSaveButton.click();
         // internal error
@@ -111,56 +116,74 @@ public class US015 {
 ////////// TC01502
     @Given("mb Click Items&Titles button and select Patient from dropdown box")
     public void mb_click_items_titles_button_and_select_patient_from_dropdown_box() {
+        Driver.waitAndClick(locator.itemsTitlesMenuButton,2);
         Driver.wait(1);
-        locator.itemsTitlesMenuButton.click();
         locator.itemsTitlesPatient.click();
+        Driver.wait(1);
     }
 
     @Given("mb Select id of any patient and click")
     public void mb_select_id_of_any_patient_and_click() {
-        //Driver.waitForVisibility(locator.firstPatient,3);
-        //Driver.waitAndClick(locator.firstPatient,3);
         Driver.wait(2);
         action.moveToElement(locator.viewPatient);
         locator.viewPatient.click();
-        //Driver.clickWithJS(locator.firstPatient);
-       // locator.firstPatient.click();
-        System.out.println("Bekledim oldu ");
+        Driver.wait(1);
     }
 
     @Then("mb Verify admin can see patient SSN")
     public void mb_verify_admin_can_see_patient_ssn() {
+        System.out.println("locator.ssnCanSee.getText() = " + locator.ssnCanSee.getText());
+        Assert.assertTrue(locator.ssnCanSee.isDisplayed());
 
     }
 
     @Then("mb Verify admin can see patient First Name and Last Name")
     public void mb_verify_admin_can_see_patient_first_name_and_last_name() {
-
+        System.out.println("locator.firstnameCanSee.getText() = " + locator.firstnameCanSee.getText());
+        Assert.assertTrue(locator.firstnameCanSee.isDisplayed());
+        System.out.println("locator.lastnameCanSee.getText() = " + locator.lastnameCanSee.getText());
+        Assert.assertTrue(locator.lastnameCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Birth Date and Phone")
     public void mb_verify_admin_can_see_patient_birth_date_and_phone() {
-
+        System.out.println("locator.birthdateCanSee.getText() = " + locator.birthdateCanSee.getText());
+        Assert.assertTrue(locator.birthdateCanSee.isDisplayed());
+        System.out.println("locator.phoneCanSee.getText() = " + locator.phoneCanSee.getText());
+        Assert.assertTrue(locator.phoneCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Gender and Blood Group")
     public void mb_verify_admin_can_see_patient_gender_and_blood_group() {
-
+        System.out.println("locator.genderCanSee.getText() = " + locator.genderCanSee.getText());
+        Assert.assertTrue(locator.genderCanSee.isDisplayed());
+        System.out.println("locator.bloodCanSee.getText() = " + locator.bloodCanSee.getText());
+        Assert.assertTrue(locator.bloodCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Address and Description")
     public void mb_verify_admin_can_see_patient_address_and_description() {
-
+        System.out.println("locator.addressCanSee.getText() = " + locator.addressCanSee.getText());
+        Assert.assertTrue(locator.addressCanSee.isDisplayed());
+        System.out.println("locator.descriptionCanSee.getText() = " + locator.descriptionCanSee.getText());
+        Assert.assertTrue(locator.descriptionCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Created Date and User")
     public void mb_verify_admin_can_see_patient_created_date_and_user() {
-
+        System.out.println("locator.createdateCanSee.getText() = " + locator.createdateCanSee.getText());
+        Assert.assertTrue(locator.createdateCanSee.isDisplayed());
+        System.out.println("locator.userCanSee.getText() = " + locator.userCanSee.getText());
+        Assert.assertTrue(locator.userCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Country and State\\/City")
     public void mb_verify_admin_can_see_patient_country_and_state_city() {
-
+        /////country and state ??????
+//        System.out.println("locator.countryCanSee.getText() = " + locator.countryCanSee.getText());
+//        Assert.assertTrue(locator.countryCanSee.isDisplayed());
+//        System.out.println("locator.stateCanSee.getText() = " + locator.stateCanSee.getText());
+//        Assert.assertTrue(locator.stateCanSee.isDisplayed());
     }
 ////// TC01503
     @Given("mb Enter First Name and Last Name {string}")
@@ -170,7 +193,7 @@ public class US015 {
 
     @Given("mb Select an available following day and time \\(mm\\/dd\\/yyyy, hh:mm am\\/pm)")
     public void mb_select_an_available_following_day_and_time_mm_dd_yyyy_hh_mm_am_pm() {
-
+        locator.pat
     }
 
     @Given("mb Enter Email from and Phone number {string}")
