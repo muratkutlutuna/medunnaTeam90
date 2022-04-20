@@ -76,3 +76,40 @@ Feature: US002 : Registration should be successful using email and username and 
   |SSN|firstname|  lastname|  username|  password|
   |323-54-3235| rana100  |  kurt100   |kurtt100 |kurtt100|
 
+      @Api @ApiRana
+Scenario Outline: TC00205 Verify email using Api by activated account
+
+      Given RT User sets the path params for account information
+      And RT User enters expected data for account information
+      And RT User sends request and receives response for account information with "<username>","<password>"
+      Then RT User verify Api "<email>" records
+
+  Examples: Account credentials
+
+  |username| password| email|
+  |usercemile|UserCemile123!|usercemile@gmail.com|
+
+  @Api @ApiRana
+  Scenario Outline: TC00206 Verify email using Api by non-activated account
+
+    Given RT User sets the path params for account information
+    And RT User enters expected data for account information
+    And RT User sends request and receives response for account information with "<username>","<password>"
+    Then RT User verify Api email records is null
+
+    Examples: Account credentials
+
+      |username| password|
+      |kurt890|kurt890|
+
+  @Db @RanaDb
+  Scenario Outline: TC00207 Validate registrant email with DB
+
+    Given RT user creates a connection with db
+    And RT user sends the query to db and gets the user data with login "<login>"
+    Then RT validates db registrant data  "<email>"
+
+    Examples: test data
+
+    |email| login|
+    |kurt89@hotmail.com| kurt890|

@@ -1,10 +1,14 @@
 package utilities;
 
+import pojos.AppointmentAdminStaff;
 import pojos.Registrant;
+import pojos.Appointment;
+import pojos.Room;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 public class WriteToTxt {
@@ -40,6 +44,63 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+
+
+    public static void saveRoomData(Room room){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("roomFile"), true);
+            //src/resource/feature/testdata/RoomData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(room.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void saveAppointmentData(Appointment appointment){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
+            //src/resource/feature/testdata/PatientData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(appointment.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveAppointmentData(AppointmentAdminStaff appointment){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
+            //src/resource/feature/testdata/PatientData
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(appointment.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public static void saveRegistrantDataDB(Map registrantMap){
 
         try {
@@ -57,6 +118,28 @@ public class WriteToTxt {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void saveAppointmentDataBase(List<Object> DateIds){
+
+        try{
+
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentDataBase"), true);
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            for (Object eachDate: DateIds)
+            writer.append(eachDate+"\n");
+
+
+            writer.close();
+
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
     }
 
     /*

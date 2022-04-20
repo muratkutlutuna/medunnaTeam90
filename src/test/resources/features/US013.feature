@@ -1,6 +1,5 @@
 @run
-Feature:US013  My Appointments/Edit/Test Results by Physician (Doctor))
-
+  Feature:US013  My Appointments/Edit/Test Results by Physician (Doctor))
 
   Scenario Outline:TC01301 After test results request and staff updates for test results,
           doctor can see all test information such as; id,name(Urea, Sodium, Glucose etc..),
@@ -19,10 +18,10 @@ Feature:US013  My Appointments/Edit/Test Results by Physician (Doctor))
   And  AY Click on Show tests
   And  AY Click on View results
   And AY Click on Edit tests Staff updates and click on Save
-  And AY Click on account menu
+  And  AY Click on account menu
   Then  AY Click Sign out
   And  AY Click on human figure
-  And  AY Click on Sign in
+  Then AY Click on Sign in
   And AY Click on "<Username>" input box and enter valid username
   And AY Click on "<Password>" input box and enter valid password
   Then AY Click on Sign in buton

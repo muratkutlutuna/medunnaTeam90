@@ -1,7 +1,7 @@
 
 Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
 
-
+  @SmokeTest
   Scenario Outline: TC01201 Doctor may request a test
 
   Given AY Navigate to url
@@ -9,7 +9,7 @@ Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
   Then AY Click on Sign in
   And AY Click on "<Username>" input box and enter valid Username
   And AY Click on "<Password>"  input box and enter valid Password
-  Then AY Click on Sign in buton
+  Then AY Click on Sign in button
   And AY Click on My page
   And AY Click on My appointements
   And AY Select the patient and click on Edit
@@ -32,7 +32,7 @@ Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
     Then AY Click on Sign in
     And AY Click on "<Username>" input box and enter valid Username
     And AY Click on "<Password>"  input box and enter valid Password
-    And AY Click on Sign in buton
+    And AY Click on Sign in button
     And AY Click on My page
     And AY Click on My appointements
     And AY Select the patient and click on Edit

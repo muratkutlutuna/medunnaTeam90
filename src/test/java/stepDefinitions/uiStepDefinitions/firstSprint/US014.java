@@ -59,9 +59,9 @@ public class US014 {
     Driver.wait(3);
     }
     @Given("FY Doctor sees all inpatients informations")
-    public void fy_doctor_sees_all_inpatients_informations() {
+    public void fy_doctor_sees_all_inpatients_informations() throws InterruptedException {
 
-        Driver.wait(5);
+        Thread.sleep(2000);
         Assert.assertTrue(fP.inPatientsID.isDisplayed());
         Assert.assertTrue(fP.inPatientsStartDate.isDisplayed());
         Assert.assertTrue(fP.inPatientsEndDate.isDisplayed());
@@ -79,7 +79,7 @@ public class US014 {
     @And("FY Doctor clicks on edit button in inpatient page")
     public void fyDoctorClicksOnEditButtonInInpatientPage() {
         Driver.waitAndClick(fP.inPatientsEditButton,3);
-        Driver.wait(3);
+        Driver.wait(5);
     }
 
     @And("FY Doctor validate he is in inpatient create or edit page")
@@ -147,10 +147,14 @@ public class US014 {
     }
 
     @And("FY Doctor changes fromDate and toDate to see his inpatients")
-    public void fyDoctorChangesFromDateAndToDateToSeeHisInpatients() {
-        fP.inPatientsFromDate.clear();
-        Driver.waitAndSendText(fP.inPatientsFromDate,"31032022");
+    public void fyDoctorChangesFromDateAndToDateToSeeHisInpatients() throws InterruptedException {
         fP.inPatientstoDate.clear();
         Driver.waitAndSendText(fP.inPatientstoDate,"12042022");
+        Driver.wait(2);
+        fP.inPatientsFromDate.clear();
+        Driver.waitAndSendText(fP.inPatientsFromDate,"31032022");
+
+
+        Thread.sleep(5000);
     }
 }
