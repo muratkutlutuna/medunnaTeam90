@@ -125,8 +125,10 @@ public class MehlikaPage extends BasePage {
             public WebElement newPatientSaveButton;
     @FindBy(id = "app-view-container")
     public WebElement newPatientSavedToast;           // successful message\
-    //tbody/tr/td[1]//a
-    @FindBy(xpath = "//tbody/tr/td[1]//a")
+    @FindBy(xpath = "//span[text()='Created Date']")
+    public WebElement createdDateColumnTitle;
+
+    @FindBy(xpath = "//tbody//tr[1]/td[1]/a")
     public WebElement firstPatient;
     @FindBy(xpath = "//tbody/tr/td//span[text()='View']")
     public WebElement viewPatient;
@@ -157,6 +159,11 @@ public class MehlikaPage extends BasePage {
             @FindBy(xpath = "//dd[13]")
             public WebElement stateCanSee;
 
+    @FindBy(xpath = "//tbody/tr[1]//td[16]/div/a[3]")
+    public WebElement deletePatientButton;
+    @FindBy(xpath = "//button/span[text()='Delete']")
+    public WebElement deleteButtonFromAlert;
+
         @FindBy(xpath = "//span[text()='Staff']")
         public WebElement itemsTitlesStaff;
             @FindBy(id = "jh-create-entity")
@@ -186,6 +193,8 @@ public class MehlikaPage extends BasePage {
             public WebElement createStateStateCityInput;
             @FindBy(xpath = "//span[text()='Save']")
             public WebElement createStateSaveButton;
+    @FindBy(xpath = "//tbody/tr[1]/td[14]/a")
+    public WebElement verifyCountryUSA;
 
 
 }
