@@ -19,7 +19,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
 
     Examples:
     |mbAdminUsername|mbAdminPassword|firstname|lastname|birthdate|email               |phone       |    address             |description    |
-    |Team90Admin    |Batch44+       |Mehlika  |Patient |01/01/2001|mehlikapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Mehlika Patient|
+    |Team90Admin    |Batch44+       |Melisa  |Patient |01/01/2001|melisapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Melisa Patient|
 
   @TC01502
   Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
@@ -63,12 +63,12 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     |mbptfirstname|mbptlastname|mbptemail          |mbptphone               |mbptaddress             |mbptdescription|
     |Mehlika      |Patient     |mehlikapt@gmail.com|100-200-1501            |1232 Sandia ave. Fremont|Patient Mehlika|
 
-    Scenario: TC01504 - State should be provided country as US and cannot be blank
+    Scenario: TC01504 - State should be provided country as USA and cannot be blank
 
       Given mb Click Items&Titles button and select Patient from dropdown box
       And mb Click Created Date and click first patient's ID number
       And mb Select first id and click Edit button under the informations
-      Then mb Verify Country is selected  US
+      Then mb Verify Country is selected  USA
       Then mb Verify Country data is not blank
 
     Scenario:  TC01505 - Admin can delete any patient

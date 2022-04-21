@@ -42,7 +42,6 @@ public class US015 {
     @Then("mb Click Items&Titles button and Patient from dropdown box")
     public void mb_click_items_titles_button_and_patient_from_dropdown_box() {
         Driver.waitAndClick(locator.itemsTitlesMenuButton,2);
-        Driver.wait(1);
         Driver.waitAndClick(locator.itemsTitlesPatient,1);
         Driver.wait(1);
     }
@@ -54,60 +53,39 @@ public class US015 {
 
     @And("mb Fill in these informations {string},{string},{string},{string},{string}")
     public void mb_fill_in_these_informations(String firstname, String lastname, String birthdate, String email, String phone) {
+
+        locator.newPatientFirstNameInput.sendKeys(firstname);
+        locator.newPatientLastNameInput.sendKeys(lastname);
+        locator.newPatientBirthDateInput.sendKeys(birthdate);
         Driver.wait(1);
-        locator.newPatientFirstNameInput.click();
-            locator.newPatientFirstNameInput.sendKeys(firstname);
-        locator.newPatientLastNameInput.click();
-            locator.newPatientLastNameInput.sendKeys(lastname);
-        locator.newPatientBirthDateInput.click();
-            locator.newPatientBirthDateInput.sendKeys(birthdate);    // ???"01,01,2001"
-        locator.newUserEmailInput.click();
-            locator.newUserEmailInput.sendKeys(email);
-        locator.newPatientPhoneInput.click();
-            locator.newPatientPhoneInput.sendKeys(phone+Keys.TAB);
-        Driver.wait(2);
-
+        locator.newUserEmailInput.sendKeys(email);
+        locator.newPatientPhoneInput.sendKeys(phone);
+        Driver.wait(1);
+        Select selectGender=new Select(locator.newPatientGenderSelect);
+        selectGender.selectByVisibleText("FEMALE");
+        Select selectBlood=new Select(locator.newPatientBloodSelect);
+        selectBlood.selectByVisibleText("B+");
+        Driver.wait(1);
     }
-
 
     @Given("mb Fill in these informations {string},{string}")
     public void mb_fill_in_these_informations(String address, String description) {
-        locator.newPatientAddressInput.click();
         locator.newPatientAddressInput.sendKeys(address);
+        locator.newPatientDescriptionTextarea.sendKeys(description);
         Driver.wait(1);
-        locator.newPatientDescriptionTextarea.click();
-        locator.newPatientDescriptionTextarea.sendKeys(description+Keys.TAB+Keys.TAB);
-        Driver.wait(1);
-                //add country and state
-                locator.itemsTitlesMenuButton.click();
-                locator.itemsTitlesCountry.click();
-        locator.newPatientCountrySelect.click();
-        locator.createCountryNameInput.sendKeys("USA");
-        action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
-                sendKeys(Keys.TAB).sendKeys(Keys.ENTER);
-        locator.itemsTitlesMenuButton.click();
-        Select itemsTitles=new Select(locator.itemsTitlesMenuButton);
-        itemsTitles.selectByVisibleText("State/City");
-        Driver.wait(2);
-            locator.createANewStateButton.click();
-            locator.createStateNameInput.sendKeys("California");
-            locator.createStateStateCityInput.sendKeys("USA");
-            locator.createStateSaveButton.click();
-
         Select selectCountry=new Select(locator.newPatientCountrySelect);
         selectCountry.selectByVisibleText("USA");
-        locator.newPatientStateSelect.click();
         Select selectState=new Select(locator.newPatientStateSelect);
         selectState.selectByVisibleText("California");
         System.out.println("Islem tamam");
+        Driver.wait(1);
         locator.newPatientSaveButton.click();
         // internal error
     }
 
     @Then("mb Verify the new user created successfully Toast Container")
     public void mb_verify_the_new_user_created_successfully_toast_container() {
-        //Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
+        Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
     }
     @Then("mb Verify new patient was created by admin")
     public void mb_verify_new_patient_was_created_by_admin() {
@@ -193,7 +171,7 @@ public class US015 {
 
     @Given("mb Select an available following day and time \\(mm\\/dd\\/yyyy, hh:mm am\\/pm)")
     public void mb_select_an_available_following_day_and_time_mm_dd_yyyy_hh_mm_am_pm() {
-        locator.pat
+
     }
 
     @Given("mb Enter Email from and Phone number {string}")
@@ -314,3 +292,22 @@ public class US015 {
 
     }
 }
+
+
+//add country and state
+//locator.itemsTitlesMenuButton.click();
+//locator.itemsTitlesCountry.click();
+//locator.newPatientCountrySelect.click();
+//Driver.wait(1);
+//locator.createCountryNameInput.sendKeys("USA");
+//action.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
+//        sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).
+//        sendKeys(Keys.TAB).sendKeys(Keys.ENTER);
+//locator.itemsTitlesMenuButton.click();
+//Select itemsTitles=new Select(locator.itemsTitlesMenuButton);
+//itemsTitles.selectByVisibleText("State/City");
+//Driver.wait(2);
+//    locator.createANewStateButton.click();
+//    locator.createStateNameInput.sendKeys("California");
+//    locator.createStateStateCityInput.sendKeys("USA");
+//    locator.createStateSaveButton.click();

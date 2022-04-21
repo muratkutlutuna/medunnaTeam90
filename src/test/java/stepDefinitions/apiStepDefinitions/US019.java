@@ -35,7 +35,7 @@ public class US019 {
                     build();
 
             specMed.pathParams("param1","api","param2","staff","param3","43600");
-            Staff expectedStaff=new Staff("Melinda","Staff","01/01/2001","100-200-3000","Male","A+","1232 Sandia ave. Fremont","melindapt@gmail.com","Melinda Patient");
+            Staff expectedStaff=new Staff("Melinda","Staff","2000-04-01T08:00:00Z","100-200-3000","FEMALE","Apositive","1232 Sandia ave Sunnyvale","Melinda Staff");
 
             Response response=given().contentType(ContentType.JSON)
                     .spec(specMed)
@@ -49,6 +49,13 @@ public class US019 {
             System.out.println("actualStaff = " + actualStaff);
 
             Assert.assertEquals(expectedStaff.getFirstName(),actualStaff.getFirstName());
+            Assert.assertEquals(expectedStaff.getLastName(),actualStaff.getLastName());
+            Assert.assertEquals(expectedStaff.getBirthDate(),actualStaff.getBirthDate());
+            Assert.assertEquals(expectedStaff.getAdress(),actualStaff.getAdress());
+            // Assert.assertEquals(expectedStaff.getEmail(),actualStaff.getEmail());
+            Assert.assertEquals(expectedStaff.getBloodGroup(),actualStaff.getBloodGroup());
+            Assert.assertEquals(expectedStaff.getGender(),actualStaff.getGender());
+            Assert.assertEquals(expectedStaff.getDescription(),actualStaff.getDescription());
         }
     }
 

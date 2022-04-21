@@ -18,7 +18,7 @@ public class Staff {
         private String gender;
         private String bloodGroup;
         private String adress;
-        private String email;
+        // private String email;
         private String description;
 
     }

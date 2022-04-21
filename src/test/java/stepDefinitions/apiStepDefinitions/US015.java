@@ -21,7 +21,7 @@ public class US015 {
                     setBaseUri("https://www.medunna.com").
                     build();
 
-            specMed.pathParams("param1","api","param2","patient","param3","1051"); //50654
+            specMed.pathParams("param1","api","param2","patients","param3","1051"); //50654
             Patient expectedPatient=new Patient("","",
                                 1051,"Melinda","Patient","01/01/2001","100-200-3000","Male","A+","1232 Sandia ave. Fremont","melindapt@gmail.com","Melinda Patient");
 
