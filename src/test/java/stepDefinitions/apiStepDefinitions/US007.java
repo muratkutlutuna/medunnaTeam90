@@ -11,7 +11,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.Appointment;
-import pojos.AppointmentAdminStaff;
 import pojos.AppointmentRequest;
 import utilities.ConfigurationReader;
 
@@ -99,7 +98,7 @@ public class US007 {
                 .post("/{1}/{2}/{3}");
     }
     @Then("AG user save API data to file")
-    public void ag_user_save_apı_data_to_file() {
+    public void ag_user_save_api_data_to_file() {
         try {
             response.then().statusCode(201);
             saveAppointmentData(appointmentCreate);
@@ -110,7 +109,7 @@ public class US007 {
 
     }
     @Then("AG user verify  API data")
-    public void ag_user_verify_apı_data() throws JsonProcessingException {
+    public void ag_user_verify_api_data() throws JsonProcessingException {
         response.prettyPrint();
         response.then().statusCode(201);
         ObjectMapper obj = new ObjectMapper();
