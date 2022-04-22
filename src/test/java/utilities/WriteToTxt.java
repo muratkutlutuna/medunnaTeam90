@@ -1,13 +1,9 @@
 package utilities;
 
-import pojos.AppointmentAdminStaff;
-import pojos.Registrant;
-import pojos.Appointment;
-import pojos.Room;
+import pojos.*;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -267,4 +263,72 @@ public class WriteToTxt {
 
      */
 
+     public static void savePhysicianIds(String fileName, List<Object> id){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,false));
+
+            for (int i=0; i< id.size(); i++)
+                writer.append(id.get(i).toString()+",\n");
+
+            writer.close();
+        } catch (IOException e){
+        }
+    }
+
+        public static void savePhysicianName(String fileName, List<Object> id){
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,false));
+
+            for (int i=0; i< id.size(); i++)
+                writer.append(id.get(i).toString()+",\n");
+
+            writer.close();
+        } catch (IOException e){
+        }
+    }
+    public static List<Object> returnPhysicianIDsList(String filePath){
+        List<Object>all = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            System.out.println(line);
+            int i = 0;
+            while (line != null) {
+                Physician physician = new Physician();
+                physician.setId(Integer.parseInt(line.split(",")[0]));
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+
+//                System.out.println(i++);
+
+                all.add(physician.getId());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return all;
+    }
+
+        public static List<Object> returnPhysicianNameList(String filePath){
+        List<Object>all = new ArrayList<>();
+        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+            StringBuilder sb = new StringBuilder();
+            String line = br.readLine();
+            System.out.println(line);
+            int i = 0;
+            while (line != null) {
+                Physician physician = new Physician();
+                physician.setId(Integer.parseInt(line.split(",")[0]));
+                sb.append(System.lineSeparator());
+                line = br.readLine();
+
+//                System.out.println(i++);
+
+                all.add(physician.getId());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return all;
+    }
 }
