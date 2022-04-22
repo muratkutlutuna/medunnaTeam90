@@ -36,8 +36,10 @@ public class Hooks {
         if (scenario.isFailed()) {
             final byte[] screenshot=((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png","screenshots");
-            //Driver.getDriver().get("https://www.medunna.com/logout");
+
         }
+
+        //Driver.getDriver().get("https://www.medunna.com/logout");
         Driver.closeDriver();
     }
 }

@@ -5,9 +5,9 @@ Feature: DB Appointment test
 
   @DBAppointmentTest
   Scenario Outline: db validation
-    Given user sends the query to DB and gets the column data "<query>" and "<columnName>"
-    And user saves DB records to correspondent files
-    Then user validates DB Appointment data
+    Given AGuser sends the query to DB and gets the column data "<query>" and "<columnName>"
+    And AGuser saves DB records to correspondent files
+    Then AGuser validates DB Appointment data
 
     Examples: test data
     |query|columnName|
