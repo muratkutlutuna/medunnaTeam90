@@ -161,7 +161,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
             e.printStackTrace();
         }
     }
-    public static void saveAppointmentData(Appointment appointmentCreate){
+    public static void saveAppointmentData(AppointmentRequest appointmentCreate){
 
         try {
             FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
@@ -179,6 +179,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
             e.printStackTrace();
         }
     }
+
     public static void saveRegistrantDataDB(Map registrantMap){
 
         try {
@@ -197,7 +198,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
             e.printStackTrace();
         }
     }
-    /*
+
     
 
     public static void saveAppointmentDataBase(List<Object> DateIds){
@@ -222,7 +223,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
 
     }
 
-  
+  /*
     public static void saveRegistrantData(Registrant registrant){
         try{
             //src/resources/testdata/Registrantdata.txt
