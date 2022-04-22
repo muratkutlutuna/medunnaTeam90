@@ -13,6 +13,7 @@ import org.codehaus.jackson.map.util.JSONPObject;
 import org.junit.Assert;
 import pojos.Messages;
 import org.json.JSONObject;
+import utilities.WriteToTxt;
 
 import static hooks.Hooks.spec;
 import static io.restassured.RestAssured.given;
@@ -81,7 +82,12 @@ public class US027 {
     @Then("FY Admin save all GET API information for message")
     public void fyAdminSaveAllGETAPIInformationForMessage() {
         response.then().statusCode(200);
+        Messages actualData=response.as(Messages.class);
+        System.out.println("actualData = " + actualData);
+        WriteToTxt.saveMessagesData(actualData);
     }
+
+
 
     @And("FY Admin sends GET request and receives response for message")
     public void fyAdminSendsGETRequestAndReceivesResponseForMessage() throws JsonProcessingException {

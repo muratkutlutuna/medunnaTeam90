@@ -1,5 +1,0 @@
-Messages(id=null, email=orhanbaba@medunna.com, message=Bitsin bu hasret, name=Orhan Baba, subject=arabesk), 
-Messages(id=null, email=orhanbaba@medunna.com, message=Bitsin bu hasret, name=Orhan Baba, subject=arabesk), 
-Messages(id=null, email=orhanbaba@medunna.com, message=Bitsin bu hasret, name=Orhan Baba, subject=arabesk), 
-Messages(id=null, email=orhanbaba@medunna.com, message=Bitsin bu hasret, name=Orhan Baba, subject=arabesk), 
-Messages(id=null, email=alibaba@medunna.com, message=Bitsin, name=Ali Baba, subject=pop), 

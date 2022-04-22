@@ -259,8 +259,9 @@ Feature: US027 Admin should be able to go to messages portal and view all messag
   @US027_TC013
     Scenario:Admin should validate messages with DB
     Given FY Admin connects to the database
-    And FY Admin creates a new message data with these values "'77100','Taner Baba','tbaba@baba.com','baba','databasede mesaj yazdirma'"
-    And FY Admin reads all of the "Messsage" column data from 100 row
+    And FY Admin creates a new message data with these values "'77100',''Taner Baba','tbaba@baba.com','baba','databasede mesaj yazdirma'"
+    And FY Admin reads all of the "message" column data from "cmessage" table
+    And FY Admin reads all of the "select * from cmessage" and "id" and "name" and "email" and "subject" and "message" column data
     Then FY Admin verifies the creation is successfull using DB
 
 

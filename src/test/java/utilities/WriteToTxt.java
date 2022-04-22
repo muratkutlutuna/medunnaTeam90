@@ -61,6 +61,25 @@ public class WriteToTxt {
         }
     }
 
+    public static void saveCountriesData(Country country){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("countryFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(country.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void saveRoomData(Room room){
 

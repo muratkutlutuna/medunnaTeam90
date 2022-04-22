@@ -270,6 +270,34 @@ public class FatihPage extends BasePage {
     @FindBy (xpath = "//*[contains(text(),'A new Country is created with identifier')]")
     public WebElement successfullyCreatedANewCountryText;
 
+    @FindBy (xpath = "(//*[.='State/City'])[1]")
+    public WebElement adminItemsAndTitlesDropdownStateCityButton;
+
+    @FindBy (xpath = "(//*[.='States/Cities'])[1]")
+    public WebElement stateCityPageStatesCitiesText;
+
+    @FindBy (xpath = "//*[.='Create a new State/City']")
+    public WebElement createANewStateCityButton;
+
+    @FindBy (xpath = "(//*[.='Create or edit a State/City'])[4]")
+    public WebElement createOrEditAStateCityText;
+
+    @FindBy (xpath = "//input[@id='c-state-name']")
+    public WebElement createOrEditAStateCityPageNameTextBox;
+
+    @FindBy (xpath = "//select[@id='c-state-state']")
+    public WebElement createOrEditAStateCityDropDownStateCityBox;
+
+    @FindBy (xpath = "//*[.='The United Kingdom'] ")
+    public WebElement aSelectedCountryFromStateCityDropDown;
+
+    @FindBy (xpath = "//button[@id='save-entity']")
+    public WebElement createOrEditAStateCityPageSaveButton;
+
+    @FindBy (xpath = "//*[.='Field translation-not-found[hospitalmsappfrontendApp.CState.country] cannot be empty!']")
+    public WebElement successfullyCreatedANewStateCityText;
+
+
 
 
 
