@@ -23,9 +23,13 @@ public class Patient {
     private String adress;
     private String email;
     private String description;
-    private Country country;
-    private InPatients inPatients;
-    private State cstate;
+    //private Country country;
+    //private InPatients inPatients;
+    //private State cstate;
+
+
+
+
 
 
     //        "patient": {

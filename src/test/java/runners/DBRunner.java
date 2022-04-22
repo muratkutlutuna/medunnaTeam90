@@ -15,7 +15,7 @@ plugin = {
         },
         features = "src/test/resources/features",
         glue = {"stepDefinitions"},
-        tags = "@Db",
+        tags = "@RanaDb",
         dryRun = false
         )
 public class DBRunner {
