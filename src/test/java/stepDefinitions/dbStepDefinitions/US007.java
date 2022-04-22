@@ -3,8 +3,13 @@ package stepDefinitions.dbStepDefinitions;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import pojos.Messages;
+import utilities.ConfigurationReader;
 import utilities.DatabaseUtility;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import static utilities.ReadTxt.getDateIDs;
@@ -12,6 +17,7 @@ import static utilities.WriteToTxt.saveAppointmentDataBase;
 
 
 public class US007 {
+
     List< Object> allDBDates;
     @Given("AGuser creates a connection with DB using {string} and {string} , {string}")
     public void AGuser_creates_a_connection_with_db_using_and(String url, String username, String password) {
@@ -28,6 +34,7 @@ public class US007 {
     }
     @Then("AGuser validates DB Appointment data")
     public void AGuser_validates_db_appointment_data() {
+
         List<String> expectedDateIDs = new ArrayList<>();
         expectedDateIDs.add("2021-12-22 17:00:00");
         expectedDateIDs.add("2021-12-25 00:00:00");
@@ -38,5 +45,7 @@ public class US007 {
 
 
     }
+
+
 
 }

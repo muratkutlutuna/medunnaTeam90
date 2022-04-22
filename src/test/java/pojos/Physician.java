@@ -24,8 +24,8 @@ public class Physician {
     private String description;
     private User user;
     private String speciality;
-    private String country;
-    private String cstate;
+    private Country country;
+    private State cstate;
     private double examFee;
     private String image;
     private String imageContentType;

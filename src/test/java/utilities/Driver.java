@@ -234,6 +234,7 @@ public class Driver {
     public static void executeJScommand(WebElement element, String command) {
         JavascriptExecutor jse = (JavascriptExecutor) Driver.getDriver();
         jse.executeScript(command, element);
+
     }
 
     public static void selectAnItemFromDropdown(WebElement item, String selectableItem) {

@@ -25,6 +25,7 @@ public class US007 {
     static Faker faker = new Faker();
     static Response response;
     static AppointmentRequest appointmentCreate =new AppointmentRequest();
+
     public static void main(String[] args) throws JsonProcessingException {
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
         spec.pathParams("1", "api", "2", "appointments","3","request");
@@ -54,6 +55,7 @@ public class US007 {
         ObjectMapper obj = new ObjectMapper();
         Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
         saveAppointmentData(actualAppointment);
+
         System.out.println("Actual Data: " + actualAppointment);
         Assert.assertEquals(appointmentCreate.getFirstName(),actualAppointment.getPatient().getFirstName());
         Assert.assertEquals(appointmentCreate.getLastName(),actualAppointment.getPatient().getLastName());
@@ -114,6 +116,7 @@ public class US007 {
         ObjectMapper obj = new ObjectMapper();
         Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
         saveAppointmentData(actualAppointment);
+
         System.out.println("Actual Data: " + actualAppointment);
         Assert.assertEquals(appointmentCreate.getFirstName(),actualAppointment.getPatient().getFirstName());
         Assert.assertEquals(appointmentCreate.getLastName(),actualAppointment.getPatient().getLastName());

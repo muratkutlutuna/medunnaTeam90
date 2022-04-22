@@ -14,8 +14,9 @@ public class Appointment {
 
     private String createdBy;
     private String createdDate;
-    private int id;
+    private Integer id;
     private String startDate;
+    private String dateTime;
     private String endDate;
     private String status;
     private String anamnesis;
@@ -26,6 +27,7 @@ public class Appointment {
     private Physician physician;
     private Patient patient;
     private Test []ctests;
+
 
 
 

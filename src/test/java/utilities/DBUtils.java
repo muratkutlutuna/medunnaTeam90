@@ -23,6 +23,10 @@ public class DBUtils {
 //        String username="techprodb_user";
 //        String password="Techpro_@126";;
 
+//        String url = "jdbc:postgresql://medunna.com:5432/medunna_db";
+//        String username="medunnadb_user";
+//        String password="Medunnadb_@129";
+
         String url= ConfigurationReader.getProperty("db_credentials_url");
         String username= ConfigurationReader.getProperty("db_username");
         String password= ConfigurationReader.getProperty("db_password");
