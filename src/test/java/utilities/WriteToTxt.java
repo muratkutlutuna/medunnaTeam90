@@ -1,5 +1,6 @@
 package utilities;
 
+
 import pojos.*;
 
 import java.io.BufferedWriter;
@@ -100,15 +101,17 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveAppointmentData(Appointment appointment){
+    public static void saveAppointData(Appointment appointment){
+appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
+
 
         try {
             FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
             //src/resource/feature/testdata/PatientData
 
-            BufferedWriter writer = new BufferedWriter(fileWriter);
 
-//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+          //            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
 //                            + registrant.getUsername() + "," + registrant.getEmail() + ","
 //                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
 
@@ -118,6 +121,28 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+      public static void saveAppointmentData(Appointment appointment){
+appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
+
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
+            //src/resource/feature/testdata/PatientData
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+          //            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(appointment.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     public static void saveAppointmentData(AppointmentAdminStaff appointment){
 
         try {
@@ -154,6 +179,8 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    /*
+    
 
     public static void saveAppointmentDataBase(List<Object> DateIds){
 
@@ -177,7 +204,7 @@ public class WriteToTxt {
 
     }
 
-    /*
+  
     public static void saveRegistrantData(Registrant registrant){
         try{
             //src/resources/testdata/Registrantdata.txt
