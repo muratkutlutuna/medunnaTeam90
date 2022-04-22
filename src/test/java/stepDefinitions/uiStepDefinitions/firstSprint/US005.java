@@ -15,7 +15,6 @@ public class US005{
     MehlikaPage mehlikaPage = new MehlikaPage();
     Actions actions=new Actions(Driver.getDriver());
 
-    @Before
     @Given("MB Launch web browser and navigate to the home page")
     public void mb_launch_web_browser_and_navigate_to_the_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
@@ -244,6 +243,6 @@ public class US005{
     public void mbVerifyUserDoesnTUseAndSignNegative() {
         Driver.wait(1);
         Assert.assertFalse(mehlikaPage.emailInputBox.getAttribute("value").contains("@")&&mehlikaPage.emailInputBox.getAttribute("value").contains("."));
-        Driver.closeDriver();
+        //Driver.closeDriver();
     }// ------------------------------------------------
 }
