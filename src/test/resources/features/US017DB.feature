@@ -1,7 +1,7 @@
 @ainaDB
 Feature: database
 
-  Scenario: Validate test item with Data Base
+  Scenario: TC01707 Validate test item with Data Base
 
     Given user connectts to the database
     And user gets the "*" from "c_test_item" table

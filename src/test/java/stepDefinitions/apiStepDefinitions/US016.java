@@ -243,7 +243,7 @@ public class US016 {
 
     @And("AY User set path params for room delete")
     public void ayUserSetPathParamsForRoomDelete() {
-        spec.pathParams("1","api","2","rooms","3","79429");
+        spec.pathParams("1","api","2","rooms","3","78555");
     }
 
 
