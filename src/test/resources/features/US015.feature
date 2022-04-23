@@ -8,16 +8,15 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And mb Click User Name textbox and enter admin user name "<mbAdminUsername>"
     And mb Click Password textbox and enter admin password "<mbAdminPassword>"
     And mb Click Sign In button
-#    Then mb Verify sign in is successfully
     And mb Click Items&Titles button and Patient from dropdown box
     And mb Click Create a new Patient button
     And mb Fill in or select these informations "<firstname>","<lastname>","<birthdate>","<email>","<phone>","<address>","<description>"
-    Then mb Verify the new user created successfully Toast Container
-    Then mb Verify new patient was created by admin
+    Then mb Verify the new patient was created by admin successfully Toast Container
+
 
     Examples:
     |mbAdminUsername|mbAdminPassword|firstname|lastname|birthdate|email               |phone       |    address             |description    |
-    |Team90Admin    |Batch44+       |Melissa  |Pattient |01/01/2001|melissapt@gmail.com|100-200-1501|1232 Sandia ave. Fremont|Melisa Patient|
+    |Team90Admin    |Batch44+       |Mehlikapt  |Patient |01/01/2001|mehlikaptt@hotmail.com|100-200-3000|1232 Sandia ave. Fremont|Mehlikapt Patient|
 
   @TC01502
   Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
@@ -42,9 +41,13 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
       |Team90Admin    |Batch44+       |
 
   @TC01503
-  Scenario: TC01503 - When creating or updating patient data, you have above items and following new item;  id.
+  Scenario Outline: TC01503 - When creating or updating patient data, you have above items and following new item;  id.
                               Also Only admin can assign patient their doctor.
-
+    Given mb Launch web browser and navigate to the home page
+    And mb Click Account Menu dropbox sign and click Sign In Text
+    And mb Click User Name textbox and enter admin user name "<mbAdminUsername>"
+    And mb Click Password textbox and enter admin password "<mbAdminPassword>"
+    And mb Click Sign In button
     Given Click Items&Titles and click Patients
     And Click Created Date and click first patient's ID number which is new created patient
     Then Verify it has correct id number and same First Name with new created patient.
@@ -53,6 +56,10 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And Click Items&Titles and click Patients
     And Click Created Date and click first patient's ID number
     Then Verify ID is correct
+
+    Examples: Test Data
+      |mbAdminUsername|mbAdminPassword|
+      |Team90Admin    |Batch44+       |
 
 
     Scenario Outline: TC01504 - State should be provided country as USA and cannot be blank
@@ -80,7 +87,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
       Given mb Click Items&Titles button and select Patient from dropdown box
       And mb Click Created Date and click first patient's ID number which is new created patient
       And mb Click Delete button and click Delete button on the alert
-      Then mb Verify if you get a successful registration message
+      Then mb Verify if you get a successful deleted message
       And mb Report this bug
     Examples: Test Data
       |mbAdminUsername|mbAdminPassword|
