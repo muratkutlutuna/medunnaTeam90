@@ -1,7 +1,7 @@
 @ainaDB
 Feature: database
 
-  Scenario: Validate room with Data Base
+  Scenario: TC_01607 Validate room with Data Base
 
     Given user connectts to the database
     And user gets the "*" from "room" table

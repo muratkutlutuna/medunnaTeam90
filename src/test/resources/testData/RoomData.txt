@@ -1,0 +1,1 @@
+Room Room(createdBy=team90admin, createdDate=2022-04-16T15:27:37.657228Z, id=35703, roomNumber=15629, roomType=DELUXE, status=true, price=500.0, description=without TV)
