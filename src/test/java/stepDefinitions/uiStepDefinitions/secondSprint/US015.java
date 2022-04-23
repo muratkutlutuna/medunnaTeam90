@@ -6,35 +6,46 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.MehlikaPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
 
+import javax.lang.model.SourceVersion;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class US015 {
-    MehlikaPage locator=new MehlikaPage();
-    Actions action=new Actions(Driver.getDriver());
+    MehlikaPage locator = new MehlikaPage();
+    Actions action = new Actions(Driver.getDriver());
+    static String idKeeper;
 
     @Given("mb Launch web browser and navigate to the home page")
     public void mb_launch_web_browser_and_navigate_to_the_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
     }
+
     @Given("mb Click Account Menu dropbox sign and click Sign In Text")
     public void mb_click_account_menu_dropbox_sign_and_click_sign_in_text() {
-        Driver.waitAndClick(locator.accountMenu,1);
+        Driver.waitAndClick(locator.accountMenu, 1);
         Driver.wait(1);
         locator.signInButton.click();
         Driver.wait(1);
     }
+
     @Given("mb Click User Name textbox and enter admin user name {string}")
     public void mb_click_user_name_textbox_and_enter_admin_user_name(String adminUsername) {
         locator.signInUsername.sendKeys(adminUsername);
     }
+
     @Given("mb Click Password textbox and enter admin password {string}")
     public void mb_click_password_textbox_and_enter_admin_password(String adminPassword) {
         locator.signInPassword.sendKeys(adminPassword);
     }
+
     @Given("mb Click Sign In button")
     public void mb_click_sign_in_button() {
         Driver.wait(1);
@@ -43,10 +54,11 @@ public class US015 {
 
     @Then("mb Click Items&Titles button and Patient from dropdown box")
     public void mb_click_items_titles_button_and_patient_from_dropdown_box() {
-        Driver.waitAndClick(locator.itemsTitlesMenuButton,2);
-        Driver.waitAndClick(locator.itemsTitlesPatient,1);
+        Driver.waitAndClick(locator.itemsTitlesMenuButton, 2);
+        Driver.waitAndClick(locator.itemsTitlesPatient, 1);
         Driver.wait(1);
     }
+
     @Then("mb Click Create a new Patient button")
     public void mb_click_create_a_new_patient_button() {
         locator.patientCreateANewPatient.click();
@@ -63,38 +75,52 @@ public class US015 {
         locator.newUserEmailInput.sendKeys(email);
         locator.newPatientPhoneInput.sendKeys(phone);
         Driver.wait(1);
-        Select selectGender=new Select(locator.newPatientGenderSelect);
+        Select selectGender = new Select(locator.newPatientGenderSelect);
         selectGender.selectByVisibleText("FEMALE");
-        Select selectBlood=new Select(locator.newPatientBloodSelect);
+        Select selectBlood = new Select(locator.newPatientBloodSelect);
         selectBlood.selectByVisibleText("B+");
         Driver.wait(1);
         locator.newPatientAddressInput.sendKeys(address);
         locator.newPatientDescriptionTextarea.sendKeys(description);
         Driver.wait(1);
-        Select selectCountry=new Select(locator.newPatientCountrySelect);
+        Select selectCountry = new Select(locator.newPatientCountrySelect);
         selectCountry.selectByVisibleText("USA");
-        Select selectState=new Select(locator.newPatientStateSelect);
+        Select selectState = new Select(locator.newPatientStateSelect);
         Driver.wait(1);
         selectState.selectByVisibleText("California");
         Driver.wait(1);
-        System.out.println("Islem tamam");
-        Driver.wait(1);
         locator.newPatientSaveButton.click();
+        Driver.wait(1);
+    }
+
+    @Then("mb Verify the new patient was created by admin successfully Toast Container")
+    public void mb_verify_the_new_patient_was_created_by_admin_successfully_toast_container() {
+        Driver.wait(1);
+        System.out.println("toast " + locator.createdToastContainer.getText());
+        List<String> createdToastList= Arrays.asList(locator.createdToastContainer.getText().split("\\s"));
+        idKeeper= createdToastList.get(7);
+        System.out.println("idkeeper = " + idKeeper);
+        System.out.println("list sonu id"+ createdToastList.get(7));
+        Assert.assertTrue(locator.createdToastContainer.getText().contains("created"));
+        Driver.wait(1);
+
+        //--------------
+//        System.out.println("toast " + locator.deletedToastContainer.getText());
+//        List<String> deletedToastList= Arrays.asList(locator.deletedToastContainer.getText().split("\\s"));
+//        System.out.println("deletedToastList = " + deletedToastList);
+//
+//        System.out.println("list sonu id"+ deletedToastList.get(7));
+//        System.out.println("idkeeper  "+idKeeper);
+//        Assert.assertTrue(locator.deletedToastContainer.getText().contains("deleted"));
+//        Driver.wait(1);
 
     }
 
-    @Then("mb Verify the new user created successfully Toast Container")
-    public void mb_verify_the_new_user_created_successfully_toast_container() {
-        Assert.assertTrue(locator.newPatientSavedToast.getText().contains("saved"));
-    }
-    @Then("mb Verify new patient was created by admin")
-    public void mb_verify_new_patient_was_created_by_admin() {
-
-    }
-////////// TC01502
+    ////////// TC01502
     @Given("mb Click Items&Titles button and select Patient from dropdown box")
     public void mb_click_items_titles_button_and_select_patient_from_dropdown_box() {
-        Driver.waitAndClick(locator.itemsTitlesMenuButton,2);
+        Driver.wait(1);
+        Driver.clickWithJS(locator.itemsTitlesMenuButton);
         Driver.wait(1);
         locator.itemsTitlesPatient.click();
         Driver.wait(1);
@@ -102,9 +128,8 @@ public class US015 {
 
     @Given("mb Select id of any patient and click")
     public void mb_select_id_of_any_patient_and_click() {
-        Driver.wait(2);
-        action.moveToElement(locator.viewPatient);
-        locator.viewPatient.click();
+        Driver.wait(1);
+        click_created_date_and_click_first_patient_s_id_number();
         Driver.wait(1);
     }
 
@@ -156,54 +181,78 @@ public class US015 {
 
     @Then("mb Verify admin can see patient Country and State City")
     public void mb_verify_admin_can_see_patient_country_and_state_city() {
-        /////country and state ??????
-//        System.out.println("locator.countryCanSee.getText() = " + locator.countryCanSee.getText());
-//        Assert.assertTrue(locator.countryCanSee.isDisplayed());
-//        System.out.println("locator.stateCanSee.getText() = " + locator.stateCanSee.getText());
-//        Assert.assertTrue(locator.stateCanSee.isDisplayed());
+        System.out.println("locator.countryCanSee.getText() = " + locator.countryCanSee.getText());
+        Assert.assertTrue(locator.countryCanSee.isDisplayed());
+        System.out.println("locator.stateCanSee.getText() = " + locator.stateCanSee.getText());
+        Assert.assertTrue(locator.stateCanSee.isDisplayed());
     }
 ////// TC01503
 
     @Given("Click Created Date and click first patient's ID number which is new created patient")
     public void click_created_date_and_click_first_patient_s_id_number_which_is_new_created_patient() {
+        Driver.waitAndClick(locator.createdDateColumnTitle,1);
+        Driver.wait(1);
+        System.out.println(locator.firstPatient.getText());
+        Driver.wait(1);
 
     }
 
     @Then("Verify it has correct id number and same First Name with new created patient.")
     public void verify_it_has_correct_id_number_and_same_first_name_with_new_created_patient() {
 
+        //System.out.println(locator.idCansee.getText());
+        locator.firstPatient.isDisplayed();
+        //System.out.println(locator.firstnameCanSee.getText());
+        //locator.idCansee.isDisplayed();
+        locator.firstNameVerify.isDisplayed();  //???
+        locator.firstPatient.click();
     }
 
     @Then("Click Edit button, Enter a new data to Description and save")
     public void click_edit_button_enter_a_new_data_to_description_and_save() {
-
+        Driver.wait(1);
+        action.moveToElement(locator.forEditButton).perform();
+        Driver.wait(2);
+        //locator.patientEditButton.click();
+        action.click(locator.patientEditButton).perform();
+        Driver.wait(2);
+        locator.newPatientDescriptionTextarea.sendKeys("Yenilendi");
+        Driver.wait(2);
+        Driver.waitAndClick(locator.editPatientSubmitButton,2);
     }
 
     @Then("Verify admin can not assign patient to a doctor. Negative test BUG there is not a Doctor Assign web element")
     public void verify_admin_can_not_assign_patient_to_a_doctor_negative_test_bug_there_is_not_a_doctor_assign_web_element() {
-
+        System.out.println("Admin can not assign patient to a doctor. BUG, there is not a Doctor Assign web element, I can not verify");
     }
 
     @Then("Click Items&Titles and click Patients")
     public void click_items_titles_and_click_patients() {
-
+        Driver.waitAndClick(locator.itemsTitlesMenuButton);
+        Driver.wait(1);
+        Driver.waitAndClick(locator.itemsTitlesPatient);
+        Driver.wait(1);
     }
 
     @Then("Click Created Date and click first patient's ID number")
     public void click_created_date_and_click_first_patient_s_id_number() {
-
+        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.wait(1);
+        locator.firstPatient.click();
     }
 
     @Then("Verify ID is correct")
     public void verify_id_is_correct() {
-
+        Assert.assertTrue(locator.idCansee.isEnabled());    //???
     }
-
 
     //TC01504
     @Given("mb Click Created Date and select first id which is new created patient")
     public void mb_click_created_date_and_select_first_id_which_is_new_created_patient() {
-        locator.createdDateColumnTitle.click();
+        action.moveToElement(locator.createdDateColumnTitle);
+        Driver.wait(1);
+        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.wait(1);
         locator.firstPatient.click();
     }
 
@@ -211,79 +260,47 @@ public class US015 {
     public void mb_verify_country_is_selected_usa() {
         action.moveToElement(locator.verifyCountryUSA);
         Driver.wait(1);
-        Assert.assertEquals("USA",locator.verifyCountryUSA);
+        Assert.assertTrue(locator.verifyCountryUSA.getText().contains("USA"));
+        Driver.wait(1);
     }
 
     @Then("mb Verify Country data is not blank")
     public void mb_verify_country_data_is_not_blank() {
         Assert.assertFalse(locator.verifyCountryUSA.getText().isBlank());
+        Driver.wait(2);
     }
 
-
-
-//////TC01505
+    //////TC01505
     @Given("mb Click Created Date and click first patient's ID number which is new created patient")
     public void mb_click_created_date_and_click_first_patients_id_number_which_is_new_created_patient() {
-        locator.createdDateColumnTitle.click();
-        locator.firstPatient.click();
+        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.wait(1);
     }
 
     @Given("mb Click Delete button and click Delete button on the alert")
     public void mb_click_delete_button_and_click_delete_button_on_the_alert() {
         action.moveToElement(locator.deletePatientButton).perform();
-        locator.deletePatientButton.click();
+        Driver.wait(2);
+        Driver.clickWithJS(locator.deletePatientButton);
+        Driver.wait(1);
         locator.deleteButtonFromAlert.click();
+        Driver.wait(2);
     }
 
-    @Then("mb Verify if you get a successful registration message")
-    public void mb_verify_if_you_get_a_successful_registration_message() {
-        Assert.assertTrue(locator.newPatientSavedToast.isDisplayed());
-        if (locator.newPatientSavedToast.getText().contains("success")) {
-            System.out.println("Basarili bir silme islemi yapilmistir.");
-            Assert.assertTrue(locator.newPatientSavedToast.getText().contains("success"));
-        } else if (locator.newUserSavedToast.getText().contains("error")) {
-            System.out.println("Bug bulundu. Silme islemi hata veriyor.");
-            Assert.assertTrue(locator.newUserSavedToast.getText().contains("error"));
-        }
+    @Then("mb Verify if you get a successful deleted message")
+    public void mb_verify_if_you_get_a_successful_deleted_message() {
+        System.out.println("toast " + locator.deletedToastContainer.getText());
+        List<String> deletedToastList= Arrays.asList(locator.deletedToastContainer.getText().split("\\s"));
+        System.out.println("deletedToastList = " + deletedToastList);
+        //System.out.println("list sonu id"+ deletedToastList.get(7));
+        //System.out.println("idkeeper  "+idKeeper);
+        Assert.assertTrue(locator.deletedToastContainer.getText().contains("deleted"));
+        Driver.wait(1);
+
     }
 
     @Then("mb Report this bug")
     public void mb_report_this_bug() {
         // I don/t know how I can report
-    }
-//////  TC01506
-    @Given("User signs in as an Admin")
-    public void user_signs_in_as_an_admin() {
-
-    }
-
-    @Given("User sends the get request for Patient data")
-    public void user_sends_the_get_request_for_patient_data() {
-
-    }
-
-    @Given("User deserializes data to Java for Patient")
-    public void user_deserializes_data_to_java_for_patient() {
-
-    }
-
-    @Given("Set the neccessary path params")
-    public void set_the_neccessary_path_params() {
-
-    }
-
-    @Given("Enter post data for patient")
-    public void enter_post_data_for_patient() {
-
-    }
-
-    @Then("Verify API records")
-    public void verify_api_records() {
-
-    }
-
-    @Then("Verify the fail message")
-    public void verify_the_fail_message() {
-
     }
 }

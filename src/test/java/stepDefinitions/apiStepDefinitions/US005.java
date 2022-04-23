@@ -36,7 +36,7 @@ public class US005  {
     @Test
     public void testMed01() throws JsonProcessingException {
         specMed=new RequestSpecBuilder().
-                setBaseUri("https://www.medunna.com").
+                setBaseUri("https://www.medunna.com/api").
                 build();
 
         specMed.pathParams("param1","api","param2","appointments","param3","50236");

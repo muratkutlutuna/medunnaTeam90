@@ -2,6 +2,8 @@ package stepDefinitions.apiStepDefinitions;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -17,6 +19,7 @@ public class US015 {
 
         @Test
         public void testMed01() throws JsonProcessingException {
+
             specMed=new RequestSpecBuilder().
                     setBaseUri("https://www.medunna.com").
                     build();
@@ -47,4 +50,40 @@ public class US015 {
             Assert.assertEquals(expectedPatient.getDescription(),actualPatient.getDescription());
 
         }
+    //////  TC01506
+    @Given("User signs in as an Admin")
+    public void user_signs_in_as_an_admin() {
+
     }
+
+    @Given("User sends the get request for Patient data")
+    public void user_sends_the_get_request_for_patient_data() {
+
+    }
+
+    @Given("User deserializes data to Java for Patient")
+    public void user_deserializes_data_to_java_for_patient() {
+
+    }
+
+    @Given("Set the neccessary path params")
+    public void set_the_neccessary_path_params() {
+
+    }
+
+    @Given("Enter post data for patient")
+    public void enter_post_data_for_patient() {
+
+    }
+
+    @Then("Verify API records")
+    public void verify_api_records() {
+
+    }
+
+    @Then("Verify the fail message")
+    public void verify_the_fail_message() {
+
+    }
+}
+
