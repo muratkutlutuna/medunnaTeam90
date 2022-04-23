@@ -1,6 +1,8 @@
 
+
 @Api @apiAina
  Feature:  US_017 Validate test items with API
+
 
   Scenario: TC_01705 Validate all test items with API reading(get)
 

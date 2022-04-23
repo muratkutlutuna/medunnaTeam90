@@ -1,5 +1,1 @@
-Room(createdBy=null, createdDate=null, id=null, roomNumber=22356, roomType=TWIN, status=true, price=200.0, description=with TV), 
-Room(createdBy=null, createdDate=null, id=null, roomNumber=86654, roomType=TWIN, status=true, price=200.0, description=with TV), 
-Room(createdBy=null, createdDate=null, id=null, roomNumber=67663, roomType=TWIN, status=true, price=200.0, description=with TV), 
-Room(createdBy=null, createdDate=null, id=null, roomNumber=67663, roomType=TWIN, status=true, price=200.0, description=with TV), 
-Room(createdBy=null, createdDate=null, id=null, roomNumber=67663, roomType=TWIN, status=true, price=200.0, description=with TV), 
+

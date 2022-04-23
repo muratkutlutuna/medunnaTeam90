@@ -28,4 +28,29 @@ public class ArifPage extends BasePage {
 
     @FindBy(xpath = "//*[contains(text(), 'Appointment registration saved!')]")
     public WebElement AppointmentToastContainerMassage;
+
+    @FindBy(xpath = "//*[@href='/contact']")
+    public WebElement ContactButton;
+
+    @FindBy(xpath = "//input[@name='name']")
+    public WebElement ContactNameTextBox;
+
+    @FindBy(xpath = "//input[@name='email']")
+    public WebElement ContactEmailTextBox;
+
+    @FindBy(xpath = "//input[@name='subject']")
+    public WebElement ContactSubjectTextBox;
+
+    @FindBy(xpath = "//textarea[@name='message']")
+    public WebElement ContactMessageTextBox;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement ContactSubmitButton;
+
+    @FindBy(xpath = "//*[@class='Toastify__toast Toastify__toast--success toastify-toast']")
+    public WebElement ContactToastContainerMassage;
+
+
+
+
 }
