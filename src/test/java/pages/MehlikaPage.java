@@ -179,10 +179,14 @@ public class MehlikaPage extends BasePage {
     //@FindBy(xpath ="//div/div/div/a[2]/span/span[text()='Edit']")
     //@FindBy(xpath = "//span[contains(text(),'Edit')]")
     //@FindBy(xpath = "(//*[contains(text(),'Edit')])[1]")
-    @FindBy(xpath = "//a/span/span[text()='Edit']")
+
+    //@FindBy(xpath = "//a/span/span[text()='Edit']")
                                 //  //*[@id=\"app-view-container\"]/div/div/div/div/div/a[2]/svg")    //"//div/div/div/a[2]")
+    @FindBy(xpath = "(//td[text()='mustafatekin'])[1]/../td/div/a[2]")
     public WebElement patientEditButton;
-    @FindBy(xpath = "//h3[text()='Medunna']")
+                                                //(//*[contains(text(),'Edit')])[1]/../..
+    //@FindBy(xpath = "//h3[text()='Medunna']")
+    @FindBy(xpath = "//thead/tr[1]/th[16]")
     public WebElement forEditButton;
     @FindBy(xpath = "//button[@type='submit']")
     public WebElement editPatientSubmitButton;

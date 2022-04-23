@@ -11,7 +11,8 @@ public class US019 {
 
     @Then("mb Click Administration and User Management button")
     public void mb_click_administration_and_user_management_button() {
-        locator.administrationButton.click();
+        Driver.waitAndClick(locator.administrationButton,3);
+        Driver.wait(1);
         locator.userManagementButton.click();
         Driver.wait(1);
     }
@@ -78,6 +79,13 @@ public class US019 {
     // TC01902
     @Given("mb Select Birth Date and Enter Phone number {string}")
     public void mb_select_birth_date_and_enter_phone_number(String string) {
+        Driver.wait(1);
+        Driver.clickWithJS(locator.itemsTitlesMenuButton);
+        Driver.wait(1);
+        locator.itemsTitlesStaff.click();
+        Driver.wait(1);
+        Driver.waitAndSendText(locator.newPatientBirthDateInput,"01/01/2001");
+
 
     }
 
