@@ -16,7 +16,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
 
     Examples:
     |mbAdminUsername|mbAdminPassword|firstname|lastname|birthdate|email               |phone       |    address             |description    |
-    |Team90Admin    |Batch44+       |Mehlikapt  |Patient |01/01/2001|mehlikaptt@hotmail.com|100-200-3000|1232 Sandia ave. Fremont|Mehlikapt Patient|
+    |Team90Admin    |Batch44+       |Mehlikaptaa  |Patientaa |01/01/2001|mehlikapttaa@hotmail.com|100-200-3000|1232 Sandia ave. Fremont|Mehlikapt Patient|
 
   @TC01502
   Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City

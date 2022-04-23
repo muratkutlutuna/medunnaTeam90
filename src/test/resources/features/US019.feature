@@ -7,7 +7,6 @@
       And mb Click User Name textbox and enter admin user name "<mbadminusername>"
       And mb Click Password textbox and enter admin password "<mbadminpassword>"
       And mb Click Sign In button
-
       And mb Click Administration and User Management button
       And mb Click Create a new user button
       And mb Fill in the form "<mbstlogin>","<mbstfirstname>","<mbstlastname>","<mbstemail>","<mbstssn>"
@@ -19,7 +18,7 @@
 
       Examples:
       |mbadminusername|mbadminpassword|mbstlogin   |mbstfirstname|mbstlastname|mbstemail             |mbstssn    |
-      |Team90Admin    |Batch44+       |mehlikastaff|Mehlika      |Staff       |mehlikastaff@gmail.com|100-20-1903|
+      |Team90Admin    |Batch44+       |mehlikastf|Mehlikastf      |Staff       |mehlikastf@gmail.com|100-20-1903|
 
     Scenario Outline: TC01902 - All their information should be populated
       Given mb Launch web browser and navigate to the home page
