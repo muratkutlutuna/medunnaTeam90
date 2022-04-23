@@ -1,6 +1,8 @@
 package utilities;
 
+
 import pojos.*;
+
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -41,6 +43,63 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    public static void saveRoomData(Room roomNumber){
+        try{
+
+            FileWriter fileWriter = new FileWriter("./src/test/resources/testdata/RoomData.txt", false);
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+
+            writer.append("Room "+roomNumber+"\n");
+
+            writer.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+    public static void saveCountriesData(Country country){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("countryFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(country.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveMessagesData(Messages messages){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("messagesFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(messages.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /*
 
     public static void saveMessagesData(Messages messages){
 
@@ -61,24 +120,6 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveCountriesData(Country country){
-
-        try {
-            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("countryFile"), true);
-
-
-            BufferedWriter writer = new BufferedWriter(fileWriter);
-
-//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
-//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
-//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
-
-            writer.append(country.toString() + ", \n");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     public static void saveRoomData(Room room){
@@ -99,6 +140,27 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    */
+    public static void saveTestData(Test test) {
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("testFile"), true);
+            //src/resource/feature/testdata/RoomData
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(test.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void saveAppointData(Appointment appointment){
 appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
@@ -120,6 +182,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
             e.printStackTrace();
         }
     }
+
       public static void saveAppointmentData(Appointment appointment){
 appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
 

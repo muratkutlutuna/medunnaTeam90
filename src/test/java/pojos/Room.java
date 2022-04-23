@@ -1,5 +1,6 @@
 package pojos;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,12 +26,11 @@ public class Room {
     private String createdBy;
     private String createdDate;
     private Integer id;
-    private int roomNumber;
+    private Integer roomNumber;
     private String roomType;
     private Boolean status;
     private Double price;
     private String description;
-
 
 
 }

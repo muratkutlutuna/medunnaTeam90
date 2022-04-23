@@ -1,16 +1,14 @@
+@ainaDB
+Feature: database
 
-Feature: Validate Room with DB
+  Scenario: Validate room with Data Base
 
-  Background: db connection set up
-    Given AY user creates a connection with DB using "jdbc:postgresql://medunna.com:5432/medunna_db" and "medunnadb_user" , "Medunnadb_@129"
+    Given user connectts to the database
+    And user gets the "*" from "room" table
+      # Select * from jhi_user
+    And user read all of the "room-number" column data
+    And verify "room" table "room_number" column contains 5649
+      # And verify "country" table "name column contains "senegal"
+      # And verify "c_test_item" table "name column contains "Potassium"
+    Then close the database connection
 
-  @DBAppointmentTest
-  Scenario Outline: db validation
-
-    Given AY user sends the query to DB and gets the room data "<query>" and "<columnName>"
-    And AY user saves DB records to correspondent files
-    Then AY user validates DB Room data
-
-    Examples: test data
-      |query|columnName|
-      |Select * from Room |room_number|

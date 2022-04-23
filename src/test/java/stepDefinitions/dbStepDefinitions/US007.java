@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pojos.Messages;
 import utilities.ConfigurationReader;
+import utilities.DBUtils;
 import utilities.DatabaseUtility;
 
 import java.io.BufferedWriter;
@@ -21,7 +22,8 @@ public class US007 {
     List< Object> allDBDates;
     @Given("AGuser creates a connection with DB using {string} and {string} , {string}")
     public void AGuser_creates_a_connection_with_db_using_and(String url, String username, String password) {
-        DatabaseUtility.createConnection(url, username,password);
+        DBUtils.createConnection();
+
     }
     @Given("AGuser sends the query to DB and gets the column data {string} and {string}")
     public void AGuser_sends_the_query_to_db_and_gets_the_column_data_and(String query, String columnName) {
