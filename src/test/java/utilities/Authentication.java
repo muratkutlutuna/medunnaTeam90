@@ -10,6 +10,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class Authentication {
+
     public static void main(String[] args) {
         String guncelToken = generateToken("kurt890","kurt890");
         System.out.println(guncelToken);

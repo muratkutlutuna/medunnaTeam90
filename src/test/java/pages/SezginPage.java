@@ -115,5 +115,31 @@ public class SezginPage extends BasePage {
         return satirElementi;
     }
 
+    ////////////////////////////////////////////
+    //US20 LOCATIONS
+    @FindBy (xpath = "//span[text()=\"Administration\"]")
+    public WebElement administrationElement;
+
+    @FindBy (xpath = "//span[text()=\"User management\"]")
+    public WebElement userManagementElement;
+
+    @FindBy (xpath = "(//a[@class=\"btn btn-info btn-sm\"])[1]")
+    public WebElement userViewButton;
+
+    //USER EDIT PAGE
+    @FindBy (xpath = "(//a[@class=\"btn btn-primary btn-sm\"])[1]")
+    public WebElement userEditButton;
+
+    @FindBy (xpath = "//input[@name=\"activated\"]")
+    public WebElement activatedCheckBox;
+
+    @FindBy (xpath = "//select[@id=\"authorities\"]")
+    public WebElement profilesDropdownEl;
+
+    @FindBy (xpath = "//button[@type=\"submit\"]")
+    public WebElement saveUserChangesButton;
+
+
+
 
 }
