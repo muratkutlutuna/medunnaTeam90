@@ -55,7 +55,7 @@ Feature: US_016 Room creation / View / Update / Delete Validate them also with A
               Then AY Click Sign out
 
 
-    Scenario: TC_01606 Rooms can be Deleted by admin
+    Scenario: TC_01609 Rooms can be Deleted by admin
 
               And AY Click on Delete
               And AY Click on Delete in alert window

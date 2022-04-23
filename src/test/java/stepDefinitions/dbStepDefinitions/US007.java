@@ -13,10 +13,10 @@ import static utilities.WriteToTxt.saveAppointmentDataBase;
 
 public class US007 {
 
-    List< Object> allDBDates;
+    List<Object> allDBDates;
     @Given("user creates a connection with DB using {string} and {string} , {string}")
     public void user_creates_a_connection_with_db_using_and(String url, String username, String password) {
-        DatabaseUtility.createConnection(url, username,password);
+        DatabaseUtility.createConnection();
     }
     @Given("user sends the query to DB and gets the column data {string} and {string}")
     public void user_sends_the_query_to_db_and_gets_the_column_data_and(String query, String columnName) {

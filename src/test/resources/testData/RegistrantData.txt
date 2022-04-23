@@ -14,3 +14,4 @@ Registrant(login=null, firstName=Faustino, lastName=Schuster, email=null, passwo
 Registrant(login=MaximoLind, firstName=Maximo, lastName=Lind, email=MaximoLind@yahoo.com, password=744-85-8091Maximo, ssn=744-85-8091), 
 Registrant(login=DanielleMurazik, firstName=Danielle, lastName=Murazik, email=DanielleMurazik@hotmail.com, password=534-03-0220Danielle, ssn=534-03-0220), 
 Registrant(login=MargrettTeam90StoltenbergTeam90Team90, firstName=MargrettTeam90, lastName=StoltenbergTeam90, email=MargrettTeam90StoltenbergTeam90@example.com, password=ke29%SrYTeam90, ssn=623-76-5239), 
+Registrant(login=VickeyBreitenberg, firstName=Vickey, lastName=Breitenberg, email=VickeyBreitenberg@yahoo.com, password=233-10-7641Vickey, ssn=233-10-7641), 
