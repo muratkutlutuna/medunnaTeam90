@@ -10,7 +10,7 @@ Feature: registration data test
     Then kullanici email girer "<email>"
     And kullanici password girer "<password>"
     And kullanicinin kayit yaptigini dogrula
-    Then kayit olan kullanicinin datalarini kaydet
+    Then  kayit olan kullanicinin datalarini kaydet
 
     Examples: test data
     |SSN|firstname|lastname|username|email|password|

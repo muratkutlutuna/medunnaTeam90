@@ -1,9 +1,12 @@
 package utilities;
 
+
 import pojos.*;
 
-import java.io.*;
-import java.util.ArrayList;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -40,6 +43,63 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    public static void saveRoomData(Room roomNumber){
+        try{
+
+            FileWriter fileWriter = new FileWriter("./src/test/resources/testdata/RoomData.txt", false);
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+
+            writer.append("Room "+roomNumber+"\n");
+
+            writer.close();
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+    }
+    public static void saveCountriesData(Country country){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("countryFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(country.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void saveMessagesData(Messages messages){
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("messagesFile"), true);
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(messages.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    /*
 
     public static void saveMessagesData(Messages messages){
 
@@ -60,24 +120,6 @@ public class WriteToTxt {
         }
     }
 
-    public static void saveCountriesData(Country country){
-
-        try {
-            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("countryFile"), true);
-
-
-            BufferedWriter writer = new BufferedWriter(fileWriter);
-
-//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
-//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
-//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
-
-            writer.append(country.toString() + ", \n");
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
 
     public static void saveRoomData(Room room){
@@ -98,6 +140,27 @@ public class WriteToTxt {
             e.printStackTrace();
         }
     }
+    */
+    public static void saveTestData(Test test) {
+
+        try {
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("testFile"), true);
+            //src/resource/feature/testdata/RoomData
+
+
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+
+//            writer.append(registrant.getFirstName() + "," + registrant.getLastName() + ","
+//                            + registrant.getUsername() + "," + registrant.getEmail() + ","
+//                            + registrant.getPassword() + "," + registrant.getSSN() + ", \n");
+
+            writer.append(test.toString() + ", \n");
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static void saveAppointData(Appointment appointment){
 appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
@@ -119,6 +182,7 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
             e.printStackTrace();
         }
     }
+
       public static void saveAppointmentData(Appointment appointment){
 appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
 
@@ -300,72 +364,4 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
     }
      */
 
-     public static void savePhysicianIds(String fileName, List<Object> id){
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,false));
-
-            for (int i=0; i< id.size(); i++)
-                writer.append(id.get(i).toString()+",\n");
-
-            writer.close();
-        } catch (IOException e){
-        }
-    }
-
-        public static void savePhysicianName(String fileName, List<Object> id){
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName,false));
-
-            for (int i=0; i< id.size(); i++)
-                writer.append(id.get(i).toString()+",\n");
-
-            writer.close();
-        } catch (IOException e){
-        }
-    }
-    public static List<Object> returnPhysicianIDsList(String filePath){
-        List<Object>all = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
-            System.out.println(line);
-            int i = 0;
-            while (line != null) {
-                Physician physician = new Physician();
-                physician.setId(Integer.parseInt(line.split(",")[0]));
-                sb.append(System.lineSeparator());
-                line = br.readLine();
-
-//                System.out.println(i++);
-
-                all.add(physician.getId());
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return all;
-    }
-
-        public static List<Object> returnPhysicianNameList(String filePath){
-        List<Object>all = new ArrayList<>();
-        try(BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-            StringBuilder sb = new StringBuilder();
-            String line = br.readLine();
-            System.out.println(line);
-            int i = 0;
-            while (line != null) {
-                Physician physician = new Physician();
-                physician.setId(Integer.parseInt(line.split(",")[0]));
-                sb.append(System.lineSeparator());
-                line = br.readLine();
-
-//                System.out.println(i++);
-
-                all.add(physician.getId());
-            }
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return all;
-    }
 }

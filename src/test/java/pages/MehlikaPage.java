@@ -29,8 +29,8 @@ public class MehlikaPage extends BasePage {
         public WebElement dateTimeInputBox;
         @FindBy(xpath ="//button/span[text()='Send an Appointment Request']" )
         public WebElement appointmentRequestButton;
-        @FindBy(id = "app-view-container")
-        public WebElement appointmentSavedToast;
+//        @FindBy(id = "app-view-container")
+//        public WebElement appointmentSavedToast;
 
 
     @FindBy(xpath = "//li[@id='account-menu']")
@@ -90,8 +90,10 @@ public class MehlikaPage extends BasePage {
         @FindBy(xpath = "//button[@type='submit']")
         public WebElement newUserSaveButton;
 
-    @FindBy(id = "app-view-container")
-    public WebElement newUserSavedToast;           // successful message
+    // @FindBy(id = "app-view-container")
+    //@FindBy(xpath = "@FindBy(xpath = \"//div[contains(text(),'A new Patient is created')]\")")   //ozkanil 15
+//    @FindBy (xpath = "//div[@class='Toastify__toast-container Toastify__toast-container--top-left toastify-container']")  //ozkanil 19
+//    public WebElement newUserSavedToast;           // successful message
 
     @FindBy(xpath = "//span[text()='Items&Titles']")
     public WebElement itemsTitlesMenuButton;
@@ -123,15 +125,26 @@ public class MehlikaPage extends BasePage {
             public WebElement newPatientStateSelect;
             @FindBy(xpath = "//span[text()='Save']")
             public WebElement newPatientSaveButton;
-    @FindBy(id = "app-view-container")
-    public WebElement newPatientSavedToast;           // successful message\
-    @FindBy(xpath = "//span[text()='Created Date']")
+    //@FindBy(id = "app-view-container")
+    @FindBy(xpath = "//div[contains(text(),'created')]")
+    public WebElement createdToastContainer;
+    @FindBy(xpath = "//div[contains(text(),'deleted')]")
+    public WebElement deletedToastContainer;
+    @FindBy(xpath = "//div[contains(text(),'found')]")
+    public WebElement foundToastContainer;
+    @FindBy(xpath = "//div[contains(text(),'success')]")
+    public WebElement successToastContainer;
+
+
+    @FindBy(xpath = "//thead//tr[1]//th[12]") //    //span[text()='Created Date']") //thead//tr[1]//th[12]
     public WebElement createdDateColumnTitle;
 
     @FindBy(xpath = "//tbody//tr[1]/td[1]/a")
     public WebElement firstPatient;
     @FindBy(xpath = "//tbody/tr/td//span[text()='View']")
     public WebElement viewPatient;
+            @FindBy(xpath = "//h2/b")
+            public WebElement idCansee;
             @FindBy(xpath = "//dd[1]")
             public WebElement ssnCanSee;
             @FindBy(xpath = "//dd[2]")
@@ -163,6 +176,24 @@ public class MehlikaPage extends BasePage {
     public WebElement deletePatientButton;
     @FindBy(xpath = "//button/span[text()='Delete']")
     public WebElement deleteButtonFromAlert;
+    //@FindBy(xpath ="//div/div/div/a[2]/span/span[text()='Edit']")
+    //@FindBy(xpath = "//span[contains(text(),'Edit')]")
+    //@FindBy(xpath = "(//*[contains(text(),'Edit')])[1]")
+
+    //@FindBy(xpath = "//a/span/span[text()='Edit']")
+                                //  //*[@id=\"app-view-container\"]/div/div/div/div/div/a[2]/svg")    //"//div/div/div/a[2]")
+    @FindBy(xpath = "(//td[text()='mustafatekin'])[1]/../td/div/a[2]")
+    public WebElement patientEditButton;
+                                                //(//*[contains(text(),'Edit')])[1]/../..
+    //@FindBy(xpath = "//h3[text()='Medunna']")
+    @FindBy(xpath = "//thead/tr[1]/th[16]")
+    public WebElement forEditButton;
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement editPatientSubmitButton;
+    @FindBy(xpath = "//tbody/tr[1]/td[3]")
+    public WebElement firstNameVerify;
+    @FindBy(xpath = "//span[text()='Back']")
+    public WebElement patientBackEditButton;
 
         @FindBy(xpath = "//span[text()='Staff']")
         public WebElement itemsTitlesStaff;
@@ -174,8 +205,8 @@ public class MehlikaPage extends BasePage {
             public WebElement useSearchSsnCheckbox;
             @FindBy(xpath = "//button[text()='Search User']")
             public WebElement ssnSearchUserButton;
-            @FindBy(id = "app-view-container")
-            public WebElement staffFoundwithSsnToast;   //user found with search Ssn
+//            @FindBy(id = "app-view-container")
+//            public WebElement staffFoundwithSsnToast;   //user found with search Ssn
 
 
     // Add Country and State
@@ -193,7 +224,7 @@ public class MehlikaPage extends BasePage {
             public WebElement createStateStateCityInput;
             @FindBy(xpath = "//span[text()='Save']")
             public WebElement createStateSaveButton;
-    @FindBy(xpath = "//tbody/tr[1]/td[14]/a")
+    @FindBy(xpath = "//dd[text()='USA']")    //     //tbody/tr[1]/td[14]/a")
     public WebElement verifyCountryUSA;
 
 
