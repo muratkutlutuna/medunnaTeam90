@@ -39,7 +39,7 @@ Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
     And  AY Click on Request a test
     And  AY Click on the buttons to the right of the selected tests
     And  AY Click on Save
-    And  AY Verify that "A new is created with identifier 42783" is visible
+    And  AY Verify that "A new is created" is visible
     And  AY Click on account menu
     And  AY Click Sign out
 

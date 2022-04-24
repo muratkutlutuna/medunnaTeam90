@@ -8,6 +8,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.AinagulPage;
+import utilities.DBUtils;
 import utilities.Driver;
 
 import java.security.Key;
@@ -30,7 +31,7 @@ public class US012 {
 
     @Then("AY Click on Sign in")
     public void click_on_sign_in() {
-        Driver.wait(2);
+        Driver.wait(4);
         page.signIn.click();
     }
 
@@ -44,18 +45,19 @@ public class US012 {
     public void click_on_input_box_and_enter_valid_password(String Password) {
 
         page.password.sendKeys(Password);
+        Driver.wait(2);
     }
 
     @Then("AY Click on Sign in button")
     public void click_on_sign_in_button() {
-        Driver.wait(3);
+        Driver.wait(2);
       page.signInButon.click();
 
     }
 
     @Then("AY Click on My page")
     public void click_on_my_page() {
-        Driver.wait(5);
+        Driver.wait(3);
         page.myPage.click();
 
     }
@@ -120,11 +122,11 @@ public class US012 {
         page.hemoglobinTest.click();
         Driver.wait(3);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(2);
-        page.albuminTest.click();
-        Driver.wait(3);
-        page.scrollToWebelementVisible(page.glucoseTest);
-        Driver.waitAndClick(page.glucoseTest);
+       // Driver.wait(2);
+       // page.albuminTest.click();
+        //Driver.wait(3);
+      //  page.scrollToWebelementVisible(page.glucoseTest);
+       // Driver.waitAndClick(page.glucoseTest);
 
     }
 
@@ -157,6 +159,7 @@ public class US012 {
     @And("AY Click on {string} input box and enter valid password")
     public void clickOnInputBoxAndEnterValidPassword(String StaffPassword) {
         page.password.sendKeys(StaffPassword);
+        Driver.wait(1);
     }
 
     @And("AY Click on Search patient")
@@ -229,18 +232,20 @@ public class US012 {
 
     @And("AY Click on Show Test Results")
     public void clickOnShowTestResults() {
+        Driver.wait(1);
         page.showTestResults.click();
     }
 
 
     @And("AY Click on View Results of the patient")
     public void clickOnViewResultsOfThePatient() {
+        Driver.wait(1);
         page.viewResults.click();
     }
 
     @And("AY Verify that Test Results is visible")
     public void verifyThatTestResultsIsVisible() {
-
+        Driver.wait(1);
         Assert.assertTrue(page.verifyTestResults.isDisplayed());
 
     }
@@ -250,5 +255,6 @@ public class US012 {
     page.requestInpatient.click();
 
     }
+
 
 }
