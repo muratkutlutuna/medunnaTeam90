@@ -27,9 +27,10 @@ Feature: admin assign user to physician role
       | Ssn         | username    | password        |
       | 321-54-0003 | admincemile | AdminCemile123! |
 
+  @TC02
 
-    Scenario Outline: Admin can view all Physicians' info populated on view portal
-Given C navigate to Medduna Home Page
+  Scenario Outline: Admin can view all Physicians' info populated on view portal
+    Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
     When C Click on Account DropDownMenu button
     When C Click on Sign in
@@ -42,12 +43,14 @@ Given C navigate to Medduna Home Page
     And click on Item&Titles DropDownMenu and select Physician
     And Verify that Physicians' info  is visible
 
-      Examples:
-    | username    | password        |
-    | admincemile | AdminCemile123! |
 
+    Examples:
+      | username    | password        |
+      | admincemile | AdminCemile123! |
+
+  @TC03
   Scenario Outline: Admin can edit existing Physicians' info using new data
-Given C navigate to Medduna Home Page
+    Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
     When C Click on Account DropDownMenu button
     When C Click on Sign in
@@ -58,7 +61,7 @@ Given C navigate to Medduna Home Page
     Then C Enter Valid "<password>" Password
     Then C Click on Sign in button
     And click on Item&Titles DropDownMenu and select Physician
-      And click Edit Button
+    And click Edit Button
     # And Admin should provide the Exam fee of the doctor
 
    # And Verify that Create or edit a Physician Page is displayed
@@ -66,14 +69,14 @@ Given C navigate to Medduna Home Page
    # And update speciality as Nuclear Medicine
    # And Admin can provide a profile picture of the doctor
 
-      Examples:
-    | username    | password        |
-    | admincemile | AdminCemile123! |
+    Examples:
+      | username    | password        |
+      | admincemile | AdminCemile123! |
 
 
-
-    Scenario Outline: Admin can delete existing Physicians
-Given C navigate to Medduna Home Page
+  @TC04
+  Scenario Outline: Admin can delete existing Physicians
+    Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
     When C Click on Account DropDownMenu button
     When C Click on Sign in
@@ -84,17 +87,17 @@ Given C navigate to Medduna Home Page
     Then C Enter Valid "<password>" Password
     Then C Click on Sign in button
     And click on Item&Titles DropDownMenu and select Physician
-    #And Verify that Physicians' info  is visible
-   And click on Delete Button
-      And  Verify Confirm delete operation message is displayed
+    And Verify that Physicians' info  is visible
+    And click on Delete Button
+     # And  Verify Confirm delete operation message is displayed
 
     Examples:
-    | username    | password        |
-    | admincemile | AdminCemile123! |
+      | username    | password        |
+      | admincemile | AdminCemile123! |
 
-@TC_01805
+  @TC_01805
   Scenario Outline: Admin should choose the doctor among existing users
-  Given C navigate to Medduna Home Page
+    Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
     When C Click on Account DropDownMenu button
     When C Click on Sign in
@@ -105,11 +108,11 @@ Given C navigate to Medduna Home Page
     Then C Enter Valid "<password>" Password
     Then C Click on Sign in button
     And click on Item&Titles DropDownMenu and select Physician
-  And Verify that Physicians Page Header is visible
+    And Verify that Physicians Page Header is visible
 
     Examples:
-    | username    | password        |
-    | admincemile | AdminCemile123! |
+      | username    | password        |
+      | admincemile | AdminCemile123! |
 
   Scenario Outline: create physician by user registrant
 
@@ -199,29 +202,6 @@ Given C navigate to Medduna Home Page
 
 
 
-      #
-    And user clicks go to last int page button on admin page
-    Given User navigates to the home page
-    And user clicks sign in button at the home page and navigates to sign in page
-    And user clicks administration dropdown button on admin page
-    And user clicks user management button on admin page
-    And user verifies user page is visible
-    And user clicks to create a new user button
-    And user verifies create or edit page visible
-    And user creates username "<user>"
-    And  user provides firstname and lastname "<firstName>" and "<lastName>"
-    And user provides also email "<email>"
-    And user provides ssn id "<ssn>"
-    And user clicks rollPhysician on profiles iframe
-    Then user clicks save physician button
-    And user clicks go to last int page button on admin page
-    And user clicks delete button on admin page
-    Then user clicks confirm deletebutton on admin page
-
-
-    Examples: test user data
-      | ssn         | firstName | lastName | user      | email               | password    |
-      | 321-54-0011 | Aaab      | Aaali    | aaabaaali | aaabaaali@gmail.com | aaabaaali1! |
 
 
 

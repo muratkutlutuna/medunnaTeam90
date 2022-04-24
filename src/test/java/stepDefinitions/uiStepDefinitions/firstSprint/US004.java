@@ -31,9 +31,9 @@ public class US004 {
 
     @When("C Click on Sign in")
     public void c_click_on_sign_in() {
-        Driver.wait(3);
+        Driver.wait(1);
         Driver.waitAndClick(cemilePage.signIn);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @When("C Click on Username input box.")
@@ -50,21 +50,21 @@ public class US004 {
 
     @Then("C Click on Password input box.")
     public void c_click_on_password_input_box() {
-        Driver.wait(3);
+        Driver.wait(1);
         cemilePage.userNameInputBox.sendKeys(Keys.TAB);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("C Enter Valid {string} Password")
     public void cEnterValidPassword(String pasw) {
         cemilePage.passwordInputBox.sendKeys(pasw);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @And("Verify that Sign Out  is displayed")
     public void verifyThatSignOutIsDisplayed() {
         Driver.waitAndClick(cemilePage.accountName);
-        Driver.wait(3);
+        Driver.wait(1);
         Assert.assertTrue(cemilePage.signOut.isDisplayed());
     }
 
@@ -175,13 +175,13 @@ public class US004 {
     @Then("C Enter wrong {string} Password")
     public void cEnterWrongPassword(String wpassword) {
         cemilePage.passwordInputBox.sendKeys(wpassword);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("C Enter wrong {string} Username")
     public void cEnterWrongUsername(String wusername) {
         cemilePage.userNameInputBox.sendKeys(wusername);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("Verify that Authentication information not correct  is displayed")

@@ -24,7 +24,7 @@ public class US018 {
             String username = "medunnadb_user";
             String password = "Medunnadb_@129";
 
-            DatabaseUtility.createConnection(url, username, password);
+            //DatabaseUtility.createConnection(url, username, password);
 
             String query = "select * from physician";
             System.out.println(DatabaseUtility.getColumnNames(query) + "\n");

@@ -67,7 +67,8 @@ public WebElement deactivatedButton;
 @FindBy(xpath = "//span[text()='View']")
 public WebElement viewButton;
 
-@FindBy(xpath = "(//a[@class='btn btn-info btn-sm'])[1]")
+@FindBy(xpath = "(//a[@class='btn btn-primary btn-sm'])[1]")
+
 public WebElement editButton;
 
 @FindBy (xpath = "(//(//span[text()='Edit'])[1]")
@@ -242,6 +243,8 @@ public List<WebElement> rowL;
     @FindBy(id="useSSNSearch")
     public WebElement useSSNSearchceckbox;
 
+@FindBy(id="physician-heading")
+    public WebElement PhysiciansPageHeader;
 
 
 }
