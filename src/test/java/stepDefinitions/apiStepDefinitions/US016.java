@@ -243,7 +243,7 @@ public class US016 {
 
     @And("AY User set path params for room delete")
     public void ayUserSetPathParamsForRoomDelete() {
-        spec.pathParams("1","api","2","rooms","3","78555");
+        spec.pathParams("1","api","2","rooms","3","86926");
     }
 
 
@@ -255,12 +255,6 @@ public class US016 {
                 .contentType(ContentType.JSON)
                 .when()
                 .delete("/{1}/{2}/{3}");
-        try {
-            response.then().statusCode(204);
-        } catch (Exception e){
-            ayUserEntersExpectedDataForRoomRead();
-            ayUserSendsRequestAndReceivesResponseForRoomRead();
-        }
 
         System.out.println("response.getStatusCode() = " + response.getStatusCode());
 
