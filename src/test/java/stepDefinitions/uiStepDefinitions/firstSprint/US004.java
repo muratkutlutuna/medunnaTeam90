@@ -38,9 +38,9 @@ public class US004 {
 
     @When("C Click on Username input box.")
     public void c_click_on_username_input_box() {
-        Driver.wait(2);
+        Driver.wait(1);
         Driver.waitAndClick(cemilePage.userNameInputBox);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("C Enter Valid {string} Username")
@@ -71,7 +71,7 @@ public class US004 {
     @And("C Verify Sign in page header is visible")
     public void cVerifySignInPageHeaderIsVisible() {
         Assert.assertTrue(cemilePage.signInHeader.isDisplayed());
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @And("C Verify Sign in Header is visible")

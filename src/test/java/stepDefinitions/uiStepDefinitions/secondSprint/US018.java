@@ -50,6 +50,7 @@ public class US018 {
     public void enter_the_number_and_click_search_user_button(String ssn) {
         physicianPage.inputSNNTextbox.sendKeys(ssn);
         Driver.waitAndClick(physicianPage.searchUserButton);
+        Driver.wait(3);
     }
 
     @Then("Verify that User found with search SSN message is displayed")
@@ -68,9 +69,9 @@ public class US018 {
     @And("click Edit Button")
     public void clickEditButton() throws InterruptedException {
         Driver.wait(5);
-        Driver.waitAndClick(physicianPage.editButton);
-        ((JavascriptExecutor) physicianPage).executeScript("arguments[0].scrollIntoView(true);", physicianPage.editButton);
-        Thread.sleep(800);
+       Driver.waitAndClick(physicianPage.editButton);
+       // ((JavascriptExecutor)physicianPage).executeScript("arguments[0].scrollIntoView(true);", physicianPage.editButton);
+      // Thread.sleep(800);
 
     }
 
@@ -78,8 +79,6 @@ public class US018 {
     public void clickOnDeleteButton() throws InterruptedException {
         Driver.wait(5);
         Driver.waitAndClick(physicianPage.deleteButton);
-        ((JavascriptExecutor) physicianPage).executeScript("arguments[0].scrollIntoView(true);", physicianPage.deleteButton);
-        Thread.sleep(800);
 
     }
 }
