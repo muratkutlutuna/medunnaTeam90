@@ -175,13 +175,13 @@ public class US004 {
     @Then("C Enter wrong {string} Password")
     public void cEnterWrongPassword(String wpassword) {
         cemilePage.passwordInputBox.sendKeys(wpassword);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("C Enter wrong {string} Username")
     public void cEnterWrongUsername(String wusername) {
         cemilePage.userNameInputBox.sendKeys(wusername);
-        Driver.wait(3);
+        Driver.wait(1);
     }
 
     @Then("Verify that Authentication information not correct  is displayed")

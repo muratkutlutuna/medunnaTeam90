@@ -7,34 +7,38 @@
       And mb Click User Name textbox and enter admin user name "<mbadminusername>"
       And mb Click Password textbox and enter admin password "<mbadminpassword>"
       And mb Click Sign In button
-      Then mb Verify sign in is successfully
       And mb Click Administration and User Management button
       And mb Click Create a new user button
       And mb Fill in the form "<mbstlogin>","<mbstfirstname>","<mbstlastname>","<mbstemail>","<mbstssn>"
       Then mb Verify created is successfully toast container message
       And mb Click Items&Titles and Staff button
-      And mb Click Create s new staff button
+      And mb Click Create a new staff button
       And mb Enter SSN number and click Use Search checkbox
       Then mb Verify User found with search SSN message
 
       Examples:
-      |mbadminusername|mbadminpassword|mbstlogin|mbstfirstname|mbstlastname|mbstemail          |mbstssn    |
-      |Team90Admin    |Batch44+       |mehlikast|Mehlika      |Staff       |mehlikast@gmail.com|100-20-1902|
+      |mbadminusername|mbadminpassword|mbstlogin   |mbstfirstname|mbstlastname|mbstemail             |mbstssn    |
+      |Team90Admin    |Batch44+       |mehlikastf|Mehlikastf      |Staff       |mehlikastf@gmail.com|100-20-1903|
 
     Scenario Outline: TC01902 - All their information should be populated
-
+      Given mb Launch web browser and navigate to the home page
+      And mb Click Account Menu dropbox sign and click Sign In Text
+      And mb Click User Name textbox and enter admin user name "<mbadminusername>"
+      And mb Click Password textbox and enter admin password "<mbadminpassword>"
+      And mb Click Sign In button
         Given mb Select Birth Date and Enter Phone number "<mbstphone>"
         And mb Select Gender and Blood Group
         And mb Enter Address and Description "<mbstaddress><mbstdescription>"
-        And mb Selet User, Country and State/City
+        And mb Selet User, Country and State City
         And mb Click Save button.
         Then mb Verify created successfully message with new ID
         And mb Click Created Date from List Row
         And mb Click first row and last new user
         Then mb Verify data
 
-      Examples: |mbstphone   |mbstaddress             |mbstdescription|
-                |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
+      Examples:
+        |mbadminusername|mbadminpassword|mbstphone   |mbstaddress             |mbstdescription|
+        |Team90Admin    |Batch44+       |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
 
     Scenario: TC01903 - User (Admin) can select a user from the existing users (registered people)
 

@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.response.Response;
 import org.junit.Assert;
 import pojos.Appointment;
-import pojos.AppointmentAdminStaff;
+import pojos.AppointmentRequest;
 import utilities.ConfigurationReader;
 
 import static hooks.Hooks.spec;
@@ -23,96 +23,107 @@ import static utilities.WriteToTxt.saveAppointmentData;
 public class US007 {
     static Faker faker = new Faker();
     static Response response;
-    static AppointmentAdminStaff appointment=new AppointmentAdminStaff();
+    static AppointmentRequest appointmentCreate =new AppointmentRequest();
+
     public static void main(String[] args) throws JsonProcessingException {
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
-        spec.pathParams("1", "api", "2", "appointments");
+        spec.pathParams("1", "api", "2", "appointments","3","request");
         String FirstName = faker.name().firstName();
         String LastName=faker.name().lastName();
         String SSN=faker.idNumber().ssnValid();
         String Email =faker.internet().emailAddress();
-        String Phone = "8572659314";
-        String Date = "11.11.2022";
-        appointment.setFirstName(FirstName);
-        appointment.setLastName(LastName);
-        appointment.setSsn(SSN);
-        appointment.setEmail(Email);
-        appointment.setPhone(Phone);
-        appointment.setStartDate(Date);
-        response = given().spec(spec).header("Authorization","Bearer "+generateToken())
+        String Phone = "8572658343";
+        String Date = "2023-01-07T00:00:00Z";
+        appointmentCreate.setFirstName(FirstName);
+        appointmentCreate.setLastName(LastName);
+        appointmentCreate.setSsn(SSN);
+        appointmentCreate.setEmail(Email);
+        appointmentCreate.setPhone(Phone);
+        appointmentCreate.setStartDate(Date);
+        appointmentCreate.setAppoSpeciality("string");
+        appointmentCreate.setBirthDate("2022-04-16T12:52:30.875Z");
+        appointmentCreate.setGender("string");
+        appointmentCreate.setSnumber("string");
+        response = given().spec(spec)
                 .contentType(ContentType.JSON)
-                .body(appointment)
+                .body(appointmentCreate)
                 .when()
-                .get("/{1}/{2}");
-        saveAppointmentData(appointment);
+                .post("/{1}/{2}/{3}");
         response.prettyPrint();
-        response.then().statusCode(200);
+        response.then().statusCode(201);
         ObjectMapper obj = new ObjectMapper();
-        AppointmentAdminStaff actualAppointment = obj.readValue(response.asString(),AppointmentAdminStaff.class);
+        Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
+        saveAppointmentData(actualAppointment);
+
         System.out.println("Actual Data: " + actualAppointment);
-        Assert.assertEquals(appointment.getFirstName(),actualAppointment.getFirstName());
-        Assert.assertEquals(appointment.getLastName(),actualAppointment.getLastName());
-        Assert.assertEquals(appointment.getSsn(),actualAppointment.getSsn());
-        Assert.assertEquals(appointment.getEmail(),actualAppointment.getEmail());
-        Assert.assertEquals(appointment.getPhone(),actualAppointment.getPhone());
-        Assert.assertEquals(appointment.getStartDate(),actualAppointment.getStartDate());
+        Assert.assertEquals(appointmentCreate.getFirstName(),actualAppointment.getPatient().getFirstName());
+        Assert.assertEquals(appointmentCreate.getLastName(),actualAppointment.getPatient().getLastName());
+        Assert.assertEquals(appointmentCreate.getEmail(),actualAppointment.getPatient().getEmail());
+        Assert.assertEquals(appointmentCreate.getPhone(),actualAppointment.getPatient().getPhone());
+        Assert.assertEquals(appointmentCreate.getStartDate(),actualAppointment.getStartDate());
+
 
     }
 
     @Given("AG user set path params")
     public void ag_user_set_path_params() {
-        spec.pathParams("1", "api", "2", "appointments");
+        spec.pathParams("1", "api", "2", "appointments","3","request");
     }
-    @Given("AG user enter expected data {string} {string} {string} {string} {string} {string}")
-    public void ag_user_enter_expected_data(String FirstName, String LastName, String SSN, String Email, String Phone, String Date) {
-         FirstName = faker.name().firstName();
-         LastName=faker.name().lastName();
-         SSN=faker.idNumber().ssnValid();
-         Email =faker.internet().emailAddress();
-         Phone = "8572659314";
-         Date = "11.11.2022";
-
-        appointment.setFirstName(FirstName);
-        appointment.setLastName(LastName);
-        appointment.setSsn(SSN);
-        appointment.setEmail(Email);
-        appointment.setPhone(Phone);
-        appointment.setStartDate(Date);
+    @Given("AG user enter expected data FirstName LastName SSN Email Phone Date")
+    public void agUserEnterExpectedDataFirstNameLastNameSSNEmailPhoneDate() {
+        String FirstName = faker.name().firstName();
+        String LastName=faker.name().lastName();
+        String SSN=faker.idNumber().ssnValid();
+        String Email =faker.internet().emailAddress();
+        String Phone = "8572658343";
+        String Date = "2023-01-07T00:00:00Z";
+        appointmentCreate.setFirstName(FirstName);
+        appointmentCreate.setLastName(LastName);
+        appointmentCreate.setSsn(SSN);
+        appointmentCreate.setEmail(Email);
+        appointmentCreate.setPhone(Phone);
+        appointmentCreate.setStartDate(Date);
+        appointmentCreate.setAppoSpeciality("string");
+        appointmentCreate.setBirthDate("2022-04-16T12:52:30.875Z");
+        appointmentCreate.setGender("string");
+        appointmentCreate.setSnumber("string");
 
     }
     @Given("AG user send request and get response")
     public void ag_user_send_request_and_get_response() {
-        response = given().spec(spec).contentType(ContentType.JSON)
-                .body(appointment)
+        response = given().spec(spec)
+                .contentType(ContentType.JSON)
+                .body(appointmentCreate)
                 .when()
-                .post("/{1}/{2}");
+                .post("/{1}/{2}/{3}");
     }
     @Then("AG user save API data to file")
-    public void ag_user_save_apı_data_to_file() {
+    public void ag_user_save_api_data_to_file() {
         try {
             response.then().statusCode(201);
-            saveAppointmentData(appointment);
-            System.out.println(appointment.toString());
+            saveAppointmentData(appointmentCreate);
+            System.out.println(appointmentCreate.toString());
         } catch (Exception e) {
 
         }
 
     }
     @Then("AG user verify  API data")
-    public void ag_user_verify_apı_data() throws JsonProcessingException {
-        response.then().statusCode(201);
+    public void ag_user_verify_api_data() throws JsonProcessingException {
         response.prettyPrint();
+        response.then().statusCode(201);
         ObjectMapper obj = new ObjectMapper();
-        AppointmentAdminStaff actualAppointment = obj.readValue(response.asString(),AppointmentAdminStaff.class);
-        System.out.println("Actual Data: " + actualAppointment);
-        Assert.assertEquals(appointment.getFirstName(),actualAppointment.getFirstName());
-        Assert.assertEquals(appointment.getLastName(),actualAppointment.getLastName());
-        Assert.assertEquals(appointment.getSsn(),actualAppointment.getSsn());
-        Assert.assertEquals(appointment.getEmail(),actualAppointment.getEmail());
-        Assert.assertEquals(appointment.getPhone(),actualAppointment.getPhone());
-        Assert.assertEquals(appointment.getStartDate(),actualAppointment.getStartDate());
+        Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
+        saveAppointmentData(actualAppointment);
 
+        System.out.println("Actual Data: " + actualAppointment);
+        Assert.assertEquals(appointmentCreate.getFirstName(),actualAppointment.getPatient().getFirstName());
+        Assert.assertEquals(appointmentCreate.getLastName(),actualAppointment.getPatient().getLastName());
+        Assert.assertEquals(appointmentCreate.getEmail(),actualAppointment.getPatient().getEmail());
+        Assert.assertEquals(appointmentCreate.getPhone(),actualAppointment.getPatient().getPhone());
+        Assert.assertEquals(appointmentCreate.getStartDate(),actualAppointment.getStartDate());
     }
+
 
 
 }

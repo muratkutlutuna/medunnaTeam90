@@ -48,10 +48,5 @@ Feature: US_017 Create / Update / delete test items Use api and DB validation
               And AY Click on account menu
               Then AY Click Sign out
 
-      Scenario: TC_01705 Validate them with api
 
 
-      Scenario: TC_01706 Create test items using api
-
-
-      Scenario: TC_01707 Validate them with DB

@@ -9,30 +9,41 @@ public class DatabaseUtility {
     private static Connection connection;
     private static Statement statement;
     private static ResultSet resultSet;
+
+
+    /**
+     * DBUtils.createConnection(); -> to connect to teh database
+     */
     public static void createConnection() {
-        String url = ConfigurationReader.getProperty("database_url");
-        String user = ConfigurationReader.getProperty("database_user");
-        String password = "Techpro_@126";
+        String url = "jdbc:postgresql://medunna.com:5432/medunna_db";
+        String username="medunnadb_user";
+        String password="Medunnadb_@129";
         try {
-            connection = DriverManager.getConnection(url, user, password);
+            connection = DriverManager.getConnection(url, username, password);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
-    public static void main(String[] args) {
-        createConnection("jdbc:postgresql://medunna.com:5432/medunna_db","medunnadb_user" , "Medunnadb_@129");
-        System.out.println(getColumnData("Select * FROM appointment", "start_date"));
-        closeConnection();
-    }
-    public static void createConnection(String url, String user, String password) {
+    /**
+     * DBUtils.executeQuery(String query); -> Execute the query and store is the result set object
+     */
+    public static void executeQuery(String query) {
         try {
-            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        try {
+            resultSet = statement.executeQuery(query);
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
     }
+    //    used to close the connectivity
     public static void closeConnection() {
         try {
             if (resultSet != null) {
@@ -48,9 +59,51 @@ public class DatabaseUtility {
             e.printStackTrace();
         }
     }
+
+
+    public static Connection getConnection() {
+        String url = "jdbc:sqlserver://184.168.194.58:1433;databaseName=crystalkeyhotels2;user=Ahmet_User;password=Ahmet123!";
+        String username="Ahmet_User";
+        String password="Ahmet123!";
+        try {
+            connection = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return connection;
+    }
+
+    //used to get statement
+    public static Statement getStatement() {
+        try {
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return statement;
+    }
+
+
+    //Use this to get the ResutSet object
+    public static ResultSet getResultset() {
+        try {
+            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        return resultSet;
+    }
+
+    // This method returns the number fo row in a table in the database
+    public static int getRowCount() throws Exception {
+        resultSet.last();
+        int rowCount = resultSet.getRow();
+        return rowCount;
+    }
     /**
-     *
-     * @param query
      * @return returns a single cell value. If the results in multiple rows and/or
      *         columns of data, only first column of the first row will be returned.
      *         The rest of the data will be ignored
@@ -59,8 +112,6 @@ public class DatabaseUtility {
         return getQueryResultList(query).get(0).get(0);
     }
     /**
-     *
-     * @param query
      * @return returns a list of Strings which represent a row of data. If the query
      *         results in multiple rows and/or columns of data, only first row will
      *         be returned. The rest of the data will be ignored
@@ -69,8 +120,6 @@ public class DatabaseUtility {
         return getQueryResultList(query).get(0);
     }
     /**
-     *
-     * @param query
      * @return returns a map which represent a row of data where key is the column
      *         name. If the query results in multiple rows and/or columns of data,
      *         only first row will be returned. The rest of the data will be ignored
@@ -79,8 +128,6 @@ public class DatabaseUtility {
         return getQueryResultMap(query).get(0);
     }
     /**
-     *
-     * @param query
      * @return returns query result in a list of lists where outer list represents
      *         collection of rows and inner lists represent a single row
      */
@@ -104,9 +151,6 @@ public class DatabaseUtility {
         return rowList;
     }
     /**
-     *
-     * @param query
-     * @param column
      * @return list of values of a single column from the result set
      */
     public static List<Object> getColumnData(String query, String column) {
@@ -125,15 +169,10 @@ public class DatabaseUtility {
         return rowList;
     }
     /**
-     *
-     * @param query
      * @return returns query result in a list of maps where the list represents
      *         collection of rows and a map represents represent a single row with
      *         key being the column name
      */
-
-
-
     public static List<Map<String, Object>> getQueryResultMap(String query) {
         executeQuery(query);
         List<Map<String, Object>> rowList = new ArrayList<>();
@@ -153,9 +192,7 @@ public class DatabaseUtility {
         }
         return rowList;
     }
-    /**
-     *
-     * @param query
+    /*
      * @return List of columns returned in result set
      */
     public static List<String> getColumnNames(String query) {
@@ -169,60 +206,8 @@ public class DatabaseUtility {
                 columns.add(rsmd.getColumnName(i));
             }
         } catch (SQLException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return columns;
-    }
-    public static void executeQuery(String query) {
-        try {
-            statement = connection.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            resultSet = statement.executeQuery(query);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-    public static int getRowCount() throws Exception {
-        resultSet.last();
-        int rowCount = resultSet.getRow();
-        return rowCount;
-    }
-    public static void insertCountry(String  countryName){
-    }
-    public static void executeInsertion(String query) {
-        try {
-            statement = connection.createStatement();
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        try {
-            boolean done = statement.execute(query);
-        } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-    }
-    public static int getMaxCountryId (String query,String column){
-        int max = 0;
-        List<Object> allIds = getColumnData(query, column);
-        for (int i=0; i<allIds.size();i++){
-            int num = Integer.parseInt(allIds.get(i).toString().trim());
-            if(max <= num)
-                max=num;
-        }
-        return max;
-    }
-    public static Object getCellValuewithRowsAndCells(String query,int row,int cell) {
-        return getQueryResultList(query).get(row).get(cell);
-    }
-    public static List<Object> getRowListWithParam(String query,int row) {
-        return getQueryResultList(query).get(row);
     }
 }

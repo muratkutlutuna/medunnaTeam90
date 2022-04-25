@@ -74,11 +74,11 @@ public class US018 {
       // Thread.sleep(800);
 
     }
+
     @And("click on Delete Button")
     public void clickOnDeleteButton() throws InterruptedException {
         Driver.wait(5);
         Driver.waitAndClick(physicianPage.deleteButton);
-
 
     }
 }

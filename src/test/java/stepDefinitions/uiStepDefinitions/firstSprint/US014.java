@@ -23,7 +23,7 @@ public class US014 {
 
     }
     @Given("FY Doctor clicks on signIn button  under human icon at homepage")
-    public void fy_doctor_clicks_on_sign_ın_button_under_human_icon_at_homepage() {
+    public void fy_doctor_clicks_on_sign_in_button_under_human_icon_at_homepage() {
         fP.homePageSignIn.click();
 
     }
@@ -34,7 +34,7 @@ public class US014 {
 
     }
     @Given("FY Doctor clicks on signIn button in sign in page")
-    public void fy_doctor_clicks_on_sign_ın_button_in_sign_in_page() {
+    public void fy_doctor_clicks_on_sign_in_button_in_sign_in_page() {
         fP.doctorSignInButton.click();
     Driver.wait(3);
     }
@@ -54,7 +54,7 @@ public class US014 {
         fP.myInpatientsButton.click();
     }
     @Given("FY Doctor validates he is in In Patients page")
-    public void fy_doctor_validates_he_is_in_ın_patients_page() {
+    public void fy_doctor_validates_he_is_in_in_patients_page() {
         Assert.assertTrue(fP.inPatientsText.isDisplayed());
     Driver.wait(3);
     }
