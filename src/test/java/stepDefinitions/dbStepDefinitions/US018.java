@@ -33,7 +33,7 @@ public class US018 {
             List<Object> idList = getColumnData(query, "id");
             System.out.println(idList + "\n");
             String fileName1 = "src/test/resources/testData/PhyisicianId.txt";
-            WriteToTxt.savePhysicianIds(fileName1, idList);
+            //WriteToTxt.savePhysicianIds(fileName1, idList);
 
 
             List<Object> actualPhysicianIDs = ReadTxt.returnPhysicianIDsList(fileName1);
@@ -47,7 +47,7 @@ public class US018 {
         List<Object> nameList = getColumnData(query, "first_name");
         System.out.println(nameList + "\n");
         String fileName2 = "src/test/resources/testData/PhyisicianName.txt";
-        WriteToTxt.savePhysicianName(fileName2, nameList);
+        //WriteToTxt.savePhysicianName(fileName2, nameList);
 
 
         List<String > actualPhysicianNames = ReadTxt.returnPhysicianName(fileName2);

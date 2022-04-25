@@ -3,6 +3,8 @@ package pages;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class KutluPage extends BasePage {
 
     @FindBy(xpath = "//li[@id='account-menu']")
@@ -55,4 +57,16 @@ public class KutluPage extends BasePage {
 
     @FindBy(xpath = "//div[3]/div[@class='invalid-feedback']")
     public WebElement registerLastNameInvalidFeedbackText;
+
+    @FindBy(xpath = "//span[text()='MY PAGES']/..")
+    public WebElement myPages;
+
+    @FindBy(xpath = "//span[text()='Search Patient']/..")
+    public WebElement searchPatient;
+
+    @FindBy(xpath = "//input[@name='ssn']")
+    public WebElement searchSsnTextBox;
+
+    @FindBy(xpath = "(//tr/td)[3]")
+    public List<WebElement> patientFirstNameList;
 }
