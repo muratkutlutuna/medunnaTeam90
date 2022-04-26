@@ -3,22 +3,18 @@
 
     Scenario Outline: TC01901 - Admin can search new Staff among registered people using their SSN
       Given mb Launch web browser and navigate to the home page
-      And mb Click Account Menu dropbox sign and click Sign In Text
+      Given mb Click Account Menu sign and click Register button
+      And mb Click fill in all informations for a new user "<mbstssn>","<mbstfirstname>","<mbstlastname>","<mbstusername>","<mbstemail>","<mbstnewpassword>","<mbstpasswordconfirm>"
+      And mb Click Register button and verify created
+      And mb Click Account Menu dropbox sign and click Sign In Text after sign out
       And mb Click User Name textbox and enter admin user name "<mbadminusername>"
       And mb Click Password textbox and enter admin password "<mbadminpassword>"
       And mb Click Sign In button
       And mb Click Administration and User Management button
-      And mb Click Create a new user button
-      And mb Fill in the form "<mbstlogin>","<mbstfirstname>","<mbstlastname>","<mbstemail>","<mbstssn>"
-      Then mb Verify created is successfully toast container message
-      And mb Click Items&Titles and Staff button
-      And mb Click Create a new staff button
-      And mb Enter SSN number and click Use Search checkbox
-      Then mb Verify User found with search SSN message
 
       Examples:
-      |mbadminusername|mbadminpassword|mbstlogin   |mbstfirstname|mbstlastname|mbstemail             |mbstssn    |
-      |Team90Admin    |Batch44+       |mehlikastf|Mehlikastf      |Staff       |mehlikastf@gmail.com|100-20-1903|
+      |mbadminusername|mbadminpassword|mbstssn    |mbstfirstname|mbstlastname|mbstusername|mbstemail           |mbstnewpassword|mbstpasswordconfirm|
+      |Team90Admin    |Batch44+       |111-22-1920|Mehlika     |Staff       |mehlikastf  |mehlikastf@gmail.com  |Melisast.1     |Melisast.1  |
 
     Scenario Outline: TC01902 - All their information should be populated
       Given mb Launch web browser and navigate to the home page
@@ -26,19 +22,19 @@
       And mb Click User Name textbox and enter admin user name "<mbadminusername>"
       And mb Click Password textbox and enter admin password "<mbadminpassword>"
       And mb Click Sign In button
-        Given mb Select Birth Date and Enter Phone number "<mbstphone>"
+      And mb Click Cerate A New Staff  button and search your SSN number "<mbstssn>"
+        Given mb Select Birth Date and Enter Phone number "<mbstbirthdate>", "<mbstphone>"
         And mb Select Gender and Blood Group
-        And mb Enter Address and Description "<mbstaddress><mbstdescription>"
+        And mb Enter Address and Description "<mbstaddress>","<mbstdescription>"
         And mb Selet User, Country and State City
         And mb Click Save button.
         Then mb Verify created successfully message with new ID
         And mb Click Created Date from List Row
-        And mb Click first row and last new user
-        Then mb Verify data
+        And mb Click first row and last new user and verify data
 
       Examples:
-        |mbadminusername|mbadminpassword|mbstphone   |mbstaddress             |mbstdescription|
-        |Team90Admin    |Batch44+       |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
+        |mbadminusername|mbadminpassword|mbstssn   |mbstbirthdate|mbstphone   |mbstaddress             |mbstdescription|
+        |Team90Admin    |Batch44+       |111-22-1920|01/01/2001   |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
 
     Scenario: TC01903 - User (Admin) can select a user from the existing users (registered people)
 

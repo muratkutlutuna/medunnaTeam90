@@ -40,5 +40,6 @@ public class Hooks {
         }
        Driver.getDriver().get("https://www.medunna.com/logout");
        Driver.closeDriver();
+
     }
 }
