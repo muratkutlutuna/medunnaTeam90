@@ -1,4 +1,4 @@
-  @Api @apiAina
+  @Api @apiAina    #calistirmadan once delete endpiont id degistir
   Feature: US_016 Validate rooms with API
 
     Scenario: TC_01605 Validate all rooms with API creating

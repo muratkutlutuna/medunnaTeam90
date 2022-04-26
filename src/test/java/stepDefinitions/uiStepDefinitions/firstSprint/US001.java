@@ -33,7 +33,7 @@ public class US001 {
     }
     @Then("MKT user click the First Name textbox")
     public void mkt_user_click_the_first_name_textbox() {
-        kP.registerFirstNameTextBox.click();
+        kP.firstNameTextBox.click();
     }
 
     @And("MKT verify that {string} text appears")
@@ -71,17 +71,17 @@ public class US001 {
 
     @Then("MKT user input  {string} in firstname textbox")
     public void mktUserInputInFirstnameTextbox(String firstname) {
-        kP.registerFirstNameTextBox.sendKeys(firstname);
+        kP.firstNameTextBox.sendKeys(firstname);
     }
 
     @And("MKT user click the Last Name textbox")
     public void mktUserClickTheLastNameTextbox() {
-        kP.registerLastNameTextBox.click();
+        kP.lastNameTextBox.click();
     }
 
     @Then("MKT user input  {string} in lastName textbox")
     public void mktUserInputInLastNameTextbox(String lastName) {
-        kP.registerLastNameTextBox.sendKeys(lastName);
+        kP.lastNameTextBox.sendKeys(lastName);
     }
 
     @And("MKT verify that -Your LastName is required.- text didn't appear")
