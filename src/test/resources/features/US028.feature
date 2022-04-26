@@ -106,7 +106,7 @@ Feature: US028 Country creation / update / read and Delete by Admin
 
 
     @US028_TC007
-    Scenario: Admin should  update existing countries using API
+    Scenario: Admin should  DELETE existing countries using API
       Given FY Admin sets DELETE request path params for any country
       Then FY Admin verifies DELETE API records for deleted country
 
