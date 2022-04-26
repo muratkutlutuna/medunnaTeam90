@@ -33,7 +33,7 @@ public class MehlikaPage extends BasePage {
 //        public WebElement appointmentSavedToast;
 
 
-    @FindBy(xpath = "//li[@id='account-menu']")
+    @FindBy(xpath ="//li[@id='account-menu']/a")          //"//li[@id='account-menu']")
     public WebElement accountMenu;
         @FindBy(xpath = "//a[@id='login-item']")
         public WebElement signInButton;                 //US05-US015
@@ -117,6 +117,8 @@ public class MehlikaPage extends BasePage {
             public WebElement newPatientAddressInput;
             @FindBy(xpath ="//textarea[@name='description']" )
             public WebElement newPatientDescriptionTextarea;
+                    @FindBy(xpath = "//input[@name='description']")         //for staff
+                    public WebElement descriptionInput;
             @FindBy(xpath = "//select[@name='user.id']")
             public WebElement newPatientUserSelect;
             @FindBy(xpath = "//select[@name='country.id']")
@@ -125,7 +127,8 @@ public class MehlikaPage extends BasePage {
             public WebElement newPatientStateSelect;
             @FindBy(xpath = "//span[text()='Save']")
             public WebElement newPatientSaveButton;
-    //@FindBy(id = "app-view-container")
+
+    // TOAST Container        //@FindBy(id = "app-view-container")
     @FindBy(xpath = "//div[contains(text(),'created')]")
     public WebElement createdToastContainer;
     @FindBy(xpath = "//div[contains(text(),'deleted')]")
@@ -134,9 +137,11 @@ public class MehlikaPage extends BasePage {
     public WebElement foundToastContainer;
     @FindBy(xpath = "//div[contains(text(),'success')]")
     public WebElement successToastContainer;
+    @FindBy(xpath = "//div[contains(text(),'Saved')]")
+    public WebElement savedToastContainer;
 
 
-    @FindBy(xpath = "//thead//tr[1]//th[12]") //    //span[text()='Created Date']") //thead//tr[1]//th[12]
+    @FindBy(xpath = "//thead/tr/th[8]/span[text()='Created date']")    //"//thead//tr[1]//th[12]") //    //span[text()='Created Date']") //thead//tr[1]//th[12]
     public WebElement createdDateColumnTitle;
 
     @FindBy(xpath = "//tbody//tr[1]/td[1]/a")
@@ -195,35 +200,73 @@ public class MehlikaPage extends BasePage {
     @FindBy(xpath = "//span[text()='Back']")
     public WebElement patientBackEditButton;
 
+    // --> Create Staff
+    @FindBy(xpath = "//a/span[text()='Register']")
+    public WebElement accountRegisterButton;
+    @FindBy(name = "ssn")
+    public WebElement registrationSsn;
+    @FindBy(name = "firstName")
+    public WebElement registrationFirstname;
+    @FindBy(name = "lastName")
+    public WebElement registrationLastname;
+    @FindBy(name = "username")
+    public WebElement registrationUsername;
+    @FindBy(name = "email")
+    public WebElement registrationEmail;
+    @FindBy(name = "firstPassword")
+    public WebElement registrationNewPassword;
+    @FindBy(name = "secondPassword")
+    public WebElement registrationConfirmPassword;
+    @FindBy(xpath = "//div/div[2]/div/p")   //"//div/div/div/div[2]/div/p")
+    public WebElement pageDowntoRegister;
+    @FindBy(id = "register-submit")
+    public WebElement registrationRegisterButton;
+
+    @FindBy(xpath = "//div/ul/li[7]/a")
+    public WebElement accountMenuAfterSignout;
+
+    //savedToast kullanilir
+    @FindBy(xpath = "//td[text()='stmelisa']/../td[5]/button/span")
+    public WebElement deactivatedActivatedButton;
+
         @FindBy(xpath = "//span[text()='Staff']")
         public WebElement itemsTitlesStaff;
             @FindBy(id = "jh-create-entity")
-            public WebElement createANewStaff;
+            public WebElement createANewStaffButton;
             @FindBy(id = "searchSSN")
             public WebElement staffSsnInput;
             @FindBy(id = "useSSNSearch")
             public WebElement useSearchSsnCheckbox;
             @FindBy(xpath = "//button[text()='Search User']")
             public WebElement ssnSearchUserButton;
-//            @FindBy(id = "app-view-container")
-//            public WebElement staffFoundwithSsnToast;   //user found with search Ssn
 
 
-    // Add Country and State
-    @FindBy(xpath = "//span[text()='Country']")
-    public WebElement itemsTitlesCountry;
-    @FindBy(xpath = "//span[text()='Create a new Country']")
-    public WebElement createANewCountryButton;
-            @FindBy(id = "country-name")
-            public WebElement createCountryNameInput;
-    @FindBy(xpath = "//span[text()='Create a new State/City']")
-    public WebElement createANewStateButton;
-            @FindBy(id = "c-state-name")
-            public WebElement createStateNameInput;
-            @FindBy(name = "state.id")
-            public WebElement createStateStateCityInput;
-            @FindBy(xpath = "//span[text()='Save']")
-            public WebElement createStateSaveButton;
+                //populated Staff Informations
+//                @FindBy(xpath = "")
+
+//staff check
+        @FindBy(xpath = "//body/div/div/div/div[4]/div/div/div/div/div//dl/dd[1]")
+        public WebElement staffIDCheck;
+
+
+
+
+
+//    // Add Country and State
+//    @FindBy(xpath = "//span[text()='Country']")
+//    public WebElement itemsTitlesCountry;
+//    @FindBy(xpath = "//span[text()='Create a new Country']")
+//    public WebElement createANewCountryButton;
+//            @FindBy(id = "country-name")
+//            public WebElement createCountryNameInput;
+//    @FindBy(xpath = "//span[text()='Create a new State/City']")
+//    public WebElement createANewStateButton;
+//            @FindBy(id = "c-state-name")
+//            public WebElement createStateNameInput;
+//            @FindBy(name = "state.id")
+//            public WebElement createStateStateCityInput;
+//            @FindBy(xpath = "//span[text()='Save']")
+//            public WebElement createStateSaveButton;
     @FindBy(xpath = "//dd[text()='USA']")    //     //tbody/tr[1]/td[14]/a")
     public WebElement verifyCountryUSA;
 
