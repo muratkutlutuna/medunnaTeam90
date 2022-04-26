@@ -19,35 +19,37 @@ import static utilities.WriteToTxt.saveAppointmentDataBase;
 
 public class US007 {
 
-    List< Object> allDBDates;
-    @Given("AGuser creates a connection with DB using {string} and {string} , {string}")
-    public void AGuser_creates_a_connection_with_db_using_and(String url, String username, String password) {
+    @Given("AGuser creates a connection with DB")
+    public void a_guser_creates_a_connection_with_db() {
         DBUtils.createConnection();
 
     }
-    @Given("AGuser sends the query to DB and gets the column data {string} and {string}")
-    public void AGuser_sends_the_query_to_db_and_gets_the_column_data_and(String query, String columnName) {
-        allDBDates=DatabaseUtility.getColumnData(query,columnName);
-        System.out.println(allDBDates);
+    @Given("AGuser gets the {string} from {string} table")
+    public void a_guser_gets_the_from_table(String column, String table) {
+        String myDynamicQuery = "Select " + column + " from " + table;
+        DBUtils.executeQuery(myDynamicQuery);
     }
-    @Given("AGuser saves DB records to correspondent files")
-    public void AGuser_saves_db_records_to_correspondent_files() {
-        saveAppointmentDataBase(allDBDates);
+    @Given("AGuser read all of the {string} column data")
+    public void a_guser_read_all_of_the_column_data(String column) {
+        // while (DBUtils.getResultset().next()){
+      //      Object eachColumnData = DBUtils.getResultset().getObject(column);
+     //       System.out.println(eachColumnData);
     }
-    @Then("AGuser validates DB Appointment data")
-    public void AGuser_validates_db_appointment_data() {
+    @Given("AGuser verify {string} table   {string} column contains {string}")
+    public void a_guser_verify_table_column_contains(String table, String column, String data) {
+        List<Object> allColumnData = DBUtils.getColumnData("Select * from appointment", "start_date");
+        System.out.println(allColumnData);
 
-        List<String> expectedDateIDs = new ArrayList<>();
-        expectedDateIDs.add("2021-12-22 17:00:00");
-        expectedDateIDs.add("2021-12-25 00:00:00");
-        expectedDateIDs.add("2022-01-07 06:00:00");
+        List<Object> expectedDta = new ArrayList<>();
+        expectedDta.add(data);
 
-        List<String> actualData = getDateIDs();
-        Assert.assertTrue(actualData.containsAll(expectedDateIDs));
-
+        Assert.assertTrue(allColumnData.containsAll(expectedDta));
 
     }
-
+    @Then("AGuser close DB connection")
+    public void a_guser_close_db_connection() {
+        DBUtils.closeConnection();
+    }
 
 
 }
