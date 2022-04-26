@@ -1,4 +1,4 @@
-@UImehlika
+@UImehlika05
 Feature: US005 : New customers (patients) should make an appoinment
   to processed in hospital Validate with API and DB
 

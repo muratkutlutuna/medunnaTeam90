@@ -1,4 +1,4 @@
-@KutluTests
+
 Feature: US001 Registration should be available using SSN, Firstname and Lastname There should be api and DB validation
 
   @UIRegistration @NegativeTests @EquevelancePartitioning
@@ -129,12 +129,13 @@ Feature: US001 Registration should be available using SSN, Firstname and Lastnam
     And MKT user click SSN textbox
     And MKT verify that -Your LastName is required.- text appears
 
-    @Bug @Api @NegativeTests
+    @Bug @Api @NegativeTests @kutluapi
   Scenario: TC00113 Get all registrant information using swagger and validate them
 
     Given MKT there are no swagger documantation for register
 
-  @Api @SmokeTest
+
+  @Api @SmokeTest @kutluapi
   Scenario: TC00114 Create registrants using api and validate
 
     Given MKT User set the path params for register

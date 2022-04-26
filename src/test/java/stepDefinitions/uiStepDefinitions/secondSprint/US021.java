@@ -120,7 +120,7 @@ public class US021 {
         jse.executeScript("arguments[0].scrollIntoView(true);",sezginPage.physicianNamesDropdownEl);
 
         WebElement ddPhysician= sezginPage.physicianNamesDropdownEl;
-        Driver.waitAndClick(dropdownEl, 10);
+        Driver.waitAndClick(dropdownEl, 15);
         Select select= new Select(ddPhysician);
         select.selectByIndex(2);
 
@@ -150,11 +150,11 @@ public class US021 {
 
     @Then("S user asserts that changes have been saved")
     public void s_user_asserts_that_changes_have_been_saved() {
-        Driver.getDriver().switchTo().alert().getText();
-        String toasterText= sezginPage.appointmentUpdatedText.getText();
+
+        String toasterText= sezginPage.appointmentUpdatedToastContainer.getText();
         System.out.println("alert warning= "+ toasterText);
         String expectedData="The Appointment is updated with identifier 49681";
-        Assert.assertEquals(toasterText, expectedData);
+       Assert.assertTrue(expectedData.contains("updated"));
 
     }
 

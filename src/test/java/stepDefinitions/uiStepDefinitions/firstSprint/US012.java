@@ -4,9 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
 import pages.AinagulPage;
+import utilities.DBUtils;
 import utilities.Driver;
 
 import java.security.Key;
@@ -29,7 +31,7 @@ public class US012 {
 
     @Then("AY Click on Sign in")
     public void click_on_sign_in() {
-    Driver.wait(5);
+        Driver.wait(4);
         page.signIn.click();
     }
 
@@ -43,11 +45,12 @@ public class US012 {
     public void click_on_input_box_and_enter_valid_password(String Password) {
 
         page.password.sendKeys(Password);
+        Driver.wait(2);
     }
 
-    @Then("AY Click on Sign in buton")
-    public void click_on_sign_in_buton() {
-        Driver.wait(3);
+    @Then("AY Click on Sign in button")
+    public void click_on_sign_in_button() {
+        Driver.wait(2);
       page.signInButon.click();
 
     }
@@ -73,14 +76,14 @@ public class US012 {
 
     @Then("AY Click on Request a test")
     public void click_on_request_a_test() {
-        Driver.wait(3);
+        Driver.wait(2);
         page.requestATest.click();
 
     }
         @Then("AY Verify that Test Items is visible")
         public void verify_that_test_items_is_visible () {
         Driver.wait(3);
-        String actualText = page.testItemsText.getText();
+        String actualText = page.testItemsTextVisible.getText();
         String expectedText="Test Items";
         Assert.assertEquals(expectedText, actualText);
 
@@ -89,7 +92,8 @@ public class US012 {
 
         @Then("AY Click on account menu")
         public void click_on_account_menu () {
-        page.accountMenu.click();
+        Driver.wait(2);
+        Driver.waitAndClick(page.accountMenu);
 
         }
 
@@ -97,6 +101,7 @@ public class US012 {
         public void click_sign_out () {
         Driver.wait(3);
         page.signOut.click();
+
 
         }
 
@@ -117,12 +122,11 @@ public class US012 {
         page.hemoglobinTest.click();
         Driver.wait(3);
         actions.sendKeys(Keys.PAGE_DOWN).perform();
-        Driver.wait(2);
-        page.albuminTest.click();
-        Driver.wait(3);
-        page.scrollToWebelementVisible(page.glucoseTest);
-        Driver.waitAndClick(page.glucoseTest);
-
+       // Driver.wait(2);
+       // page.albuminTest.click();
+        //Driver.wait(3);
+      //  page.scrollToWebelementVisible(page.glucoseTest);
+       // Driver.waitAndClick(page.glucoseTest);
 
     }
 
@@ -142,7 +146,7 @@ public class US012 {
     @And("AY Verify that {string} is visible")
     public void verifyThatIsVisible(String string) {
 
-       Assert.assertTrue(page.verifyText.isDisplayed());
+       Assert.assertTrue(page.verifyTextAlert.isDisplayed());
 
     }
 
@@ -155,6 +159,7 @@ public class US012 {
     @And("AY Click on {string} input box and enter valid password")
     public void clickOnInputBoxAndEnterValidPassword(String StaffPassword) {
         page.password.sendKeys(StaffPassword);
+        Driver.wait(1);
     }
 
     @And("AY Click on Search patient")
@@ -190,51 +195,57 @@ public class US012 {
     @And("AY Click on Edit tests Staff updates and click on Save")
     public void clickOnEditTestsStaffUpdatesAndClickOnSave() {
         page.edit1.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.edit2.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.edit3.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.edit4.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.edit5.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.edit6.click();
-        Driver.wait(1);
+        Driver.wait(2);
         page.save.click();
-        Driver.wait(1);
-        page.edit7.click();
-        Driver.wait(1);
-        page.save.click();
-        Driver.wait(3);
+        Driver.wait(2);
+       // JavascriptExecutor jsexecutor = ((JavascriptExecutor) Driver.getDriver());
+       // jsexecutor.executeScript("arguments[0].click();", page.edit7);
+       // page.edit7.click();
+
+       // JavascriptExecutor jsexecutor1 = ((JavascriptExecutor) Driver.getDriver());
+       // jsexecutor1.executeScript("arguments[0].click();", page.save);
+     //  page.save.click();
+     //  Driver.wait(3);
 
 
     }
 
     @And("AY Click on Show Test Results")
     public void clickOnShowTestResults() {
+        Driver.wait(1);
         page.showTestResults.click();
     }
 
 
     @And("AY Click on View Results of the patient")
     public void clickOnViewResultsOfThePatient() {
+        Driver.wait(1);
         page.viewResults.click();
     }
 
     @And("AY Verify that Test Results is visible")
     public void verifyThatTestResultsIsVisible() {
-
+        Driver.wait(1);
         Assert.assertTrue(page.verifyTestResults.isDisplayed());
 
     }
@@ -244,4 +255,6 @@ public class US012 {
     page.requestInpatient.click();
 
     }
+
+
 }

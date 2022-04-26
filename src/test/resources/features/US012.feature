@@ -9,7 +9,7 @@ Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
   Then AY Click on Sign in
   And AY Click on "<Username>" input box and enter valid Username
   And AY Click on "<Password>"  input box and enter valid Password
-  Then AY Click on Sign in buton
+  Then AY Click on Sign in button
   And AY Click on My page
   And AY Click on My appointements
   And AY Select the patient and click on Edit
@@ -32,14 +32,14 @@ Feature:US012  My Appointments/Edit/Request a test only by Physician(Doctor)
     Then AY Click on Sign in
     And AY Click on "<Username>" input box and enter valid Username
     And AY Click on "<Password>"  input box and enter valid Password
-    And AY Click on Sign in buton
+    And AY Click on Sign in button
     And AY Click on My page
     And AY Click on My appointements
     And AY Select the patient and click on Edit
     And  AY Click on Request a test
     And  AY Click on the buttons to the right of the selected tests
     And  AY Click on Save
-    And  AY Verify that "A new is created with identifier 42783" is visible
+    And  AY Verify that "A new is created" is visible
     And  AY Click on account menu
     And  AY Click Sign out
 

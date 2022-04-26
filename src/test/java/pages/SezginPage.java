@@ -192,6 +192,9 @@ public class SezginPage extends BasePage {
     @FindBy (xpath = "//span[text()=\"Test Results\"]")
     public WebElement testResultsTextEl;
 
+    @FindBy (xpath = "//div[contains(text(),'The Appointment is updated with identifier 49681')]")
+    public WebElement appointmentUpdatedToastContainer;
+
 
 
 }

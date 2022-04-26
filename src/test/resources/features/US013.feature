@@ -10,7 +10,7 @@
   Then AY Click on Sign in
   And AY Click on "<StaffUsername>" input box and enter valid username
   And AY Click on "<StaffPassword>" input box and enter valid password
-  Then AY Click on Sign in buton
+  And AY Click on Sign in button
   And AY Click on My page
   And AY Click on Search patient
   And AY Click on Patient "<SSN>" input box and enter patient's  SSN
@@ -18,13 +18,21 @@
   And  AY Click on Show tests
   And  AY Click on View results
   And AY Click on Edit tests Staff updates and click on Save
-  And AY Click on account menu
+  And  AY Click on account menu
   Then  AY Click Sign out
+    Examples:
+      |StaffUsername|StaffPassword|SSN|
+      |StaffAina    |staffaina33! |125-14-6548|
+
+
+    Scenario Outline:
+
+  Given AY Navigate to url
   And  AY Click on human figure
-  And  AY Click on Sign in
+  Then AY Click on Sign in
   And AY Click on "<Username>" input box and enter valid username
   And AY Click on "<Password>" input box and enter valid password
-  Then AY Click on Sign in buton
+  And AY Click on Sign in button
   And  AY Click on My page
   And  AY Click on My appointements
   And  AY Select the patient and click on Edit
@@ -35,8 +43,8 @@
   Then  AY Click Sign out
 
    Examples:
-   |StaffUsername|StaffPassword|SSN| Username|Password|
-   |StaffAina    |staffaina33! |125-14-6548|DrAina  |draina33!|
+  | Username|Password|
+  |DrAina  |draina33!|
 
   Scenario Outline: TC01302 Doctor and also request Impatient (patient can stay in hospital)
 
@@ -45,7 +53,7 @@
    Then AY Click on Sign in
    And AY Click on "<Username>" input box and enter valid Username
    And AY Click on "<Password>"  input box and enter valid Password
-   And AY Click on Sign in buton
+   And AY Click on Sign in button
    And AY Click on My page
    And AY Click on My appointements
    And AY Select the patient and click on Edit

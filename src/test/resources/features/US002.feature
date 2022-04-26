@@ -101,3 +101,15 @@ Scenario Outline: TC00205 Verify email using Api by activated account
 
       |username| password|
       |kurt890|kurt890|
+
+  @Db @RanaDb
+  Scenario Outline: TC00207 Validate registrant email with DB
+
+    Given RT user creates a connection with db
+    And RT user sends the query to db and gets the user data with login "<login>"
+    Then RT validates db registrant data  "<email>"
+
+    Examples: test data
+
+    |email| login|
+    |kurt89@hotmail.com| kurt890|

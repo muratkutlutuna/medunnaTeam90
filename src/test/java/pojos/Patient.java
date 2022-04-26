@@ -24,8 +24,9 @@ public class Patient {
     private String email;
     private String description;
     private Country country;
-    private InPatients inPatients;
+    private InPatients [] inPatients;
     private State cstate;
+
 
 
     //        "patient": {
