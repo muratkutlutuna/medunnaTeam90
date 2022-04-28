@@ -124,7 +124,7 @@ public class Driver {
         }
     }
 
-    public static String waitAndGetText(WebElement element, int timeout) {
+    public static String waitAndGetText(WebElement element) {
         String text = "";
         for (int i = 0; i < timeout; i++) {
             try {
