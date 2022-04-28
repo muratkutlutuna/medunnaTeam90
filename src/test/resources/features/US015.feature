@@ -16,7 +16,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
 
     Examples:
     |mbAdminUsername|mbAdminPassword|firstname|lastname|birthdate|email               |phone       |    address             |description    |
-    |Team90Admin    |Batch44+       |Mehlikaptaa  |Patientaa |01/01/2001|mehlikapttaa@hotmail.com|100-200-3000|1232 Sandia ave. Fremont|Mehlikapt Patient|
+    |Team90Admin    |Batch44+       |Mehlika  |Patient |01/01/2001|mehlikapt@hotmail.com|100-200-3000|1232 Sandia ave. Fremont|Mehlikapt Patient|
 
   @TC01502
   Scenario Outline: TC01502 - Admin can see patient's all information such as; SSN, First Name, Last Name, Birth Date,Phone, Gender, Blood Group, Address, Description, Created Date, User, Country and state / City
@@ -50,7 +50,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
     And mb Click Sign In button
     Given Click Items&Titles and click Patients
     And Click Created Date and click first patient's ID number which is new created patient
-    Then Verify it has correct id number and same First Name with new created patient.
+    Then Verify it has correct ID which is same with new created patient's id number
     And Click Edit button, Enter a new data to Description and save
     Then Verify admin can not assign patient to a doctor. Negative test BUG there is not a Doctor Assign web element
     And Click Items&Titles and click Patients
@@ -88,7 +88,7 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
       And mb Click Created Date and click first patient's ID number which is new created patient
       And mb Click Delete button and click Delete button on the alert
       Then mb Verify if you get a successful deleted message
-      And mb Report this bug
+
     Examples: Test Data
       |mbAdminUsername|mbAdminPassword|
       |Team90Admin    |Batch44+       |

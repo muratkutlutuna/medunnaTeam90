@@ -52,8 +52,8 @@ Feature: US005 : New customers (patients) should make an appoinment
     Then MB Verify that user is using digits for Phone textbox
     And MB Click the Appointment DateTime dropbox and select a valid date
     Then MB Verify selected date is one of following days
-    And MB Click Send An Appointment Request button
-    Then MB Verify appointment success message which is "Appointment Registration saved. We will you call you as soon as possible."
+    And MB Click Send An Appointment Request button and verify appointment success message which contains Registration saved
+
     Examples:
       |mfirstname|mlastname|mssn       |memail             |mphone      |
       |Melinda   |Patient  |100-20-3105|melindapt@gmail.com|100-200-3000|
@@ -111,8 +111,7 @@ Feature: US005 : New customers (patients) should make an appoinment
     And MB Click the Phone textbox and enter a valid Phone number "<mwphone>"
     Then MB Verify that user is also using non-digit for Phone textbox Negative
     And MB Click the Appointment DateTime dropbox and select a valid date
-    And MB Click Send An Appointment Request button
-    Then MB Verify appointment success message which is "Appointment Registration saved. We will you call you as soon as possible."
+    And MB Click Send An Appointment Request button and verify appointment success message which contains Registration saved
 
     Examples: Appointment test data
       |mwfirstname | mwlastname | mwssn       | mwemail          |  mwphone    |

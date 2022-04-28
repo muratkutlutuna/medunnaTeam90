@@ -4,17 +4,11 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pages.MehlikaPage;
 import utilities.ConfigurationReader;
 import utilities.Driver;
-
-import javax.lang.model.SourceVersion;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -61,58 +55,51 @@ public class US015 {
 
     @Then("mb Click Create a new Patient button")
     public void mb_click_create_a_new_patient_button() {
-        locator.patientCreateANewPatient.click();
+        locator.CreateANewPatient.click();
         Driver.wait(1);
     }
 
     @And("mb Fill in or select these informations {string},{string},{string},{string},{string},{string},{string}")
     public void mb_fill_in_or_select_these_informations(String firstname, String lastname, String birthdate, String email, String phone, String address, String description) {
 
-        locator.newPatientFirstNameInput.sendKeys(firstname);
-        locator.newPatientLastNameInput.sendKeys(lastname);
-        locator.newPatientBirthDateInput.sendKeys(birthdate);
+        locator.newFirstNameInput.sendKeys(firstname);
+        locator.newLastNameInput.sendKeys(lastname);
+        locator.newBirthDateInput.sendKeys(birthdate);
         Driver.wait(1);
         locator.newUserEmailInput.sendKeys(email);
-        locator.newPatientPhoneInput.sendKeys(phone);
+        locator.newPhoneInput.sendKeys(phone);
         Driver.wait(1);
-        Select selectGender = new Select(locator.newPatientGenderSelect);
+        Select selectGender = new Select(locator.newGenderSelect);
         selectGender.selectByVisibleText("FEMALE");
-        Select selectBlood = new Select(locator.newPatientBloodSelect);
+        Select selectBlood = new Select(locator.newBloodSelect);
         selectBlood.selectByVisibleText("B+");
         Driver.wait(1);
-        locator.newPatientAddressInput.sendKeys(address);
-        locator.newPatientDescriptionTextarea.sendKeys(description);
+        locator.newAddressInput.sendKeys(address);
+        locator.newDescriptionTextarea.sendKeys(description);
         Driver.wait(1);
-        Select selectCountry = new Select(locator.newPatientCountrySelect);
+        Select selectCountry = new Select(locator.newCountrySelect);
         selectCountry.selectByVisibleText("USA");
-        Select selectState = new Select(locator.newPatientStateSelect);
+        Select selectState = new Select(locator.newStateSelect);
         Driver.wait(1);
         selectState.selectByVisibleText("California");
         Driver.wait(1);
-        locator.newPatientSaveButton.click();
+        locator.newSaveButton.click();
         Driver.wait(1);
     }
 
     @Then("mb Verify the new patient was created by admin successfully Toast Container")
     public void mb_verify_the_new_patient_was_created_by_admin_successfully_toast_container() {
         Driver.wait(1);
-        System.out.println("toast " + locator.createdToastContainer.getText());
-        List<String> createdToastList= Arrays.asList(locator.createdToastContainer.getText().split("\\s"));
+        String createdMessage=Driver.waitAndGetText(locator.createdToastContainer);
+        Assert.assertTrue(createdMessage.contains("created"));
+        System.out.println("createdMessage = " + createdMessage);
+        List<String> createdToastList= Arrays.asList(createdMessage.split("\\s"));
         idKeeper= createdToastList.get(7);
         System.out.println("idkeeper = " + idKeeper);
-        System.out.println("list sonu id"+ createdToastList.get(7));
-        Assert.assertTrue(locator.createdToastContainer.getText().contains("created"));
+        System.out.println("list sonu id  = "+ createdToastList.get(7));
+        Assert.assertFalse(idKeeper.isBlank());
+        Assert.assertTrue(idKeeper.replaceAll("\\d","").isBlank());
         Driver.wait(1);
-
-        //--------------
-//        System.out.println("toast " + locator.deletedToastContainer.getText());
-//        List<String> deletedToastList= Arrays.asList(locator.deletedToastContainer.getText().split("\\s"));
-//        System.out.println("deletedToastList = " + deletedToastList);
-//
-//        System.out.println("list sonu id"+ deletedToastList.get(7));
-//        System.out.println("idkeeper  "+idKeeper);
-//        Assert.assertTrue(locator.deletedToastContainer.getText().contains("deleted"));
-//        Driver.wait(1);
 
     }
 
@@ -129,97 +116,102 @@ public class US015 {
     @Given("mb Select id of any patient and click")
     public void mb_select_id_of_any_patient_and_click() {
         Driver.wait(1);
-        click_created_date_and_click_first_patient_s_id_number();
+        action.moveToElement(locator.patientCreatedDateColumnTitle);
+        Driver.wait(2);
+        Driver.clickWithJS(locator.patientCreatedDateColumnTitle);
         Driver.wait(1);
+
+        System.out.println("birinci satir id : "+ locator.firstPatientID.getText()+" and "+  idKeeper);
+            locator.firstPatientID.click();
+            Driver.wait(1);
     }
 
     @Then("mb Verify admin can see patient SSN")
     public void mb_verify_admin_can_see_patient_ssn() {
-        System.out.println("locator.ssnCanSee.getText() = " + locator.ssnCanSee.getText());
         Assert.assertTrue(locator.ssnCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient First Name and Last Name")
     public void mb_verify_admin_can_see_patient_first_name_and_last_name() {
-        System.out.println("locator.firstnameCanSee.getText() = " + locator.firstnameCanSee.getText());
         Assert.assertTrue(locator.firstnameCanSee.isDisplayed());
-        System.out.println("locator.lastnameCanSee.getText() = " + locator.lastnameCanSee.getText());
         Assert.assertTrue(locator.lastnameCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Birth Date and Phone")
     public void mb_verify_admin_can_see_patient_birth_date_and_phone() {
-        System.out.println("locator.birthdateCanSee.getText() = " + locator.birthdateCanSee.getText());
         Assert.assertTrue(locator.birthdateCanSee.isDisplayed());
-        System.out.println("locator.phoneCanSee.getText() = " + locator.phoneCanSee.getText());
         Assert.assertTrue(locator.phoneCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Gender and Blood Group")
     public void mb_verify_admin_can_see_patient_gender_and_blood_group() {
-        System.out.println("locator.genderCanSee.getText() = " + locator.genderCanSee.getText());
         Assert.assertTrue(locator.genderCanSee.isDisplayed());
-        System.out.println("locator.bloodCanSee.getText() = " + locator.bloodCanSee.getText());
         Assert.assertTrue(locator.bloodCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Address and Description")
     public void mb_verify_admin_can_see_patient_address_and_description() {
-        System.out.println("locator.addressCanSee.getText() = " + locator.addressCanSee.getText());
         Assert.assertTrue(locator.addressCanSee.isDisplayed());
-        System.out.println("locator.descriptionCanSee.getText() = " + locator.descriptionCanSee.getText());
         Assert.assertTrue(locator.descriptionCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Created Date and User")
     public void mb_verify_admin_can_see_patient_created_date_and_user() {
-        System.out.println("locator.createdateCanSee.getText() = " + locator.createdateCanSee.getText());
         Assert.assertTrue(locator.createdateCanSee.isDisplayed());
-        System.out.println("locator.userCanSee.getText() = " + locator.userCanSee.getText());
         Assert.assertTrue(locator.userCanSee.isDisplayed());
     }
 
     @Then("mb Verify admin can see patient Country and State City")
     public void mb_verify_admin_can_see_patient_country_and_state_city() {
-        System.out.println("locator.countryCanSee.getText() = " + locator.countryCanSee.getText());
         Assert.assertTrue(locator.countryCanSee.isDisplayed());
-        System.out.println("locator.stateCanSee.getText() = " + locator.stateCanSee.getText());
+        Driver.wait(1);
         Assert.assertTrue(locator.stateCanSee.isDisplayed());
+
+        System.out.println("locator.ssnCanSee.getText() = " + locator.ssnCanSee.getText());
+        System.out.println("locator.firstnameCanSee.getText() = " + locator.firstnameCanSee.getText());
+        System.out.println("locator.lastnameCanSee.getText() = " + locator.lastnameCanSee.getText());
+        System.out.println("locator.birthdateCanSee.getText() = " + locator.birthdateCanSee.getText());
+        System.out.println("locator.phoneCanSee.getText() = " + locator.phoneCanSee.getText());
+        System.out.println("locator.genderCanSee.getText() = " + locator.genderCanSee.getText());
+        System.out.println("locator.bloodCanSee.getText() = " + locator.bloodCanSee.getText());
+        System.out.println("locator.addressCanSee.getText() = " + locator.addressCanSee.getText());
+        System.out.println("locator.descriptionCanSee.getText() = " + locator.descriptionCanSee.getText());
+        System.out.println("locator.createdateCanSee.getText() = " + locator.createdateCanSee.getText());
+        System.out.println("locator.userCanSee.getText() = " + locator.userCanSee.getText());
+        System.out.println("locator.countryCanSee.getText() = " + locator.countryCanSee.getText());
+        System.out.println("locator.stateCanSee.getText() = " + locator.stateCanSee.getText());
     }
 ////// TC01503
-
     @Given("Click Created Date and click first patient's ID number which is new created patient")
     public void click_created_date_and_click_first_patient_s_id_number_which_is_new_created_patient() {
-        Driver.waitAndClick(locator.createdDateColumnTitle,1);
         Driver.wait(1);
-        System.out.println(locator.firstPatient.getText());
+        Driver.waitAndClick(locator.patientCreatedDateColumnTitle,1);
         Driver.wait(1);
-
+        System.out.println(locator.firstPatientID.getText());
+        Driver.wait(1);
     }
 
-    @Then("Verify it has correct id number and same First Name with new created patient.")
-    public void verify_it_has_correct_id_number_and_same_first_name_with_new_created_patient() {
+    @Then("Verify it has correct ID which is same with new created patient's id number")
+    public void verify_it_has_correct_id_which_is_same_with_new_created_patient_id_number() {
 
-        //System.out.println(locator.idCansee.getText());
-        //locator.firstPatient.isDisplayed();
-        //System.out.println(locator.firstnameCanSee.getText());
-        //locator.idCansee.isDisplayed();
-        //locator.firstNameVerify.isDisplayed();  //???
-        //locator.firstPatient.click();
-//        if (idKeeper==locator.idCansee.getAttribute("value")){
-//            Assert.assertEquals(idKeeper,locator.idCansee.getAttribute("value"));
-//        } else System.out.println("HATALI id");
+        Assert.assertTrue(locator.firstPatientID.isDisplayed());
+        Assert.assertEquals(idKeeper,locator.firstPatientID.getText());
+        System.out.println("TC01903 idKeeper = " +idKeeper+" first patient id = "+ locator.firstPatientID.getText());
+
+        Assert.assertTrue(locator.firstNameVerify.isDisplayed());
     }
 
     @Then("Click Edit button, Enter a new data to Description and save")
     public void click_edit_button_enter_a_new_data_to_description_and_save() {
         Driver.wait(1);
 
-        action.moveToElement(locator.forEditButton).perform();
+        action.moveToElement(locator.patientEditButton).perform();
         Driver.wait(1);
-        Driver.clickWithJS(locator.patientEditButton);
+        Driver.waitAndClick(locator.patientEditButton,2);
         Driver.wait(1);
-        locator.newPatientDescriptionTextarea.sendKeys("Yenilendi");
+        locator.newDescriptionTextarea.clear();
+        Driver.wait(1);
+        locator.newDescriptionTextarea.sendKeys("Yenilendi");
         Driver.wait(2);
         Driver.waitAndClick(locator.editPatientSubmitButton,2);
     }
@@ -239,29 +231,32 @@ public class US015 {
 
     @Then("Click Created Date and click first patient's ID number")
     public void click_created_date_and_click_first_patient_s_id_number() {
-        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.wait(2);
+        Driver.clickWithJS(locator.patientCreatedDateColumnTitle);
         Driver.wait(1);
-        locator.firstPatient.click();
+        locator.firstPatientID.click();
     }
 
     @Then("Verify ID is correct")
     public void verify_id_is_correct() {
-        Assert.assertTrue(locator.idCansee.isEnabled());    //???
+        Assert.assertTrue(locator.idCansee.isEnabled());
+        System.out.println("idkeeper from TC01903 = "+idKeeper);//???
+        Assert.assertEquals(idKeeper,locator.idCansee.getText());
     }
 
     //TC01504
     @Given("mb Click Created Date and select first id which is new created patient")
     public void mb_click_created_date_and_select_first_id_which_is_new_created_patient() {
-        action.moveToElement(locator.createdDateColumnTitle);
+        action.moveToElement(locator.patientCreatedDateColumnTitle);
         Driver.wait(1);
-        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.clickWithJS(locator.patientCreatedDateColumnTitle);
         Driver.wait(1);
-        locator.firstPatient.click();
+        locator.firstPatientID.click();
     }
 
     @Then("mb Verify Country is selected USA")
     public void mb_verify_country_is_selected_usa() {
-        action.moveToElement(locator.patientBackEditButton);
+        action.moveToElement(locator.countryCanSee);
         Driver.wait(1);
         Assert.assertTrue(locator.verifyCountryUSA.getText().contains("USA"));
         Driver.wait(1);
@@ -276,7 +271,7 @@ public class US015 {
     //////TC01505
     @Given("mb Click Created Date and click first patient's ID number which is new created patient")
     public void mb_click_created_date_and_click_first_patients_id_number_which_is_new_created_patient() {
-        Driver.clickWithJS(locator.createdDateColumnTitle);
+        Driver.clickWithJS(locator.patientCreatedDateColumnTitle);
         Driver.wait(1);
     }
 
@@ -299,11 +294,6 @@ public class US015 {
         //System.out.println("idkeeper  "+idKeeper);
         Assert.assertTrue(locator.deletedToastContainer.getText().contains("deleted"));
         Driver.wait(1);
-
     }
 
-    @Then("mb Report this bug")
-    public void mb_report_this_bug() {
-        // I don/t know how I can report
-    }
 }
