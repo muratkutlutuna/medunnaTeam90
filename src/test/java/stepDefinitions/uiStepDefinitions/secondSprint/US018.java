@@ -94,6 +94,7 @@ public class US018 {
         Driver.wait(5);
         Driver.waitAndClick(physicianPage.deleteButton);
 
+
     }
 
 
@@ -167,6 +168,7 @@ public class US018 {
         // save the screenshot to the path given
         FileUtils.copyFile(source, finalDestination);
         return target;
+
     }
 
 }

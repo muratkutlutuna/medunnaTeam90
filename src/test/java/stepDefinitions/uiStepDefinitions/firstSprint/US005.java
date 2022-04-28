@@ -15,7 +15,6 @@ public class US005{
     MehlikaPage mehlikaPage = new MehlikaPage();
     Actions actions=new Actions(Driver.getDriver());
 
-    @Before
     @Given("MB Launch web browser and navigate to the home page")
     public void mb_launch_web_browser_and_navigate_to_the_home_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaUrl"));
@@ -30,7 +29,6 @@ public class US005{
     @Given("MB Click the Make an Appointment button")
     public void mb_click_the_make_an_appointment_button() {
         Driver.waitAndClick(mehlikaPage.makeAnAppointmentButton);
-        //actions.moveToElement(mehlikaPage.appointmentRequestForm).perform();
         Driver.wait(1);
     }
 
@@ -44,7 +42,6 @@ public class US005{
     public void mb_click_first_name_textbox_and_enter_first_name(String mfirstname) {
         mehlikaPage.lastNameInputBox.click();
         mehlikaPage.firstNameInputBox.sendKeys(mfirstname);
-        //Driver.wait(1);
     }
 
     @Then("MB Verify First Name textbox is not blank")
@@ -59,7 +56,6 @@ public class US005{
 
     @Then("MB Click the Last Name textbox and enter Last Name {string}")
     public void mb_click_the_last_name_textbox_and_enter_last_name(String mlastname) {
-        //Driver.wait(1);
         mehlikaPage.lastNameInputBox.click();
         mehlikaPage.lastNameInputBox.sendKeys(mlastname);
     }
@@ -74,13 +70,11 @@ public class US005{
         Assert.assertEquals(0,(mehlikaPage.lastNameInputBox.getAttribute("value").replaceAll("\\w","")).length());
     }
 
-
     @Then("MB Click the SSN textbox and enter SSN number {string}")
     public void mb_click_the_ssn_textbox_and_enter_ssn_number(String mssn) {
-        //Driver.wait(1);
         mehlikaPage.ssnInputBox.click();
         mehlikaPage.ssnInputBox.sendKeys(mssn);
-}
+    }
 
     @Then("MB Verify SSN textbox is not blank")
     public void mb_verify_ssn_textbox_is_not_blank() {
@@ -90,7 +84,6 @@ public class US005{
     @Then("MB Verify user is using digits for SSN textbox")
     public void mb_verify_user_is_using_digits_for_ssn_textbox() {
         Assert.assertEquals(0,mehlikaPage.ssnInputBox.getAttribute("value").replaceAll("[\\d,-]","").length());
-        //Assert.assertFalse(mehlikaPage.ssnInvalidWarning.isDisplayed());
     }
 
     @Then("MB Verify this SSN is same as a registered SSN")
@@ -100,7 +93,6 @@ public class US005{
 
     @Then("MB Click Email textbox and enter a valid Email address {string}")
     public void mb_click_email_textbox_and_enter_a_valid_email_address(String memail) {
-        //actions.moveToElement(mehlikaPage.appointmentRequestForm).perform();
         mehlikaPage.emailInputBox.click();
         mehlikaPage.emailInputBox.sendKeys(memail);
     }
@@ -117,7 +109,6 @@ public class US005{
 
     @Then("MB Click the Phone textbox and enter a valid Phone number {string}")
     public void mb_click_the_phone_textbox_and_enter_a_valid_phone_number(String mphone) {
-       // Driver.wait(1);
         mehlikaPage.phoneInputBox.click();
         mehlikaPage.phoneInputBox.sendKeys(mphone);
     }
@@ -138,7 +129,6 @@ public class US005{
     @Then("MB Verify that this Phone textbox is not blank")
     public void mb_verify_that_this_phone_textbox_is_not_blank() {
         Assert.assertFalse(mehlikaPage.phoneInputBox.getAttribute("value").isEmpty());
-        //Driver.wait(1);
     }
 
     @Then("MB Click the Appointment DateTime dropbox and select a valid date")
@@ -175,7 +165,8 @@ public class US005{
     @Then("MB Verify appointment success message which is {string}")
     public void mb_verify_appointment_success_message_which_is(String message)  {
         Driver.wait(1);
-        Assert.assertTrue(mehlikaPage.appointmentSavedToast.isDisplayed());
+        System.out.println("message = " + mehlikaPage.successToastContainer.getText() );
+        Assert.assertTrue(mehlikaPage.successToastContainer.isDisplayed());
     }
 
     @Then("MB Click Account Menu dropbox sign and click Sign In")
@@ -212,7 +203,6 @@ public class US005{
         Driver.closeDriver();
     }
 
-
      //------------- N e g a t i v e       T e s t s -------------
     @Then("MB Verify user is using non-character for the First Name textbox - Negative")
     public void mbVerifyUserIsUsingNonCharacterForTheFirstNameTextboxNegative() {
@@ -244,6 +234,5 @@ public class US005{
     public void mbVerifyUserDoesnTUseAndSignNegative() {
         Driver.wait(1);
         Assert.assertFalse(mehlikaPage.emailInputBox.getAttribute("value").contains("@")&&mehlikaPage.emailInputBox.getAttribute("value").contains("."));
-        Driver.closeDriver();
     }// ------------------------------------------------
 }

@@ -1,3 +1,4 @@
+
 @US018
 Feature: US_018 Create new Physicians /Update existing Physicians /View and Delete Physicians by admin/Do the validation with API
 
@@ -27,8 +28,8 @@ Feature: US_018 Create new Physicians /Update existing Physicians /View and Dele
       | 321-54-0003 | admincemile | AdminCemile123! |
 
 
-  @TC_01802
 
+  @TC_01802
   Scenario Outline: Admin can view all Physicians' info populated on view portal
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
@@ -43,6 +44,7 @@ Feature: US_018 Create new Physicians /Update existing Physicians /View and Dele
     And click on Item&Titles DropDownMenu and select Physician
     And Verify that Physicians' info  is visible
     And click on View Button
+
 
     Examples:
       | username    | password        |
@@ -111,3 +113,6 @@ Feature: US_018 Create new Physicians /Update existing Physicians /View and Dele
     Examples:
       | username    | password        |
       | admincemile | AdminCemile123! |
+
+
+  

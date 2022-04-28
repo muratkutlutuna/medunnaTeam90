@@ -115,5 +115,86 @@ public class SezginPage extends BasePage {
         return satirElementi;
     }
 
+    ////////////////////////////////////////////
+    //US20 LOCATIONS
+    @FindBy (xpath = "//span[text()=\"Administration\"]")
+    public WebElement administrationElement;
+
+    @FindBy (xpath = "//span[text()=\"User management\"]")
+    public WebElement userManagementElement;
+
+    @FindBy (xpath = "(//a[@class=\"btn btn-info btn-sm\"])[1]")
+    public WebElement userViewButton;
+
+    //USER EDIT PAGE
+    @FindBy (xpath = "(//a[@class=\"btn btn-primary btn-sm\"])[1]")
+    public WebElement userEditButton;
+
+    @FindBy (xpath = "//input[@name=\"activated\"]")
+    public WebElement activatedCheckBox;
+
+    @FindBy (xpath = "//select[@id=\"authorities\"]")
+    public WebElement profilesDropdownEl;
+
+    @FindBy (xpath = "//button[@type=\"submit\"]")
+    public WebElement saveUserChangesButton;
+
+    @FindBy (xpath = "(//span[text()=\"Delete\"])[1]")
+    public WebElement deleteUserButton;
+
+    @FindBy (xpath = "(//span[text()=\"Delete\"])[21]")
+    public WebElement deleteUserConfirmationButton;
+
+    @FindBy (xpath = "//div[@role=\"alert\"]")
+    public WebElement internalServerErrorAlert;
+
+
+
+
+    //US21 LOCATIONS
+    @FindBy (xpath = "//span[text()=\"MY PAGES\"]")
+    public WebElement myPagesIconStaff;
+
+    @FindBy (xpath = "//span[text()=\"Search Patient\"]")
+    public WebElement searchPatientEl;
+
+    @FindBy (xpath = "//input[@name=\"ssn\"]")
+    public WebElement findPatientBySsnBox;
+
+    @FindBy (xpath = "//span[text()=\"Show Appointments\"]")
+    public WebElement showAppointmentsButton;
+
+    @FindBy (xpath = "//a[@class=\"btn btn-warning btn-sm\"]")
+    public WebElement editAppointmentButton;
+
+    @FindBy (xpath = "//span[text()=\"Create or Edit an Appointment\"]")
+    public WebElement createOrEditAppointmentTextForPatient;
+
+    @FindBy (xpath = "//span[text()=\"Save\"]")
+    public WebElement saveChangesForEdittingPatient;
+
+    @FindBy(xpath = "//select[@name=\"physician.id\"]")
+    public WebElement physicianNamesDropdownEl;
+
+    @FindBy (xpath = "//option[@value=\"10520\"]")
+    public WebElement deneme;
+
+    @FindBy (xpath = "//div[@class=\"Toastify__toast Toastify__toast--success toastify-toast\"]")
+    public WebElement appointmentUpdatedText;
+
+    //TEST RESULTS
+    @FindBy (xpath = "//span[text()=\"Show Tests\"]")
+    public WebElement showTestsButton;
+
+    @FindBy (xpath = "(//span[text()=\"View Results\"])[1]")
+    public WebElement viewTestResultsButton;
+
+    @FindBy (xpath = "//span[text()=\"Test Results\"]")
+    public WebElement testResultsTextEl;
+
+    @FindBy (xpath = "//div[contains(text(),'The Appointment is updated with identifier 49681')]")
+    public WebElement appointmentUpdatedToastContainer;
+
+
 
 }

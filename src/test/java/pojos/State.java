@@ -14,6 +14,7 @@ public class State {
 private int id;
 private String name;
 private Country country;
+// private State [] cstate;
 
     //  "cstate": {
     //                "id": 1251,

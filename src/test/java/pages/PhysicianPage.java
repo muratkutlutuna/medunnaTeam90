@@ -50,6 +50,7 @@ public class PhysicianPage {
     @FindBy(xpath = "//button[@class='btn btn-secondary']")
     public WebElement searchUserButton;
 
+
     @FindBy(id = "useSSNSearch")
     public WebElement useSSNSearchceckbox;
 
@@ -77,4 +78,5 @@ public class PhysicianPage {
 
     @FindBy(id = "app-view-container")
     public WebElement physicianUpdatedMessage;
+
 }
