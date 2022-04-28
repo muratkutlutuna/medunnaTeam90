@@ -90,7 +90,6 @@ public class MehlikaPage extends BasePage {
         public WebElement newUserSaveButton;
 
 
-
     //US15 newPatient and US19 newStaff
     @FindBy(xpath = "//span[text()='Items&Titles']")
     public WebElement itemsTitlesMenuButton;
@@ -132,8 +131,8 @@ public class MehlikaPage extends BasePage {
     public WebElement deletedToastContainer;
     @FindBy(xpath = "//div[contains(text(),'found')]")
     public WebElement foundToastContainer;
-    @FindBy(xpath = "//div[contains(text(),'success')]")
-    public WebElement successToastContainer;
+    @FindBy(xpath = "//div[contains(text(),'updated')]")
+    public WebElement updatedToastContainer;
 
 
     @FindBy(xpath = "//thead/tr/th[8]/span[text()='Created date']\")")
@@ -213,7 +212,8 @@ public class MehlikaPage extends BasePage {
     public WebElement accountMenuAfterSignout;
 
     //savedToast kullanilir
-    @FindBy(xpath ="//table/tbody/tr[4]/td[5]/button/span")             //"//td[text()='mehlikastf']/../td[5]/button/span")
+    @FindBy(xpath ="//td[text()='stfmehlika']/../td/button")      //"//table/tbody/tr[4]/td[5]/button/span")             //"//td[text()='mehlikastf']/../td[5]/button/span")
+                    // td[text()='111-22-1930']/../td[5]/button
     public WebElement deactivatedActivatedButton;
 
         @FindBy(xpath = "//span[text()='Staff']")
@@ -231,38 +231,43 @@ public class MehlikaPage extends BasePage {
                 //populated Staff Informations  = staff check
         @FindBy(xpath ="//tbody/tr/td[1]/a")                 //"//body/div/div/div/div[4]/div/div/div/div/div//dl/dd[1]") //
         public WebElement firststaffIDCheck;
-        @FindBy(xpath ="//thead/tr/th[11]/span[text()='Created Date']")        //"//table/thead/tr/th[11]/span[text()=\'Created Date\']")
+        @FindBy(xpath ="//span[text()='ID']/../../th[11]/span[text()='Created Date']")      //"//thead/tr/th[11]/span[text()='Created Date']")        //"//table/thead/tr/th[11]/span[text()=\'Created Date\']")
         public WebElement staffCeratedDate;
-        @FindBy(xpath ="//div/h2/b[text()]")    //"//body/div/div/div/div[4]/div/div/div/div/div/h2/b")
+        @FindBy(xpath = "//h2/span[text()='Staff']/../b")          //"//div/h2/b[text()]")    //"//body/div/div/div/div[4]/div/div/div/div/div/h2/b")
         public WebElement staffPageIDCheck;
         @FindBy(xpath = "//tbody/tr[1]/td[15]/div/a[2]")
         public WebElement staffEditButton;
+            @FindBy(id = "save-entity")
+            public WebElement staffEditSaveButton;
+         @FindBy(xpath = "//tbody/tr[1]/td[15]/div/a[3]")
+         public WebElement staffDeleteButton;
+         @FindBy(xpath = "(//button[@id='jhi-confirm-delete-staff'])/span[text()='Delete']")
+         public WebElement staffDeleteAlertDelete;
+
+         // delete from Administration
+        @FindBy(xpath = "//thead/tr[1]/th[8]/span")
+        public WebElement administrationCreatedDateColumn;
+        @FindBy(xpath = "//td[@class='text-right']/div/a[3]")
+        public WebElement administrationUserDeleteButton;
+
+
+//            @FindBy(xpath = "(//div[@class='form-group'])[3]/div/input")
+//            public WebElement staffLoginEdit;
+//            @FindBy(xpath = "(//div[@class='form-group'])[3]/div/input")
+//            public WebElement staffFirstnameEdit;
+//            @FindBy(xpath = "(//div[@class='form-group'])[3]/div/input")
+//            public WebElement staffLastnameEdit;
+//            @FindBy(xpath = "(//div[@class='form-group'])[3]/div/input")
+//            public WebElement staffEmailEdit;
+//            @FindBy(xpath = "//input[@id='activated']")
+//            public WebElement staffEditActivatedCehckbox;
+
 
         // ids
-
     @FindBy(xpath = "//tbody/tr/td[1]")
     public List<WebElement> staffIDs;
 
-
-
-
-
-//    // Add Country and State
-//    @FindBy(xpath = "//span[text()='Country']")
-//    public WebElement itemsTitlesCountry;
-//    @FindBy(xpath = "//span[text()='Create a new Country']")
-//    public WebElement createANewCountryButton;
-//            @FindBy(id = "country-name")
-//            public WebElement createCountryNameInput;
-//    @FindBy(xpath = "//span[text()='Create a new State/City']")
-//    public WebElement createANewStateButton;
-//            @FindBy(id = "c-state-name")
-//            public WebElement createStateNameInput;
-//            @FindBy(name = "state.id")
-//            public WebElement createStateStateCityInput;
-//            @FindBy(xpath = "//span[text()='Save']")
-//            public WebElement createStateSaveButton;
-    @FindBy(xpath = "//dd[text()='USA']")    //     //tbody/tr[1]/td[14]/a")
+    @FindBy(xpath = "//dd[text()='USA']")
     public WebElement verifyCountryUSA;
 
 

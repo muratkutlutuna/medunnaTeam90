@@ -70,14 +70,15 @@ public class US019 {
         Driver.wait(1);
         locator.userManagementButton.click();
         Driver.wait(1);
-        Driver.waitAndClick(locator.patientCreatedDateColumnTitle,2);
+        Driver.waitAndClick(locator.staffCeratedDate,2);
         Driver.wait(1);
+        action.moveToElement(locator.deactivatedActivatedButton);
+        Driver.wait(2);
         Driver.waitAndClick(locator.deactivatedActivatedButton,2);
             Driver.wait(1);
     }
 
     // TC01902
-
     @Given("mb Click Cerate A New Staff  button and search your SSN number {string}")
     public void mb_click_cerate_a_n_ew_staff_button_and_search_your_ssn_number(String staffssn) {
         Driver.wait(1);
@@ -91,11 +92,11 @@ public class US019 {
         locator.staffSsnInput.sendKeys(staffssn);
         Driver.wait(1);
         locator.ssnSearchUserButton.click();
+        Driver.wait(1);
     }
 
     @Given("mb Select Birth Date and Enter Phone number {string}, {string}")
     public void mb_select_birth_date_and_enter_phone_number(String birthdate, String staffphone) {
-
         locator.newBirthDateInput.sendKeys(birthdate);
         Driver.wait(1);
         locator.newPhoneInput.sendKeys(staffphone);
@@ -125,20 +126,11 @@ public class US019 {
         Driver.wait(1);
         Select selectCountry = new Select(locator.newCountrySelect);
         selectCountry.selectByVisibleText("USA");
-        Select selectState = new Select(locator.newStateSelect);
         Driver.wait(1);
+        Select selectState = new Select(locator.newStateSelect);
         selectState.selectByVisibleText("California");
         Driver.wait(1);
         locator.newSaveButton.click();
-
-//        //action.moveToElement(locator.newStateSelect).perform();
-//        //Driver.selectAnItemFromDropdown(locator.newUserSelect,"mehlikauser");
-
-//        //Select selectUser=new Select(locator.newUserSelect);
-//        //selectUser.selectByValue("89840");
-//        //selectUser.selectByVisibleText("mehlikauser");
-//        //selectUser.selectByValue("melindaUser");
-
     }
 
     @Given("mb Click Save button.")
@@ -162,44 +154,8 @@ public class US019 {
         Driver.wait(1);
         locator.itemsTitlesStaff.click();
         Driver.wait(1);
-        locator.staffCeratedDate.click();
+        Driver.waitAndClick(locator.staffCeratedDate,2);
         Driver.wait(1);
-//        Set<String> idSet=new HashSet<>();
-//        //List<WebElement> idlist=new ArrayList<>();
-//        for(int i=0;i<21;i++) {
-//            idSet.add(String.valueOf(locator.staffIDs.get(i)));
-//        }
-//        System.out.println("idlist = " + idSet);
-
-//        List<WebElement> ids = Driver.getDriver().findElements(By.xpath("//tbody/tr/td[1]/a"));
-//        ArrayList <Integer> idArray = new ArrayList<>();
-//        for (WebElement id:ids
-//        ) {
-//            //String fiyatStr = fiyat.getText().replaceAll("$", "");
-//            String idss= id.getText().replaceAll("^\\D", "");
-//            idArray.add(Integer.parseInt(idss));
-//        }
-//        for (Integer idList:idArray){
-//            idArray.add(idList);
-//        }
-//        System.out.println("ids = " + ids.get(0));
-//        System.out.println("idArray = " + idArray);
-
-//        Set<String> idlerim = new HashSet<>();
-
-//        for (int i=0;i>21;i++){
-//            String x= String.valueOf(locator.staffIDs.get(i));
-//                    //Driver.getDriver().findElements(By.xpath("//tbody/tr/td[1]/a"))..get(i);
-//            idlerim.add(x);
-//        }
-//        System.out.println("idlerim = " + idlerim);
-
-//        By mySelector = By.xpath("//tbody/tr/td[1]/a\")");
-//        List<WebElement> myids = Driver.getDriver().findElements(mySelector);
-//        for(WebElement e : myids) {
-//            System.out.println(e.getText());
-//        }
-
     }
 
     @Then("mb Click first row and last new user and verify data")
@@ -213,7 +169,6 @@ public class US019 {
         System.out.println("Staff id "+locator.staffPageIDCheck.getText());
         Assert.assertEquals(staffNewID,locator.staffPageIDCheck.getText());
         //Assert.assertEquals(staffNewID,locator.firststaffIDCheck.getText());
-
     }
 
     // TC01903 User (Admin) can select a user from the existing users (registered people)
@@ -225,7 +180,8 @@ public class US019 {
 
     @Given("mb Click User Management button text from dropdown box")
     public void mb_click_user_management_button_text_from_dropdown_box() {
-        Driver.waitAndClick(locator.userManagementButton,3);
+        Driver.wait(1);
+        Driver.waitAndClick(locator.userManagementButton,2);
         Driver.wait(1);
     }
 
@@ -241,78 +197,124 @@ public class US019 {
 
     @Then("mb Verify selected users all information is visible.")
     public void mb_verify_selected_users_all_information_is_visible() {
-        Assert.assertEquals(staffNewID,locator.staffPageIDCheck.getText());
+//        System.out.println("locator.staffPageIDCheck.getText() = " + locator.staffPageIDCheck.getText());
+//        Assert.assertEquals(staffNewID,locator.staffPageIDCheck.getText());
         Assert.assertTrue(locator.idCansee.isDisplayed());
+        //Assert.assertTrue(login );
         Assert.assertTrue(locator.firstnameCanSee.isDisplayed());
+        Assert.assertTrue(locator.lastnameCanSee.isDisplayed());
+        //Assert.assertTrue(locator.cansee);
     }
 
     // TC01904 - User can edit their info
-    @Given("mb Click Administration button and User Management button from dropdown box")
-    public void mb_click_administration_button_and_user_management_button_from_dropdown_box() {
+    @Given("mb Click Items Titles button and Staff button from dropdown box")
+    public void mb_click_items_titles_button_and_staff_button_from_dropdown_box() {
         Driver.wait(1);
-        Driver.waitAndClick(locator.administrationButton,2);
-        Driver.waitAndClick(locator.userManagementButton,2);
+        Driver.waitAndClick(locator.itemsTitlesMenuButton,2);
+        Driver.waitAndClick(locator.itemsTitlesStaff,2);
         Driver.wait(1);
-
-
     }
 
-    @Given("mb Select any user and click to Edit button")
-    public void mb_select_any_user_and_click_to_edit_button() {
+    @Given("mb Find my new staff and click to Edit button")
+    public void mb_find_my_new_staff_and_click_to_edit_button() {
         Driver.wait(2);
         Driver.waitAndClick(locator.staffCeratedDate,2);
         Driver.wait(1);
-        locator.firststaffIDCheck.click();
+        //locator.firststaffIDCheck.click();
         action.moveToElement(locator.staffEditButton);
         Driver.wait(1);
         Driver.waitAndClick(locator.staffEditButton,2);
+        Driver.wait(1);
     }
 
-    @Given("mb Change Login, First name, Last name, Email, SSN and Language {string},{string},{string},{string},{string}")
-    public void mb_change_login_first_name_last_name_email_ssn_and_language(String login, String firstname, String lastname, String email, String ssn) {
-
+    @Given("mb Change First name, Last name, Phone and Description {string},{string},{string},{string}")
+    public void mb_change_first_name_last_name_phone_and_description (String firstname, String lastname, String phone, String description) {
+        Driver.wait(1);
+        locator.firstNameInputBox.clear();
+        Driver.wait(1);
+        locator.firstNameInputBox.sendKeys(firstname);
+        Driver.wait(1);
+        locator.lastNameInputBox.clear();
+        Driver.wait(1);
+        locator.lastNameInputBox.sendKeys(lastname);
+        Driver.wait(1);
+        locator.phoneInputBox.clear();
+        Driver.wait(1);
+        locator.phoneInputBox.sendKeys(phone);
+        Driver.wait(1);
+        locator.descriptionInput.clear();
+        Driver.wait(1);
+        locator.descriptionInput.sendKeys(description);
+        Driver.wait(1);
     }
 
-    @Then("mb Verify activated is selected.")
-    public void mb_verify_activated_is_selected() {
-
-    }
+//    @Then("mb Verify activated is selected.")
+//    public void mb_verify_activated_is_selected() {
+//
+//        if(locator.staffEditActivatedCehckbox.getAttribute("value")!="true"){
+//            locator.staffEditActivatedCehckbox.click();
+//        }
+//        Assert.assertEquals("true",locator.staffEditActivatedCehckbox.getAttribute("value"));
+//
+//    }
 
     @Then("mbs Click Save button")
     public void mbs_click_save_button() {
-
+        Driver.wait(1);
+        Driver.clickWithJS(locator.staffEditSaveButton);
+        Driver.wait(1);
     }
 
     @Then("mb Verify that succesfully message is A user is updated identifier-changed item")
     public void mb_verify_that_succesfully_message_is_a_user_is_updated_identifier_changed_item() {
-
+        System.out.println("Updated Toast = "+locator.updatedToastContainer.getText());
+        Driver.wait(1);
+        Assert.assertTrue(locator.updatedToastContainer.getText().contains("updated"));
+        Driver.wait(1);
     }
 
     // TC01905 - User can delete their info
-    @Given("mb Navigate to the home page")
-    public void mb_navigate_to_the_home_page() {
+
+    @Given("mb Find my new Staff and click Delete button from Staff Page")
+    public void mb_find_my_new_staff_and_click_delete_button_from_staff_page() {
+        Driver.wait(1);
+        locator.staffCeratedDate.click();
+        Driver.wait(1);
+        action.moveToElement(locator.staffDeleteButton);
+        Driver.wait(1);
+        locator.staffDeleteButton.click();
+        Driver.wait(1);
+        locator.deleteButtonFromAlert.click();
+        Driver.wait(1);
+        String deletedToast=locator.deletedToastContainer.getText();
+        System.out.println("locator.deletedToastContainer.getText() = "+deletedToast);
+        Assert.assertTrue(deletedToast.contains("deleted"));
+
+        List<String> deletedToastList= Arrays.asList(locator.deletedToastContainer.getText().split("\\s"));
+        System.out.println("deletedToastList = " + deletedToastList);
+        System.out.println("idkeep " + staffNewID+"  deleted staff id  " +deletedToastList.get(6));
+        Assert.assertEquals(staffNewID,deletedToastList.get(6));
+        Driver.wait(1);
 
     }
-
     @Given("mb Click Administration and User Management button text from dropdown box")
     public void mb_click_administration_and_user_management_button_text_from_dropdown_box() {
-
+        Driver.waitAndClick(locator.administrationButton,2);
+        Driver.waitAndClick(locator.userManagementButton,2);
     }
-
-    @Given("mb Select any user and click Delete button.")
-    public void mb_select_any_user_and_click__delete_button() {
-
+    @Given("mb Find my new Staff and click Delete button from Users Page")
+    public void mb_find_my_new_staff_and_click_delete_button_from_users_page() {
+        Driver.wait(1);
+        action.moveToElement(locator.administrationCreatedDateColumn);
+        Driver.waitAndClick(locator.administrationCreatedDateColumn,1);
+        Driver.waitAndClick(locator.administrationUserDeleteButton,2);
+        Driver.wait(1);
     }
-
-    @Given("mb Click Delete from pop up")
-    public void mb_click_delete_from_pop_up() {
-
-    }
-
     @Then("mb Verify user see deleted successfully message A user is deleted identifier - deleted item")
     public void mb_verify_user_see_deleted_successfully_message_a_user_is_deleted_identifier_deleted_item() {
-
+        System.out.println("Administration user deleted = "+locator.deletedToastContainer.getText());
+        Assert.assertTrue(locator.deletedToastContainer.getText().contains("deleted"));
+        Driver.wait(1);
     }
-
 
 }
