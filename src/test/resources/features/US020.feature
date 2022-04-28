@@ -52,7 +52,7 @@ Feature: US20_User management Activate a new user and provide necessary roles ON
 
 
 
-      Scenario: TC007_Admin can delete users
+      Scenario: TC007_Admin cannot delete users
 
         Then S user clicks delete button for a registered person
         And S user confirms the delete operation
