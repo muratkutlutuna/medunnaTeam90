@@ -1,8 +1,8 @@
-Feature: admin assign user to physician role
 
- #Background:
+@US018
+Feature: US_018 Create new Physicians /Update existing Physicians /View and Delete Physicians by admin/Do the validation with API
 
-  @TC01
+  @TC_01801
   Scenario Outline: Admin can choose/search an existing registered person by SSN id
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
@@ -27,8 +27,9 @@ Feature: admin assign user to physician role
       | Ssn         | username    | password        |
       | 321-54-0003 | admincemile | AdminCemile123! |
 
-  @TC02
 
+
+  @TC_01802
   Scenario Outline: Admin can view all Physicians' info populated on view portal
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
@@ -42,14 +43,15 @@ Feature: admin assign user to physician role
     Then C Click on Sign in button
     And click on Item&Titles DropDownMenu and select Physician
     And Verify that Physicians' info  is visible
+    And click on View Button
 
 
     Examples:
       | username    | password        |
       | admincemile | AdminCemile123! |
 
-  @TC03
-  Scenario Outline: Admin can edit existing Physicians' info using new data
+  @TC_01803
+  Scenario Outline: Admin can edit existing Physicians' info using new data/Speciality/Picture/ExamFee
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
     When C Click on Account DropDownMenu button
@@ -62,19 +64,17 @@ Feature: admin assign user to physician role
     Then C Click on Sign in button
     And click on Item&Titles DropDownMenu and select Physician
     And click Edit Button
-    # And Admin should provide the Exam fee of the doctor
-
-   # And Verify that Create or edit a Physician Page is displayed
-
-   # And update speciality as Nuclear Medicine
-   # And Admin can provide a profile picture of the doctor
+    And should provide speciality as Nuclear Medicine
+    And Admin can provide a profile picture of the doctor
+    And Admin should provide the "<examFee>" of the doctor
+    And click on Save Button
+    And Verify that A phyisician is updated message is displayed
 
     Examples:
-      | username    | password        |
-      | admincemile | AdminCemile123! |
+      | username    | password        | examFee |
+      | admincemile | AdminCemile123! | 450     |
 
-
-  @TC04
+  @TC_01804
   Scenario Outline: Admin can delete existing Physicians
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully
@@ -89,7 +89,7 @@ Feature: admin assign user to physician role
     And click on Item&Titles DropDownMenu and select Physician
     And Verify that Physicians' info  is visible
     And click on Delete Button
-     # And  Verify Confirm delete operation message is displayed
+    And  Verify Confirm delete operation message is displayed
 
     Examples:
       | username    | password        |
@@ -114,104 +114,5 @@ Feature: admin assign user to physician role
       | username    | password        |
       | admincemile | AdminCemile123! |
 
-  Scenario Outline: create physician by user registrant
 
-    Given user is on the common  page
-    And user navigates to registration page
-    And user provides physician ssn id "<ssn>"
-    And  user provides physician firstname and lastname "<firstName>" and "<lastName>"
-    And user creates physician username "<username>"
-    And user provides physician email "<email>"
-    And user generates the password "<password>"
-    And user cliskc register button
-    And Verify that Registration saved message is visible
-    #Then user creates the records to a correspondent file
-
-    Examples: test user data
-      | ssn         | firstName | lastName | username    | email              | password    |
-      | 321-54-0014 | Aaab      | Aaali    | aaabaaali11 | aaabaaal@gmail.com | aaabaaali1! |
-
-  Scenario Outline: admin edit
-
-    Given C navigate to Medduna Home Page
-    When  C Verify that home page is visible successfully
-    When C Click on Account DropDownMenu button
-    When C Click on Sign in
-    And C Verify Sign in Header is visible
-    Then C Click on Username input box.
-    Then C Enter Valid "<username>" Username
-    Then C Click on Password input box.
-    Then C Enter Valid "<password>" Password
-    Then C Click on Sign in button
-    And click on Administration Button
-
-     # And Click on user Management Button
-     # And click on MyPhyisician and  click Edit button
-  #And Get SSN row
-      #And edit phyisician
-
-    Examples:
-      | username    | password        |
-      | admincemile | AdminCemile123! |
-
-
-  Scenario Outline: Verify that Physicians Page Header is visible
-
-    Given C navigate to Medduna Home Page
-    When  C Verify that home page is visible successfully
-    When C Click on Account DropDownMenu button
-    When C Click on Sign in
-    And C Verify Sign in Header is visible
-    Then C Click on Username input box.
-    Then C Enter Valid "<username>" Username
-    Then C Click on Password input box.
-    Then C Enter Valid "<password>" Password
-    Then C Click on Sign in button
-    And click on Item&Titles DropDownMenu and select Physician
-    And Verify that Physicians Page Header is visible
-
-    And Get SSN row
-  #And Find existing SSN
-
-
-
-     # And Click on user Management Button
-     # And click on MyPhyisician and  click Edit button
-      #And edit phyisician
-
-    Examples:
-      | username    | password        |
-      | admincemile | AdminCemile123! |
-
-  @AdmCreatePhysician
-  Scenario Outline: admin activate user and assign physician roll
-    When User navigates to the home page
-    And user clicks sign in button at the home page and navigates to sign in page
-    Then user verifies that sign in page header is visible
-    And user enters admin "<username>" and password "<password>"
-    And user clicks sign in button
-    Then user verifies that sign in is successful
-    And user clicks administration dropdown button on admin page
-    And user clicks user management button on admin page
-    And user clicks go to last int page button on admin page
-    And user clicks Deactivated button to activate physician on admin page
-    Then user clicks edit button on admin page
-    And user clicks rollPhysician on profiles iframe
-    And user clicks save physician button
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
