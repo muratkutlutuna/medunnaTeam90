@@ -34,7 +34,7 @@
 
       Examples:
         |mbadminusername|mbadminpassword|mbstssn   |mbstbirthdate|mbstphone   |mbstaddress             |mbstdescription|
-        |Team90Admin    |Batch44+       |111-22-1920|01/01/2001   |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
+        |Team90Admin    |Batch44+       |111-22-1930|01/01/2001   |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
 
     Scenario Outline: TC01903 - User (Admin) can select a user from the existing users (registered people)
       Given mb Launch web browser and navigate to the home page
@@ -59,24 +59,30 @@
       And mb Click User Name textbox and enter admin user name "<mbadminusername>"
       And mb Click Password textbox and enter admin password "<mbadminpassword>"
       And mb Click Sign In button
-      Given mb Click Administration button and User Management button from dropdown box
-      And mb Select any user and click to Edit button
-      And mb Change Login, First name, Last name, Email, SSN and Language "<mbstlogin>","<mbstfirstname>","<mbstlastname>","<mbstemail>","<mbstssn>"
-      Then mb Verify activated is selected.
+      Given mb Click Items Titles button and Staff button from dropdown box
+      And mb Find my new staff and click to Edit button
+      And mb Change First name, Last name, Phone and Description "<mbstfirstname>","<mbstlastname>","<mbstphone>","<mbstdescription>"
       And mbs Click Save button
       Then mb Verify that succesfully message is A user is updated identifier-changed item
 
       Examples:
-        |mbadminusername|mbadminpassword|mbstlogin    |mbstfirstname|mbstlastname|mbstemail       |mbstssn    |
-        |Team90Admin    |Batch44+       |Yeniisimmerve|Merveye      |Degisti    |merveye@gmail.com|100-20-1902|
+        |mbadminusername|mbadminpassword|mbstfirstname       |mbstlastname          |mbstphone    |mbstdescription      |
+        |Team90Admin    |Batch44+       |Firstname editlendi | Lastname editlendi  |123-451-6787  |Description yenilendi|
 
-    Scenario: TC01905 - User can delete their info
-
-      Given mb Navigate to the home page
+    Scenario Outline: TC01905 - User can delete their info
+      Given mb Launch web browser and navigate to the home page
+      And mb Click Account Menu dropbox sign and click Sign In Text
+      And mb Click User Name textbox and enter admin user name "<mbadminusername>"
+      And mb Click Password textbox and enter admin password "<mbadminpassword>"
+      And mb Click Sign In button
+      And mb Click Items Titles button and Staff button from dropdown box
+      And mb Find my new Staff and click Delete button from Staff Page
       And mb Click Administration and User Management button text from dropdown box
-      And mb Select any user and click Delete button.
-      And mb Click Delete from pop up
+      And mb Find my new Staff and click Delete button from Users Page
       Then mb Verify user see deleted successfully message A user is deleted identifier - deleted item
+      Examples:
+        |mbadminusername|mbadminpassword|
+        |Team90Admin    |Batch44+       |
 
     Scenario: TC01906 - Validate them all with API
 
