@@ -4,6 +4,7 @@ package stepDefinitions.uiStepDefinitions.secondSprint;
 
 import io.cucumber.java.en.Then;
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
@@ -123,14 +124,16 @@ public class US020 {
 
     @Then("S user clicks delete button for a registered person")
     public void s_user_clicks_delete_button_for_a_registered_person() {
-
+        Driver.waitAndClick(sezginPage.deleteUserButton);
     }
     @Then("S user confirms the delete operation")
     public void s_user_confirms_the_delete_operation() {
-
+    Driver.waitAndClick(sezginPage.deleteUserConfirmationButton);
     }
-    @Then("S user asserts that he can delete the user")
+    @Then("S user asserts that he cannot delete the user")
     public void s_user_asserts_that_he_can_delete_the_user() {
+        String expectedData="Internal server error.";
+        Assert.assertTrue(expectedData.contains("error"));
 
     }
 

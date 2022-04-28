@@ -139,13 +139,13 @@ public class SezginPage extends BasePage {
     @FindBy (xpath = "//button[@type=\"submit\"]")
     public WebElement saveUserChangesButton;
 
-    @FindBy (xpath = "(//span[text()=\"Delete\"])[1]")
+    @FindBy (xpath = "(//span[text()=\"Delete\"])[2]")
     public WebElement deleteUserButton;
 
     @FindBy (xpath = "(//span[text()=\"Delete\"])[21]")
     public WebElement deleteUserConfirmationButton;
 
-    @FindBy (xpath = "//div[@role=\"alert\"]")
+    @FindBy (xpath = "//div[contains(text()=\"Internal server error\"])")
     public WebElement internalServerErrorAlert;
 
 
