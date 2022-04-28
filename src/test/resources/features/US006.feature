@@ -81,7 +81,7 @@ Feature: US006 User info segment (User Settings) should be editable on Homepage
       |Team90userstory06user|Team90userstory06|timnanny@gmail.com|
       |Team90userstory06user|Team90userstory06|team90userstory06user@gmail.com|
 
-    @NegativeTests
+    @NegativeTests @Bug
   Scenario Outline: TC00604 There should be user language textbox to update
     Given MKT user enter the mainpage
     And MKT user click the left top user sign in button
