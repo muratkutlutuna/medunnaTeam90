@@ -37,7 +37,7 @@ public class US028 {
 
     }
     @Given("FY Admin saves GET API information for created country")
-    public void fy_admin_saves_get_apı_information_for_created_country() {
+    public void fy_admin_saves_get_api_information_for_created_country() {
         actualData=response1.as(Country.class);
         System.out.println("actualData = " + actualData);
         WriteToTxt.saveCountriesData(actualData);
@@ -45,7 +45,7 @@ public class US028 {
 
     }
     @Then("FY Admin verifies GET API records for created country")
-    public void fy_admin_verifies_get_apı_records_for_created_country() {
+    public void fy_admin_verifies_get_api_records_for_created_country() {
         actualData=response1.as(Country.class);
         System.out.println("actualData.getId() = " + actualData.getId());
         System.out.println("actualData.getName() = " + actualData.getName());
@@ -83,7 +83,7 @@ public class US028 {
     }
 
     @Given("FY Admin saves PUT API information for updated country")
-    public void fy_admin_saves_put_apı_information_for_updated_country() {
+    public void fy_admin_saves_put_api_information_for_updated_country() {
         updatedActualData=response2.as(Country.class);
      //   System.out.println("updatedActualData = " + updatedActualData);
         WriteToTxt.saveCountriesData(updatedActualData);
@@ -91,7 +91,7 @@ public class US028 {
     }
 
     @Then("FY Admin verifies PUT API records for updated country")
-    public void fy_admin_verifies_put_apı_records_for_updated_country() {
+    public void fy_admin_verifies_put_api_records_for_updated_country() {
         Assert.assertEquals(200,response2.getStatusCode());
        //assertion first way
         JsonPath json= new JsonPath(response2.asString());
@@ -124,7 +124,7 @@ public class US028 {
     }
 
     @Then("FY Admin verifies DELETE API records for deleted country")
-    public void fy_admin_verifies_delete_apı_records_for_deleted_country() {
+    public void fy_admin_verifies_delete_api_records_for_deleted_country() {
         Assert.assertTrue(response4.asString().contains(""));
 
     }
