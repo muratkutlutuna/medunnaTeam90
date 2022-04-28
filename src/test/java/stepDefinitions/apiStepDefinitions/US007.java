@@ -67,6 +67,7 @@ public class US007 {
 
     @Given("AG user set path params")
     public void ag_user_set_path_params() {
+
         spec.pathParams("1", "api", "2", "appointments","3","request");
     }
     @Given("AG user enter expected data FirstName LastName SSN Email Phone Date")
@@ -96,6 +97,8 @@ public class US007 {
                 .body(appointmentCreate)
                 .when()
                 .post("/{1}/{2}/{3}");
+        response.prettyPrint();
+
     }
     @Then("AG user save API data to file")
     public void ag_user_save_api_data_to_file() {
@@ -110,8 +113,6 @@ public class US007 {
     }
     @Then("AG user verify  API data")
     public void ag_user_verify_api_data() throws JsonProcessingException {
-        response.prettyPrint();
-        response.then().statusCode(201);
         ObjectMapper obj = new ObjectMapper();
         Appointment actualAppointment = obj.readValue(response.asString(),Appointment.class);
         saveAppointmentData(actualAppointment);

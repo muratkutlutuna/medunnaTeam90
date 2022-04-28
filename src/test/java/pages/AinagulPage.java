@@ -25,7 +25,7 @@ public class AinagulPage extends BasePage {
     public WebElement signInButon;
 
 
-    @FindBy(xpath = "//span[text()='MY PAGES']")
+    @FindBy(xpath = "//li[@id='entity-menu']")
     public WebElement myPage;
 
     @FindBy(xpath = "//span[text()='My Appointments']")
@@ -88,10 +88,10 @@ public class AinagulPage extends BasePage {
     @FindBy(xpath = "//span[text()='Show Appointments']")
     public WebElement showAppointments;
 
-    @FindBy(xpath = "//span[text()='Show Tests']")
+    @FindBy(xpath = "(//span[text()='Show Tests'])[2]")
     public WebElement showTests;
 
-    @FindBy(xpath = "(//span[text()='View Results'])[3]")
+    @FindBy(xpath = "(//span[text()='View Results'])[4]")
     public WebElement viewResults;
 
     @FindBy(xpath = "(//span[@class='d-none d-md-inline'])[1]")
@@ -184,6 +184,8 @@ public class AinagulPage extends BasePage {
     public WebElement closeButtonRoom;
 
    // US17
+    //(//td[text()='mustafatekin'])[1]/../td/div/a[2] :example
+
    @FindBy(xpath = "//span[text()='Test Item']")
    public WebElement testItemButon;
 

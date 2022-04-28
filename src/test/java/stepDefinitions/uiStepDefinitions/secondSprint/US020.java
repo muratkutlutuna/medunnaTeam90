@@ -1,5 +1,7 @@
 package stepDefinitions.uiStepDefinitions.secondSprint;
 
+
+
 import io.cucumber.java.en.Then;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
@@ -17,6 +19,7 @@ import java.util.Date;
 
 public class US020 {
     SezginPage sezginPage=new SezginPage();
+    Select select;
     public static String getScreenshot(String name) throws IOException {
         // naming the screenshot with the current date to avoid duplication
         String date = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
@@ -76,7 +79,7 @@ public class US020 {
     public void s_user_gives_the_person_admin_role_from_the_profiles() {
         WebElement dropdownEl= sezginPage.profilesDropdownEl;
         Driver.waitForVisibility(dropdownEl, 5);
-        Select select = new Select(dropdownEl);
+        select = new Select(dropdownEl);
         select.selectByValue("ROLE_ADMIN");
 
     }
@@ -88,22 +91,34 @@ public class US020 {
 
     @Then("S user gives the person user role from the profiles")
     public void s_user_gives_the_person_user_role_from_the_profiles() {
-
+        WebElement dropdownEl= sezginPage.profilesDropdownEl;
+        Driver.waitForVisibility(dropdownEl, 5);
+        select = new Select(dropdownEl);
+        select.selectByValue("ROLE_USER");
     }
 
     @Then("S user gives the person patient role from the profiles")
     public void s_user_gives_the_person_patient_role_from_the_profiles() {
-
+        WebElement dropdownEl= sezginPage.profilesDropdownEl;
+        Driver.waitForVisibility(dropdownEl, 5);
+        select = new Select(dropdownEl);
+        select.selectByValue("ROLE_PATIENT");
     }
 
     @Then("S user gives the person staff role from the profiles")
     public void s_user_gives_the_person_staff_role_from_the_profiles() {
-
+        WebElement dropdownEl= sezginPage.profilesDropdownEl;
+        Driver.waitForVisibility(dropdownEl, 5);
+        select = new Select(dropdownEl);
+        select.selectByValue("ROLE_STAFF");
     }
 
     @Then("S user gives the person physician role from the profiles")
     public void s_user_gives_the_person_physician_role_from_the_profiles() {
-
+        WebElement dropdownEl= sezginPage.profilesDropdownEl;
+        Driver.waitForVisibility(dropdownEl, 5);
+        select = new Select(dropdownEl);
+        select.selectByValue("ROLE_PHYSICIAN");
     }
 
     @Then("S user clicks delete button for a registered person")

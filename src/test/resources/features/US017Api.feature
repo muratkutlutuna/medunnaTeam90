@@ -1,5 +1,5 @@
 
-
+#  calistirmadan once create icin yeni parametre olustur
 @Api @apiAina
  Feature:  US_017 Validate test items with API
 

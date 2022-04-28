@@ -1,5 +1,5 @@
-@US20
-Feature:
+@US020
+Feature: US20_User management Activate a new user and provide necessary roles ONLY for Doctors and Staff by Admin
   Background: User goes to user management page
     Given S go to Medunna website
     Then S user logins as admin
@@ -56,5 +56,5 @@ Feature:
 
         Then S user clicks delete button for a registered person
         And S user confirms the delete operation
-        Then S user asserts that he can delete the user
+        Then S user asserts that he cannot delete the user
 
