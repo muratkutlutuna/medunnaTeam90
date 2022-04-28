@@ -53,7 +53,7 @@ public class US027 {
     }
 
     @Then("FY Admin save all API information for message")
-    public void fy_admin_save_all_apı_information_for_message() {
+    public void fy_admin_save_all_api_information_for_message() {
 
         try {
             response.then().statusCode(201);
@@ -66,7 +66,7 @@ public class US027 {
     }
 
     @Then("FY Admin verify API records for message")
-    public void fy_admin_verify_apı_records_for_message() throws JsonProcessingException {
+    public void fy_admin_verify_api_records_for_message() throws JsonProcessingException {
         response.then().statusCode(201);
         response.prettyPrint();
         ObjectMapper obj = new ObjectMapper();

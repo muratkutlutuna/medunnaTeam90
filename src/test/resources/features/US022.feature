@@ -15,3 +15,4 @@ Feature: US022 Patient Test results by Staff  (Laboratory technician)
       | validStaffUsername | validStaffPassword | validPatientSsnNumber | validPatientFirstname |
       |Team90userstory06staff|Team90userstory06|631-94-5204|Kary|
 
+Scenario:
