@@ -113,7 +113,7 @@ public class Driver {
         return driverPool.get();
     }
 
-    public static void close() {
+    public static void closeDriver() {
         driverPool.get().quit();
         driverPool.remove();
     }
