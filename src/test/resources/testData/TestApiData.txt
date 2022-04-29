@@ -15,3 +15,5 @@ Test(createdBy=null, createdDate=null, id=null, name=Na111fjkhj, description=, p
 Test(createdBy=null, createdDate=null, id=null, name=Kyress4, description=mg/ml, price=35.0, defaultValMin=200, defaultValMax=700), 
 Test(createdBy=null, createdDate=null, id=null, name=Na111fjkhj, description=, price=50.0, defaultValMin=66, defaultValMax=100), 
 Test(createdBy=null, createdDate=null, id=null, name=Kyress5, description=mg/ml, price=35.0, defaultValMin=200, defaultValMax=700), 
+Test(createdBy=null, createdDate=null, id=null, name=Na111fjkhj, description=, price=50.0, defaultValMin=66, defaultValMax=100), 
+Test(createdBy=null, createdDate=null, id=null, name=Kyress5, description=mg/ml, price=35.0, defaultValMin=200, defaultValMax=700), 

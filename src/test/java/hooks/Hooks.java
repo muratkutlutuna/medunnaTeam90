@@ -15,7 +15,7 @@ public class Hooks {
 
     public static RequestSpecification spec;
 
-    @Before
+    @Before(value="@Api")
     public void setUp(){
         spec = new RequestSpecBuilder().setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).build();
     }
@@ -30,7 +30,7 @@ public class Hooks {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaRegistration"));
     }
 
-    @After
+    @After(value = "@UIRegistration")
     public void tearDown(Scenario scenario){
 
         if (scenario.isFailed()) {
@@ -39,6 +39,6 @@ public class Hooks {
 
         }
         Driver.getDriver().get("https://www.medunna.com/logout");
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 }
