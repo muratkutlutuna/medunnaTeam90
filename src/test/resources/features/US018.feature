@@ -1,4 +1,3 @@
-
 @US018
 Feature: US_018 Create new Physicians /Update existing Physicians /View and Delete Physicians by admin/Do the validation with API
 
@@ -26,7 +25,6 @@ Feature: US_018 Create new Physicians /Update existing Physicians /View and Dele
     Examples:
       | Ssn         | username    | password        |
       | 321-54-0003 | admincemile | AdminCemile123! |
-
 
 
   @TC_01802
@@ -115,4 +113,20 @@ Feature: US_018 Create new Physicians /Update existing Physicians /View and Dele
       | admincemile | AdminCemile123! |
 
 
-  
+  @TC_01806_Api
+  Scenario: Validate a physician using API
+    Given C User set the path params for phyisician
+    And C user enters expected data for phyisician
+    Then C user verify API records for phyisician
+
+
+  @TC_01807_Db
+  Scenario Outline: Validate a physician using DB
+
+    Given MKT user creates a connection with db
+    And MKT user sends the query to db and gets the user data with ssn number "<ssn>"
+    Then MKT validates db registrant data  "<ssn>"
+
+    Examples: test data
+    |ssn|
+    |397-51-2256|

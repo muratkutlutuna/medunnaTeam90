@@ -361,5 +361,15 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
         }
     }
      */
-
+ public static void saveTestItemData(Physician physician) {
+        try {
+            //src/resources/testdata/Registrantdata.txt
+            FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("physicianData"), true);
+            BufferedWriter writer = new BufferedWriter(fileWriter);
+            writer.append(physician + "\n");
+            writer.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+}
 }
