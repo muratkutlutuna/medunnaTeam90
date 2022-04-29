@@ -110,6 +110,8 @@ public class Driver {
             }
         }
         //return corresponded to thread id webdriver object
+        driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driverPool.get().manage().window().maximize();
         return driverPool.get();
     }
 
