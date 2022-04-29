@@ -71,7 +71,7 @@ public class US019 {
     }
 
     @Given("mbApi Sign in as an Admin and set the path params for staff")
-    public void mb_api_sign_in_as_an_admin_and_set_the_path_params_for_register() {
+    public void mb_api_sign_in_as_an_admin_and_set_the_path_params_for_staff() {
         specMed=new RequestSpecBuilder().
                 setBaseUri(ConfigurationReader.getProperty("medunnaUrl")).
                 build();
@@ -89,7 +89,7 @@ public class US019 {
     }
 
     @Given("mbApi End request and receives response for staff")
-    public void mb_api_end_request_and_receives_response_for_register() {
+    public void mb_api_end_request_and_receives_response_for_staff() {
 
         response = given().spec(spec).contentType(ContentType.JSON)
                 .body(expectedStaff)
@@ -99,29 +99,7 @@ public class US019 {
         response.prettyPrint();
     }
 
-    @Given("mbApi Save all API information for register")
-    public void mb_api_save_all_api_information_for_register() {
-        try {
-            response.then().statusCode(201);
-            System.out.println(expectedStaff.toString());
-        } catch (Exception e) {
 
-        }
-    }
-
-    @Then("mbApi Verify API records for register")
-    public void mb_api_verify_api_records_for_register() throws JsonProcessingException {
-        response.prettyPrint();
-
-        ObjectMapper obj = new ObjectMapper();
-        actualStaff= obj.readValue(response.asString(),Staff.class);
-        System.out.println("Actual Data: " + actualStaff);
-        Assert.assertEquals(expectedStaff.getFirstName(),actualStaff.getFirstName());
-        Assert.assertEquals(expectedStaff.getLastName(),actualStaff.getLastName());
-        Assert.assertEquals(expectedStaff.getDescription(),actualStaff.getDescription());
-        Assert.assertEquals(expectedStaff.getAdress(),actualStaff.getAdress());
-        Assert.assertEquals(expectedStaff.getGender(),actualStaff.getGender());
-    }
 
 }
 
