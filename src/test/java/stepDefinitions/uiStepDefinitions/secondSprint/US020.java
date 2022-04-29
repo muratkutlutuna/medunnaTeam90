@@ -38,11 +38,12 @@ public class US020 {
 
     @Then("S user logins as admin")
     public void s_user_logins_as_admin() {
-        sezginPage.userItemTop.click();
-        sezginPage.signinEl.click();
-        sezginPage.usernameBox.sendKeys(ConfigurationReader.getProperty("MedValidUsernameAdmin"));
-        sezginPage.passwordBox.sendKeys(ConfigurationReader.getProperty("MedValidPasswordAdmin"));
-        sezginPage.signinButton.click();
+        Driver.waitAndClick(sezginPage.userItemTop);
+        Driver.waitAndClick(sezginPage.signinEl);
+        Driver.waitAndSendText(sezginPage.usernameBox, ConfigurationReader.getProperty("MedValidUsernameAdmin"));
+        Driver.waitAndSendText(sezginPage.passwordBox, ConfigurationReader.getProperty("MedValidPasswordAdmin"));
+        Driver.waitAndClick(sezginPage.signinButton);
+
     }
     @Then("S user clicks administration button")
     public void s_user_clicks_administration_button() {
@@ -51,6 +52,7 @@ public class US020 {
     }
     @Then("S user clicks user management button")
     public void s_user_clicks_user_management_button() {
+
         Driver.waitAndClick(sezginPage.userManagementElement);
     }
     @Then("S user clicks view button for a registered person")
