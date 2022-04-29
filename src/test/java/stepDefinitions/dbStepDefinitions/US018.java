@@ -63,19 +63,6 @@ public class US018 {
 
     }
 
-    Map<String, Object> registrantMap = new HashMap<String, Object>();
-
-    @Given("MKT user creates a connection with db")
-    public void mkt_user_creates_a_connection_with_db() {
-        DBUtils.createConnection();
-    }
-
-    @Given("MKT user sends the query to db and gets the user data with ssn number {string}")
-    public void mkt_user_sends_the_query_to_db_and_gets_the_user_data_with_ssn_number(String ssn) {
-        String query = "select * from jhi_user where ssn=\'" + ssn + "\'";
-        registrantMap.putAll(DBUtils.getRowMap(query));
-        System.out.println("registrantMap = " + registrantMap);
-    }
 }
 
 
