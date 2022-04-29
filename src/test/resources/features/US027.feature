@@ -1,7 +1,7 @@
 @US027
 Feature: US027 Admin should be able to go to messages portal and view all messages, their authors and emails
 
-  @US027_TC001
+  @US027_TC001 @SmokeTest2
   Scenario: Admin verifies all names, emails and messages are displayed
     Given FY Admin navigates to Medunna home page
     And FY Admin clicks on human icon
@@ -15,7 +15,7 @@ Feature: US027 Admin should be able to go to messages portal and view all messag
     Then FY Admin verifies all names, emails and messages are displayed
 
 
-  @US027_TC002
+  @US027_TC002 @SmokeTest2
   Scenario Outline: Admin should be able to create messages
     Given FY Admin navigates to Medunna home page
     And FY Admin clicks on human icon

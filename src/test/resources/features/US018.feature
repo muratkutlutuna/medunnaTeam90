@@ -1,7 +1,7 @@
 @US018
 Feature: US_018 Create new Physicians /Update existing Physicians /View and Delete Physicians by admin/Do the validation with API
 
-  @TC_01801
+  @TC_01801 @SmokeTest2
   Scenario Outline: Admin can choose/search an existing registered person by SSN id
     Given C navigate to Medduna Home Page
     When  C Verify that home page is visible successfully

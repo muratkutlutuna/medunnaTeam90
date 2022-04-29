@@ -17,7 +17,7 @@ Feature: US_017 Create / Update / delete test items Use api and DB validation
               And AY Verify that Create or edit aTest Items is visible
               And AY Click on account menu
               Then AY Click Sign out
-
+  @SmokeTest2
       Scenario: TC_01702 Admin can create new test items
                 "there should be following items for creating/ updating  test items; Name, Description, price
                 Default min value, Default max value and created date as MM/DAY/YEAR"

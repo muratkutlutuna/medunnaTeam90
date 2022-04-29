@@ -1,7 +1,7 @@
 @US028 @UI028fatih
 Feature: US028 Country creation / update / read and Delete by Admin
 
-  @US028_TC001
+  @US028_TC001 @SmokeTest2
   Scenario: Admin should be able to create a new country
     Given FY Admin navigates to Medunna home page
     And FY Admin clicks on human icon
