@@ -93,11 +93,3 @@ Feature: US015 - Create or Edit Patient by just Admin and Validate with API
       |mbAdminUsername|mbAdminPassword|
       |Team90Admin    |Batch44+       |
 
-      Scenario: TC01506 - Validate patient info with API
-        Given User signs in as an Admin
-        And User sends the get request for Patient data
-        And User deserializes data to Java for Patient
-        And Set the neccessary path params
-        And Enter post data for patient
-        Then Verify API records
-        Then Verify the fail message

@@ -223,4 +223,8 @@ public class DBUtils {
         }
         return columns;
     }
+    public static Map<String, Object> getColumnMap(String query) {
+        return getQueryResultMap(query).get(0);
+    }
+
 }
