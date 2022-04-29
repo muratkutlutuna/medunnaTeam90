@@ -131,7 +131,7 @@
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
-                <version>5.0.0</version>
+                <version>4.2.3</version>
                 <executions>
                     <execution>
                         <id>execution</id>
@@ -140,16 +140,18 @@
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>cucumber-framework</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <!--                            <cucumberOutput>${project.build.directory}</cucumberOutput>-->
-                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <projectName>TheDayAfterTomorrow</projectName>
+                            <!-- output directory for the generated report -->
+                            <outputDirectory>${project.build.directory}/cucumber-maven-report</outputDirectory>
+                            <inputDirectory>${project.build.directory}/cucumber-json</inputDirectory>
                             <jsonFiles>
-                                <param>**/json-reports/*.json</param>
-                            </jsonFiles><classificationFiles>->
-                            <param>sample.properties</param>
-                            <param>other.properties</param>
-                        </classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <skippedFails>true</skippedFails>
+                            <enableFlashCharts>true</enableFlashCharts>
+                            <buildNumber>10.2.1</buildNumber>
+                            <parallelTesting>false</parallelTesting>
                         </configuration>
                     </execution>
                 </executions>
