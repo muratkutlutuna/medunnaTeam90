@@ -184,8 +184,6 @@ appointment.getPhysician().setImage(appointment.getPhysician().getImage().substr
     }
 
       public static void saveAppointmentData(Appointment appointment){
-appointment.getPhysician().setImage(appointment.getPhysician().getImage().substring(0,9));
-
 
         try {
             FileWriter fileWriter = new FileWriter(ConfigurationReader.getProperty("appointmentFile"), true);
