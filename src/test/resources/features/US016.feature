@@ -10,7 +10,7 @@ Feature: US_016 Room creation / View / Update / Delete Validate them also with A
               And AY Click on Sign in button
               And AY Click on Items&Titles
               And AY Select Room from drop down menu and click
-  @aina
+  @aina @SmokeTest2
     Scenario: TC_01601 Must be able to access the room creation page
 
               And AY Click on Create a new Room

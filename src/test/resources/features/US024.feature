@@ -1,7 +1,6 @@
 
 Feature: US024 :Patient display test results and invoice
-  @UIRana2Test
-
+  @UIRana2Test @SmokeTest2
   Scenario: Patient should be able to see test results and invoice.
 
     Given RT Patient goes to home page

@@ -1,6 +1,6 @@
 Feature: Contact Test
 
-  @UIContact
+  @UIContact @SmokeTest2
   Scenario: Contact Testing
 
     Given AG user enter the MainPage

@@ -1,5 +1,5 @@
 Feature: US022 Patient Test results by Staff  (Laboratory technician)
-@TC02201
+@TC02201 @SmokeTest2
   Scenario Outline: TC02201  User (Staff) can search about patient by SSN id
     Given MKT user enter the mainpage
     And MKT user click the left top user sign in button
@@ -15,4 +15,3 @@ Feature: US022 Patient Test results by Staff  (Laboratory technician)
       | validStaffUsername | validStaffPassword | validPatientSsnNumber | validPatientFirstname |
       |Team90userstory06staff|Team90userstory06|631-94-5204|Kary|
 
-Scenario:
