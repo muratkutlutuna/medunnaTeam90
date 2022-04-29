@@ -6,7 +6,7 @@ Feature: US20_User management Activate a new user and provide necessary roles ON
     And S user clicks administration button
     Then S user clicks user management button
 
-
+  @SmokeTest2
   Scenario: TC001_Admin can view registered people info as firstname, lastname, email etc..
 
     Then S user clicks view button for a registered person

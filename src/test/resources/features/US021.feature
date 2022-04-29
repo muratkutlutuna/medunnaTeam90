@@ -36,7 +36,7 @@ Feature: US021_Show appointments for patients by Staff
           Then S user clicks save button
           And S user asserts that changes have been saved
 
-
+  @SmokeTest2
           Scenario: TC005_They can view the patients test results
             Then S user clicks show appointments button
             And S user clicks show tests button

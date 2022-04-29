@@ -35,7 +35,7 @@
       Examples:
         |mbadminusername|mbadminpassword|mbstssn   |mbstbirthdate|mbstphone   |mbstaddress             |mbstdescription|
         |Team90Admin    |Batch44+       |111-22-1930|01/01/2001   |100-200-1902|1232 Sandia ave. Fremont|Mehlika Staff  |
-
+    @SmokeTest2
     Scenario Outline: TC01903 - User (Admin) can select a user from the existing users (registered people)
       Given mb Launch web browser and navigate to the home page
       And mb Click Account Menu dropbox sign and click Sign In Text
