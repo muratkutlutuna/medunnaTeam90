@@ -37,7 +37,6 @@ public class US001 {
         registrant.setPassword(SSN+firstname);
         registrant.setEmail(faker.internet().emailAddress(firstname+lastname));
         response = given().spec(spec)
-                .header("Authentication","Bearer "+generateToken())
                 .contentType(ContentType.JSON)
                 .body(registrant)
                 .when()
