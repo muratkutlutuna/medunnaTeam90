@@ -1,4 +1,4 @@
-
+@kutlu
 Feature: US001 Registration should be available using SSN, Firstname and Lastname There should be api and DB validation
 
   @UIRegistration @NegativeTests @EquevelancePartitioning
