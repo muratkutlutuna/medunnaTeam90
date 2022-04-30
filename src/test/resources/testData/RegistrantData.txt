@@ -22,3 +22,4 @@ Registrant(login=KevinTeam90MarquardtTeam90Team90, firstName=KevinTeam90, lastNa
 Registrant(login=GwendaTeam90HilllTeam90Team90, firstName=GwendaTeam90, lastName=HilllTeam90, email=GwendaTeam90HilllTeam90@example.com, password=yRhWl^ffTeam90, ssn=754-15-0541), 
 Registrant(login=SoilaTeam90McDermottTeam90Team90, firstName=SoilaTeam90, lastName=McDermottTeam90, email=SoilaTeam90McDermottTeam90@example.com, password=Ho&jAFgQTeam90, ssn=824-15-3888), 
 Registrant(login=AleshiaTeam90GrimesTeam90Team90, firstName=AleshiaTeam90, lastName=GrimesTeam90, email=AleshiaTeam90GrimesTeam90@example.com, password=Qx6hY83@Team90, ssn=031-77-3638), 
+Registrant(login=SamiraTeam90GorczanyTeam90Team90, firstName=SamiraTeam90, lastName=GorczanyTeam90, email=SamiraTeam90GorczanyTeam90@example.com, password=1n^Yic^y6Team90, ssn=009-31-9081), 

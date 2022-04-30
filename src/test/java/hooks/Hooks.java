@@ -30,7 +30,8 @@ public class Hooks {
         Driver.getDriver().get(ConfigurationReader.getProperty("medunnaRegistration"));
     }
 
-    @After
+
+    @After(value="~Api")
     public void tearDown(Scenario scenario){
 
         if (scenario.isFailed()) {
