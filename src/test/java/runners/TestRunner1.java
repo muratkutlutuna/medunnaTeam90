@@ -1,4 +1,5 @@
 package runners;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
@@ -7,17 +8,16 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         plugin = {
                 "pretty",
-                "html:target\\cucumber-reports.html",
-                "html:target/default-cucumber-reports.html",
-                "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml",
-                "rerun:target/failedRerun.txt"
+                "html:target/cucumber-reports1.html",
+                "html:target/default-cucumber-reports1.html",
+                "json:target/json-reports/cucumber1.json",
+                "junit:target/xml-report/cucumber1.xml",
+                "rerun:target/failedRerun1.txt"
         },
         features = "src/test/resources/features",
         glue = {"stepDefinitions","hooks"},
-        tags = "@SmokeTest",
+        tags = "@kutluapi",
         dryRun = false
 )
-        public class Runner {
-
+public class TestRunner1 {
 }
