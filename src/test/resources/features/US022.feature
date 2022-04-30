@@ -1,3 +1,4 @@
+@kutlu
 Feature: US022 Patient Test results by Staff  (Laboratory technician)
 @TC02201 @SmokeTest2
   Scenario Outline: TC02201  User (Staff) can search about patient by SSN id

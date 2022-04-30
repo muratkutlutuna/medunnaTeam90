@@ -1,4 +1,4 @@
-@US006
+@US006 @kutlu
 Feature: US006 User info segment (User Settings) should be editable on Homepage
 
   @PositiveTests @SmokeTest
