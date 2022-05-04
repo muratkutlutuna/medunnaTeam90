@@ -2,6 +2,7 @@ package stepDefinitions.uiStepDefinitions.firstSprint;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.junit.Assert;
 import pages.BestamiPage;
 import utilities.ConfigurationReader;
@@ -83,5 +84,35 @@ public class US009 {
         Driver.waitForVisibility(bestamiPage.FirstName,5);
         Assert.assertTrue(bestamiPage.FirstName.isDisplayed());
     }
+
+    @Then("Bt  Click the Edit")
+    public void bt_click_the_edit() {
+
+
+    }
+    @Then("Bt  go til adress og write from faker")
+    public void bt_go_til_adress_og_write_from_faker() {
+
+
+    }
+    @Then("Bt  write Norway to country")
+    public void bt_write_norway_to_country() {
+
+
+    }
+    @Then("Bt  click to edit")
+    public void bt_click_to_edit() {
+
+        System.out.println("deneme1");
+    }
+
+
+    @And("Bt  verify that Create or edit a Patient text appears")
+    public void btVerifyThatCreateOrEditAPatientTextAppears() {
+
+
+    }
+
+
 }
 
