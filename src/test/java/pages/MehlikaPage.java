@@ -11,7 +11,6 @@ public class MehlikaPage extends BasePage {
 
     public MehlikaPage()    { PageFactory.initElements(Driver.getDriver(),this); }
 
-
     // -- > US005
     @FindBy (xpath = "(//img[@alt='Logo'])")               // <-- home page
     public WebElement homePageLogo;

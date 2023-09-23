@@ -14,6 +14,8 @@ public class AinagulPage extends BasePage {
 
     @FindBy(xpath = "//span[text()='Sign in']")
     public WebElement signIn;
+    AinagulPage ai=new AinagulPage();
+
 
     @FindBy(id = "username")
     public WebElement userName;
